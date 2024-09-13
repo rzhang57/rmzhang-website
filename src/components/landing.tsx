@@ -110,23 +110,15 @@ export default function Landing() {
 
             </section>
 
-<<<<<<< Updated upstream
-            {/*<section id="projects" className="flex flex-col space-y-5 w-full py-12 md:py-24 lg:py-32 xl:py-48">
-=======
 
             {/*
             <section id="projects" className="flex flex-col space-y-5 w-full py-12 md:py-24 lg:py-32 xl:py-48">
->>>>>>> Stashed changes
               <h1 className="text-3xl font-extrabold tracking-tighter">
                 Projects
               </h1>
               <p className="text-muted-foreground md:text-xl">
               </p>
-<<<<<<< Updated upstream
-            </section>*/}
-=======
             </section> */}
->>>>>>> Stashed changes
           </main>
 
         </div>

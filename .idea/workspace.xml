@@ -5,8 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4886d87a-c9f4-40e9-83e7-1996d5fc331f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/landing.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/landing.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,7 +43,7 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "nonprod",
+    "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/ryanzhang/Documents/GitHub/rmzhang-website",
@@ -117,7 +115,7 @@
       <workItem from="1726005355651" duration="3261000" />
       <workItem from="1726178683824" duration="8301000" />
       <workItem from="1726200283137" duration="6958000" />
-      <workItem from="1726210387564" duration="754000" />
+      <workItem from="1726210387564" duration="837000" />
     </task>
     <servers />
   </component>
