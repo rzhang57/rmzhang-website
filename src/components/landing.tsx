@@ -1,5 +1,5 @@
 "use client";
-import Link from "next/link"
+
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
 
 
@@ -39,7 +39,7 @@ export default function Landing() {
 
 
           </header>
-          
+
           <main className="flex-col space-y-96 mx-auto max-w-7xl w-full px-6 items-center max-w-5xl">
             <section id="home" className="w-full py-12 md:py-24 lg:py-32 xl:py-48 my-1000px">
               <div className="container">
