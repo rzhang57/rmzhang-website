@@ -1,12 +1,18 @@
 "use client";
 
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
+import Head from "next/head";
 
 
 export default function Landing() {
 
   return (
       <>
+        <Head>
+          <title>ryan m zhang</title>
+          <meta name="description" content="My global description" />
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
         <div className="flex flex-col min-h-[100dvh] justify-center mx-auto items-center">
           <header
               className="px-6 py-6 h-14 flex items-center justify-between w-full sticky top-0 bg-gray-50 rounded-full max-w-xl ">
@@ -89,13 +95,13 @@ export default function Landing() {
 
             </section>
 
-            <section id="projects" className="flex flex-col space-y-5 w-full py-12 md:py-24 lg:py-32 xl:py-48">
+            {/*<section id="projects" className="flex flex-col space-y-5 w-full py-12 md:py-24 lg:py-32 xl:py-48">
               <h1 className="text-3xl font-extrabold tracking-tighter">
                 Projects
               </h1>
               <p className="text-muted-foreground md:text-xl">
               </p>
-            </section>
+            </section>*/}
           </main>
 
         </div>

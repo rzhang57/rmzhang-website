@@ -2,9 +2,11 @@
 
 import Landing from "./landing"
 import {useEffect, useState} from "react";
+import Head from "next/head";
 
 export default function App() {
     const [isLoading, setIsLoading] = useState(false); // State to track if the site is loading
+
 
     useEffect(() => {
         // Wait for all assets, including images, to load
@@ -18,6 +20,11 @@ export default function App() {
 
     return (
         <>
+            <Head>
+                <title>ryan m zhang</title>
+                <meta name="description" content="My global description" />
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
             {isLoading ? (
                 // Show loading spinner when site is loading
                 <div className="flex items-center justify-center min-h-screen bg-gray-50">
