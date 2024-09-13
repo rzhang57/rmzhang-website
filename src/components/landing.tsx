@@ -76,11 +76,11 @@ export default function Landing() {
                   </Avatar>
                   <p className="inline-block text-muted-foreground md:text-xl flex-1">
                     Hey 👋! My name is Ryan, I&apos;m a second year Computer Science student, and I&apos;m currently working as an
-                    Undergraduate Computer Science Teaching Assistant at UBC in the course, CPSC 110. I&apos;ve been Java
+                    Undergraduate Computer Science Teaching Assistant at UBC in the course, CPSC 110. I&apos;ve been a Java
                     developer
                     since high school and I love building things, learning, and having fun along the way! Outside of
                     software,
-                    big into Formula 1 and English Football. I&apos;m happy to connect, and always open to chat!
+                    I&apos;m big into Formula 1 and English Football. I&apos;m happy to connect, and always open to chat!
                   </p>
                 </div>
 
