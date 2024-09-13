@@ -75,12 +75,12 @@ export default function Landing() {
                     <AvatarFallback>My face</AvatarFallback>
                   </Avatar>
                   <p className="inline-block text-muted-foreground md:text-xl flex-1">
-                    Hey 👋! My name is Ryan, I'm a second year Computer Science student, and I'm currently working as an
-                    Undergraduate Computer Science Teaching Assistant at UBC in the course, CPSC 110. I've been Java
+                    Hey 👋! My name is Ryan, I&apos;m a second year Computer Science student, and I&apos;m currently working as an
+                    Undergraduate Computer Science Teaching Assistant at UBC in the course, CPSC 110. I&apos;ve been Java
                     developer
                     since high school and I love building things, learning, and having fun along the way! Outside of
                     software,
-                    big into Formula 1 and English Football. I'm happy to connect, and always open to chat!
+                    big into Formula 1 and English Football. I&apos;m happy to connect, and always open to chat!
                   </p>
                 </div>
 
