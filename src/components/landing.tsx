@@ -44,7 +44,7 @@ export default function Landing() {
   return (
       <>
         {showConfetti && <Confetti width={width} height={height} recycle={recycleConfetti} numberOfPieces={100} />}
-        <div className="flex flex-col min-h-[100dvh] justify-center mx-auto items-center">
+        <div id={"home"} className="flex flex-col min-h-[100dvh] justify-center mx-auto items-center">
           <header
               className="px-6 py-6 h-14 flex items-center justify-between w-full sticky top-0 bg-gray-50 rounded-full max-w-xl z-10 bg-opacity-70 backdrop-blur-md">
 
@@ -77,7 +77,7 @@ export default function Landing() {
           </header>
 
           <main className="flex-col space-y-96 mx-auto  w-full px-6 items-center max-w-5xl">
-            <section id="home" className="w-full py-12 md:py-24 lg:py-32 xl:py-48 my-1000px">
+            <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 my-1000px">
 
               <div className="space-y-2 text-center">
                 <h1
