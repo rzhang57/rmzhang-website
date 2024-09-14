@@ -131,13 +131,14 @@ export default function Landing() {
               <div className="grid lg:grid-cols-[1fr_1fr] sm:grid-cols-1 items-center gap-4">
                 <ProjectCard title={"Ride Rater"} date={"July 2024 - Present"}
                              technologies={["ReactJS", "Java Spring Boot", "PostgreSQL", "Docker"]}
-                             description={"Rate rides"}/>
+                             description={"Rate rides"} githubLink={"https://github.com/rzhang57/riderater"}/>
                 <ProjectCard title={"Kumon Homework Grader"} date={"June 2024 - Present"}
-                             technologies={["Tensorflow", "Keras", "Flask", "Next.js", "PostgreSQL"]}
+                             technologies={["Tensorflow", "Keras", "Flask", "Next.js", "PostgreSQL", "OpenCV"]}
                              description={"Homework grading automation"}/>
-                <ProjectCard title={"Exam preparation"} date={"Jan 2024 - April 2024"}
+                <ProjectCard title={"Exam preparer"} date={"Jan 2024 - April 2024"}
                              technologies={["Java", "Java Swing", "JUnit"]}
-                             description={"Prepare for exams"}/>
+                             description={"Prepare for exams"}
+                githubLink={"https://github.com/rzhang57/exam-preparer"}/>
               </div>
 
             </section>
