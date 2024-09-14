@@ -135,6 +135,9 @@ export default function Landing() {
                 <ProjectCard title={"Kumon Homework Grader"} date={"June 2024 - Present"}
                              technologies={["Tensorflow", "Keras", "Flask", "Next.js", "PostgreSQL"]}
                              description={"Homework grading automation"}/>
+                <ProjectCard title={"Exam preparation"} date={"Jan 2024 - April 2024"}
+                             technologies={["Java", "Java Swing", "JUnit"]}
+                             description={"Prepare for exams"}/>
               </div>
 
             </section>
