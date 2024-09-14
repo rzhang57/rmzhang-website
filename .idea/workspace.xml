@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4886d87a-c9f4-40e9-83e7-1996d5fc331f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/ProjectCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/landing.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/landing.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -56,7 +58,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "ts.external.directory.path": "/Users/ryanzhang/Documents/GitHub/rmzhang-website/node_modules/typescript/lib",
+    "ts.external.directory.path": "C:\\Users\\Ryan\\Documents\\GitHub\\personal-website\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>

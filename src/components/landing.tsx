@@ -1,12 +1,29 @@
 "use client";
 
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
+import {useState} from "react";
+import Confetti from "react-confetti";
+import useWindowSize from 'react-use/lib/useWindowSize'
+import ProjectCard from "@/components/ProjectCard";
 
 
 export default function Landing() {
+  const [recycleConfetti, setRecycleConfetti] = useState(false);
+  const [showConfetti, setShowConfetti] = useState(false);
+  const { width, height } = useWindowSize()
+
+  function handleNameClick() {
+    setShowConfetti(true);
+    setRecycleConfetti(true);
+
+    setTimeout(() => setRecycleConfetti(false), 500);
+
+
+  }
 
   return (
       <>
+        {showConfetti && <Confetti width={width} height={height} recycle={recycleConfetti} numberOfPieces={100} />}
         <div className="flex flex-col min-h-[100dvh] justify-center mx-auto items-center">
           <header
               className="px-6 py-6 h-14 flex items-center justify-between w-full sticky top-0 bg-gray-50 rounded-full max-w-xl ">
@@ -14,7 +31,7 @@ export default function Landing() {
             <nav className="flex gap-4 sm:gap-6 items-center">
               <NavLink href={"#home"} label={"home"}/>
               <NavLink href={"#about"} label={"about"}/>
-              {/*<NavLink href={"#projects"} label={"projects"}/>*/}
+              <NavLink href={"#projects"} label={"projects"}/>
               <NavLink href={"#contact"} label={"contact"}/>
 
             </nav>
@@ -34,27 +51,25 @@ export default function Landing() {
                   <AvatarFallback></AvatarFallback>
                 </Avatar>
               </a>
-
             </div>
 
 
           </header>
 
-          <main className="flex-col space-y-96 mx-auto max-w-7xl w-full px-6 items-center max-w-5xl">
+          <main className="flex-col space-y-96 mx-auto  w-full px-6 items-center max-w-5xl">
             <section id="home" className="w-full py-12 md:py-24 lg:py-32 xl:py-48 my-1000px">
-              <div className="container">
-                <div className="flex flex-col justify-center space-y-4 animate-fade-in">
-                  <div className="flex flex-col gap-2 min-[400px]:flex-row justify-center">
-                  </div>
-                  <div className="space-y-2 text-center">
-                    <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none p-4">
-                      Ryan Zhang
-                    </h1>
-                    <p className="text-muted-foreground md:text-xl text-center self-center">
-                      Second year computer science student at UBC.
-                    </p>
-                  </div>
-                </div>
+
+              <div className="space-y-2 text-center">
+                <h1
+                    onClick={handleNameClick}
+                    className="inline-block group relative font-bold tracking-tighter sm:text-5xl lg:text-6xl py-4">
+                  Ryan Zhang
+                  <span
+                      className="block absolute bottom-0 left-0 w-0 h-[5px] bg-pink-200 transition-all duration-500 group-hover:w-full"></span>
+                </h1>
+                <p className="text-muted-foreground md:text-xl text-center self-center tracking-tighter">
+                  Second year computer science student at UBC.
+                </p>
               </div>
 
 
@@ -68,23 +83,41 @@ export default function Landing() {
               </div>
 
               <div className="flex justify-center">
-                <div className="grid grid-cols-[1fr_3fr] gap-1 items-center items-center max-w-5xl">
-                  <Avatar className="w-48 h-48">
+                <div className="grid lg:grid-cols-[1fr_3fr] sm:grid-cols-1 items-center">
+                  <Avatar className="lg:w-48 lg:h-48 sm:w-32 sm:h-32 md:w-32 md:w-32 m-auto">
                     <AvatarImage
                         src="https://cdn.discordapp.com/attachments/786838952664498180/1282125364050657383/2022-11-08_W221108-0230_hires_retouched_profile2.jpg?ex=66e4cf4b&is=66e37dcb&hm=6c5139f7d241556bfdd6a0175d4f682f5ff7943b1bf6ed50db51d1ea378e2a71&"/>
                     <AvatarFallback>My face</AvatarFallback>
                   </Avatar>
-                  <p className="inline-block text-muted-foreground md:text-lg flex-1">
-                    Hey 👋! My name is Ryan, I&apos;m a second year Computer Science student, and I&apos;m currently working as an
-                    Undergraduate Computer Science Teaching Assistant at UBC in the course, CPSC 110. I&apos;ve been a Java
+                  <p className="inline-block text-muted-foreground md:text-xl sm:text-md flex-1 tracking-tighter">
+                    Hey 👋! My name is Ryan, I&apos;m a second year Computer Science student, and I&apos;m currently
+                    working as an
+                    Undergraduate Computer Science Teaching Assistant at UBC in the course, CPSC 110. I&apos;ve been a
+                    Java
                     developer
                     since high school and I love building things, learning, and having fun along the way! Outside of
                     software,
-                    I&apos;m big into Formula 1, English Football, and also play the violin. I&apos;m happy to connect, and always open to chat!
+                    I&apos;m big into Formula 1 and English Football. I&apos;m happy to connect, and always open to
+                    chat!
                   </p>
                 </div>
 
               </div>
+            </section>
+
+            <section id="projects" className="flex flex-col space-y-5 w-full py-12 md:py-24 lg:py-32 xl:py-48">
+              <h1 className="text-3xl font-extrabold tracking-tighter">
+                Projects
+              </h1>
+              <div className="grid lg:grid-cols-[1fr_1fr] sm:grid-cols-1 items-center gap-4">
+                <ProjectCard title={"Ride Rater"} date={"July 2024 - Present"}
+                             technologies={["ReactJS", "Java Spring Boot", "PostgreSQL", "Docker"]}
+                             description={"Rate rides"}/>
+                <ProjectCard title={"Kumon Homework Grader"} date={"June 2024 - Present"}
+                             technologies={["Tensorflow", "Keras", "Flask", "Next.js", "PostgreSQL"]}
+                             description={"Homework grading automation"}/>
+              </div>
+
             </section>
 
             <section id={"contact"} className="flex flex-col space-y-5 w-full py-12 md:py-24 lg:py-32 xl:py-48">
@@ -95,11 +128,11 @@ export default function Landing() {
               </div>
 
               <div className="flex justify-center m-0">
-                <div className="grid grid-cols-[1fr_3fr] gap-1 items-center items-center">
-                  <Avatar className="w-48 h-48">
+                <div className="grid grid-cols-[1fr_6fr] items-center">
+                  <Avatar className="w-12 h-12">
                     <AvatarImage
                         src="https://cdn.discordapp.com/attachments/786838952664498180/1284045847918542919/image-removebg-preview.png?ex=66e53462&is=66e3e2e2&hm=8977bdea6e80551567dce923f6b9732ca4537e34d01c23a2ee9e4fd55cf41d81&"/>
-                    <AvatarFallback>My face</AvatarFallback>
+                    <AvatarFallback>Avatar</AvatarFallback>
                   </Avatar>
                   <p className="inline-block text-muted-foreground md:text-lg flex-1">
                     Inquires? Email me at rmzhang@student.ubc.ca!
@@ -108,16 +141,6 @@ export default function Landing() {
               </div>
 
             </section>
-
-
-            {/*
-            <section id="projects" className="flex flex-col space-y-5 w-full py-12 md:py-24 lg:py-32 xl:py-48">
-              <h1 className="text-3xl font-extrabold tracking-tighter">
-                Projects
-              </h1>
-              <p className="text-muted-foreground md:text-xl">
-              </p>
-            </section> */}
           </main>
 
         </div>
