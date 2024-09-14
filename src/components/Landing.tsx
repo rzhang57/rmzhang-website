@@ -131,14 +131,22 @@ export default function Landing() {
               <div className="grid lg:grid-cols-[1fr_1fr] sm:grid-cols-1 items-center gap-4">
                 <ProjectCard title={"Ride Rater"} date={"July 2024 - Present"}
                              technologies={["ReactJS", "Java Spring Boot", "PostgreSQL", "Docker"]}
-                             description={"Rate rides"} githubLink={"https://github.com/rzhang57/riderater"}/>
+                             description={"Full stack app that allows real riders to rate rides at various amusement parks"} githubLink={"https://github.com/rzhang57/riderater"}/>
                 <ProjectCard title={"Kumon Homework Grader"} date={"June 2024 - Present"}
-                             technologies={["Tensorflow", "Keras", "Flask", "Next.js", "PostgreSQL", "OpenCV"]}
-                             description={"Homework grading automation"}/>
+                             technologies={["Tensorflow", "Keras", "Flask", "React", "PostgreSQL", "OpenCV"]}
+                             description={"Homework grading automation using OpenCV and Keras model trained on real student's handwriting"}/>
+                <ProjectCard title={"Portfolio website (this!)"} date={"Sept 2024"}
+                             technologies={["Typescript", "Next.js"]}
+                             description={"My personal portfolio website - about me and what I'm working on"}
+                             githubLink={"https://github.com/rzhang57/rmzhang-website"}/>
+                <ProjectCard title={"Braille/ English Translator"} date={"Sept 2024"}
+                             technologies={["Python"]}
+                             description={"Command line application that translates Braille to English and vice versa"}
+                             githubLink={"https://github.com/rzhang57/eng-intern-challenge"}/>
                 <ProjectCard title={"Exam preparer"} date={"Jan 2024 - April 2024"}
                              technologies={["Java", "Java Swing", "JUnit"]}
-                             description={"Prepare for exams"}
-                githubLink={"https://github.com/rzhang57/exam-preparer"}/>
+                             description={"Desktop application that helps users prepare for exams by storing practice problems and notes"}
+                             githubLink={"https://github.com/rzhang57/exam-preparer"}/>
               </div>
 
             </section>

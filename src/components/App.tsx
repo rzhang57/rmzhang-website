@@ -1,6 +1,6 @@
 "use client";
 
-import Landing from "./landing"
+import Landing from "./Landing"
 import {useEffect, useState} from "react";
 import Head from "next/head";
 
