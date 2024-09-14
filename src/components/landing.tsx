@@ -150,7 +150,7 @@ export default function Landing() {
                 <div className="grid grid-cols-[1fr_6fr] items-center">
                   <Avatar className="w-12 h-12">
                     <AvatarImage
-                        src="https://cdn.discordapp.com/attachments/786838952664498180/1284045847918542919/image-removebg-preview.png?ex=66e53462&is=66e3e2e2&hm=8977bdea6e80551567dce923f6b9732ca4537e34d01c23a2ee9e4fd55cf41d81&"/>
+                        src="/statics/pfp.png"/>
                     <AvatarFallback>Me</AvatarFallback>
                   </Avatar>
                   <p className="inline-block text-muted-foreground md:text-lg flex-1">
