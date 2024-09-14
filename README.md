@@ -1,5 +1,5 @@
 ## About
-My personal website created using Next.js (Typescript) and deployed on Vercel. Visit @ https://ryanz.dev
+My personal website created using Next.js (Typescript) and deployed on Vercel. Visit @ [ryanz.dev](https://ryanz.dev).
 
 ## Getting Started
 
