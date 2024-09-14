@@ -1,4 +1,4 @@
-##About
+## About
 My personal website created on Next.js using Typescript and deployed on Vercel.
 
 ## Getting Started
