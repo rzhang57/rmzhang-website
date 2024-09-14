@@ -7,7 +7,6 @@ interface ProjectCardProps {
     date: string;
     technologies: string[];
     description: string;
-    // Optional: Add links to the project if available
     githubLink?: string;
     liveDemoLink?: string;
 }
@@ -21,7 +20,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                                                      liveDemoLink,
                                                  }) => {
     return (
-        <div className="bg-white bg-gray-100 rounded-lg p-6">
+        <div className="bg-white bg-gray-200 hover:bg-gray-50 transition-all rounded-3xl p-6 outline-none hover:outline-pink-100 duration-500">
             <h3 className="text-xl font-semibold mb-2">{title}</h3>
             <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">{date}</p>
             <div className="mb-4">
