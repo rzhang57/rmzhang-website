@@ -29,6 +29,16 @@ export default function Landing() {
     );
   }
 
+  function LinkCustom({href, label}: { href: string; label: string }) {
+    return (
+        <a href={href} className="text-muted-foreground md:text-xl sm:text-md flex-1 transition-all tracking-tighter hover:tracking-tight relative group text-blue-300">
+          {label}
+          <span
+              className="block absolute bottom-0 left-0 w-0 h-[2px] bg-blue-300 transition-all duration-500 group-hover:w-full"></span>
+        </a>
+    );
+  }
+
   function handleCopyClick() {
     const textToCopy = 'rmzhang@student.ubc.ca';
     navigator.clipboard.writeText(textToCopy)
@@ -110,13 +120,17 @@ export default function Landing() {
                   </Avatar>
                   <p className="inline-block text-muted-foreground md:text-xl sm:text-md flex-1 transition-all tracking-tighter hover:tracking-tight">
                     Hey 👋! My name is Ryan, I&apos;m a second year Computer Science student, and I&apos;m currently
-                    working as an
-                    Undergraduate Computer Science Teaching Assistant at UBC for the course, CPSC 110. I&apos;ve been a Java
-                    developer,
-                    since high school and have always loved building things, learning, and having fun along the way! Outside of
-                    software and engineering,
-                    I&apos;m big into Formula 1 and English Football. I&apos;m happy to connect, and always open to
-                    chat!
+                    working as an Undergraduate Computer Science Teaching Assistant at UBC for the course, CPSC 110.
+                    <br/>
+                    <br/>
+                    I&apos;ve been a Java developer since high school and previously competed in the FIRST Tech Challenge robotics competition alongside
+                    team 16031,
+                    <> </>
+                    <LinkCustom href={" https://ftc-events.firstinspires.org/team/16031"} label={"Parabellum"}/>
+                    , where we won the provincial Championship (2x) in BC and a Judges' Award at the 2022 FTC World Championships in Houston, Texas.
+                    <br/>
+                    <br/>
+                    I've always loved building things, learning, and having fun along the way! Outside of software, robotics, and engineering, I&apos;m big into Formula 1, English Football, cars, and video games. I&apos;m happy to connect, and always open to chat!
                   </p>
                 </div>
 
@@ -127,11 +141,11 @@ export default function Landing() {
               <h1 className="text-3xl font-extrabold tracking-tighter">
                 Projects
               </h1>
-              <div className="grid lg:grid-cols-[1fr_1fr] sm:grid-cols-1 items-center gap-4">
-                <ProjectCard title={"Ride Rater"} date={"July 2024 - Present"}
+              <div className="grid lg:grid-cols-[1fr_1fr] sm:grid-cols-1 items-stretch gap-4">
+                <ProjectCard title={"Ride Rater"} date={"Jul 2024 - Present"}
                              technologies={["ReactJS", "Java Spring Boot", "PostgreSQL", "Docker"]}
                              description={"Full stack app that allows real riders to rate rides at various amusement parks"} githubLink={"https://github.com/rzhang57/riderater"}/>
-                <ProjectCard title={"Kumon Homework Grader"} date={"June 2024 - Present"}
+                <ProjectCard title={"Kumon Homework Grader"} date={"Jun 2024 - Present"}
                              technologies={["Tensorflow", "Keras", "Flask", "React", "PostgreSQL", "OpenCV"]}
                              description={"Homework grading automation using OpenCV and Keras model trained on real student's handwriting"}/>
                 <ProjectCard title={"Portfolio website (this!)"} date={"Sept 2024"}
@@ -142,10 +156,14 @@ export default function Landing() {
                              technologies={["Python"]}
                              description={"Command line application that translates Braille to English and vice versa"}
                              githubLink={"https://github.com/rzhang57/eng-intern-challenge"}/>
-                <ProjectCard title={"Exam preparer"} date={"Jan 2024 - April 2024"}
+                <ProjectCard title={"Exam preparer"} date={"Jan 2024 - Apr 2024"}
                              technologies={["Java", "Java Swing", "JUnit"]}
                              description={"Desktop application that helps users prepare for exams by storing practice problems and notes"}
                              githubLink={"https://github.com/rzhang57/exam-preparer"}/>
+                <ProjectCard title={"Robot"} date={"Sept 2018 - Apr 2023"}
+                             technologies={["Java", "Fusion 360"]}
+                             description={"Competition spec robot designed for FTC over the span of 4 years, winning 2 provincial titles, and 1 international award"}
+                             githubLink={"https://ftc-events.firstinspires.org/team/16031"}/>
               </div>
 
             </section>
