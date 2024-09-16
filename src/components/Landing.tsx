@@ -31,7 +31,7 @@ export default function Landing() {
 
   function LinkCustom({href, label}: { href: string; label: string }) {
     return (
-        <a href={href} className="text-muted-foreground md:text-xl sm:text-md flex-1 transition-all tracking-tighter hover:tracking-tight relative group text-blue-300">
+        <a href={href} className="text-blue-300 md:text-xl sm:text-md flex-1 transition-all tracking-tighter hover:tracking-tight relative group">
           {label}
           <span
               className="block absolute bottom-0 left-0 w-0 h-[2px] bg-blue-300 transition-all duration-500 group-hover:w-full"></span>
