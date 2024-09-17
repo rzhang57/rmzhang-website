@@ -31,7 +31,7 @@ export default function Landing() {
 
   function LinkCustom({href, label}: { href: string; label: string }) {
     return (
-        <a href={href} className="text-blue-300 md:text-xl sm:text-md flex-1 transition-all tracking-tighter hover:tracking-tight relative group">
+        <a href={href} className="text-blue-300 md:text-xl sm:text-md flex-1 transition-all tracking-tighter hover:tracking-tight relative group" target={"_blank"}>
           {label}
           <span
               className="block absolute bottom-0 left-0 w-0 h-[2px] bg-blue-300 transition-all duration-500 group-hover:w-full"></span>
@@ -126,7 +126,7 @@ export default function Landing() {
                     I&apos;ve been a Java developer since high school and previously competed in the FIRST Tech Challenge robotics competition alongside
                     team 16031,
                     <> </>
-                    <LinkCustom href={" https://ftc-events.firstinspires.org/team/16031"} label={"Parabellum"}/>
+                    <LinkCustom href={"https://ftc-events.firstinspires.org/team/16031"} label={"Parabellum"}/>
                     , where we won the provincial Championship (2x) in BC and a Judges&apos; Award at the 2022 FTC World Championships in Houston, Texas.
                     <br/>
                     <br/>
