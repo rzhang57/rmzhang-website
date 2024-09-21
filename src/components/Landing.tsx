@@ -130,7 +130,7 @@ export default function Landing() {
                     , where we won the provincial Championship (2x) in BC and a Judges&apos; Award at the 2022 FTC World Championships in Houston, Texas.
                     <br/>
                     <br/>
-                    I&apos;ve always loved building things, learning, and having fun along the way! Outside of software, robotics, and engineering, I&apos;m big into Formula 1, English Football, cars, and video games. I&apos;m happy to connect, and always open to chat!
+                    I&apos;ve always loved building things, learning, and having fun along the way! Outside of software, robotics, and engineering, I&apos;m big into Formula 1, English Football, cars, video editing, and games. I&apos;m happy to connect, and always open to chat!
                   </p>
                 </div>
 
