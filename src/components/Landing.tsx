@@ -5,7 +5,6 @@ import {useState} from "react";
 import Confetti from "react-confetti";
 import useWindowSize from 'react-use/lib/useWindowSize'
 import ProjectCard from "@/components/ProjectCard";
-import {motion} from "framer-motion"
 
 
 export default function Landing() {
@@ -140,7 +139,7 @@ export default function Landing() {
 
             <section id="projects" className="flex flex-col space-y-5 w-full py-12 md:py-24 lg:py-32 xl:py-48">
               <h1 className="text-3xl font-extrabold tracking-tighter">
-                What I've been working on
+                I&apos;m busy working on:
               </h1>
               <div className="grid lg:grid-cols-[1fr_1fr] sm:grid-cols-1 items-stretch gap-4">
                 <ProjectCard title={"Ride Rater"} date={"Jul 2024 - Present"}
