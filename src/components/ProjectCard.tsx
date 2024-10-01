@@ -22,7 +22,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     return (
         <a href={githubLink} target="_blank" rel="noopener noreferrer">
             <div
-                className="bg-white bg-gray-200 hover:bg-gray-50 transition-all rounded-3xl p-6 outline-none hover:outline-pink-100 duration-500 h-full">
+                className="bg-opacity-70 bg-white bg-gray-200 hover:bg-gray-50 transition-all rounded-3xl p-6 outline-none hover:outline-pink-100 duration-500 h-full">
                 <h3 className="text-xl font-semibold mb-2">{title}</h3>
                 <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">{date}</p>
                 <div className="mb-4">
@@ -35,7 +35,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           </span>
                     ))}
                 </div>
-                <p className="text-gray-700 dark:text-gray-300">{description}</p>
+                <p className="text-gray-700 dark:text-gray-400">{description}</p>
                 {(githubLink || liveDemoLink) && (
                     <div className="mt-4">
                         {liveDemoLink && (

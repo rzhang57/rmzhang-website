@@ -5,6 +5,7 @@ import {useState} from "react";
 import Confetti from "react-confetti";
 import useWindowSize from 'react-use/lib/useWindowSize'
 import ProjectCard from "@/components/ProjectCard";
+import Link from "next/link";
 
 
 export default function Landing() {
@@ -54,9 +55,9 @@ export default function Landing() {
   return (
       <>
         {showConfetti && <Confetti width={width} height={height} recycle={recycleConfetti} numberOfPieces={100} />}
-        <div id={"home"} className="flex flex-col min-h-[100dvh] justify-center mx-auto items-center">
+        <div id={"home"} className="flex flex-col min-h-[100dvh] justify-center mx-auto items-center dynbg">
           <header
-              className="px-6 py-6 h-14 flex items-center justify-between w-full sticky top-0 bg-gray-50 rounded-full max-w-xl z-10 bg-opacity-70 backdrop-blur-md">
+              className="px-6 py-6 h-14 flex items-center justify-between w-full sticky top-0 bg-gray-50 rounded-full max-w-xl z-10 bg-opacity-30 backdrop-blur-md">
 
             <nav className="flex gap-4 sm:gap-6 items-center">
               <NavLink href={"#home"} label={"home"}/>
@@ -86,20 +87,18 @@ export default function Landing() {
 
           </header>
 
-          <main className="flex-col space-y-96 mx-auto  w-full px-6 items-center max-w-5xl">
-            <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 my-1000px">
+          <main className="flex-col space-y-96 mx-auto w-full px-6 items-center max-w-5xl">
+            <section className="w-full py-12 sm:py-0 md:py-24 lg:py-32 xl:py-48 my-1000px">
 
               <div className="space-y-2 text-center">
                 <h1
                     onClick={handleNameClick}
-                    className="group relative font-bold tracking-tighter hover:tracking-normal transition-all sm:text-5xl lg:text-6xl py-4 duration-1000 hover:cursor-pointer">
+                    className="group relative font-bold tracking-tighter hover:tracking-normal transition-all text-6xl py-4 duration-1000 hover:cursor-grab">
                   Ryan Zhang
-                  <span
-                      className="block absolute bottom-0 left-0 w-0 h-[5px] bg-gray-200 transition-all duration-1000 group-hover:w-full"></span>
                 </h1>
-                <p className="text-muted-foreground md:text-xl text-center self-center tracking-tighter">
-                  Second year computer science student at UBC.
-                </p>
+                <div className="inline text-muted-foreground md:text-3xl text-center self-center tracking-tighter">
+                  Second year computer science student at <Link href="https://www.cs.ubc.ca/" target="_blank" className="transition-all duration-100 font-bold inline bg-gradient-to-r from-pink-400 to-pink-600 bg-clip-text text-transparent hover:brightness-125 hover:cursor-pointer">UBC</Link>
+                </div>
               </div>
 
 
@@ -118,7 +117,7 @@ export default function Landing() {
                     <AvatarImage src={"/statics/myface.jpg"}/>
                     <AvatarFallback>My face</AvatarFallback>
                   </Avatar>
-                  <p className="inline-block text-muted-foreground md:text-xl sm:text-md flex-1 transition-all tracking-tighter hover:tracking-tight">
+                  <p className="inline-block text-muted-foreground md:text-xl sm:text-md flex-1 tracking-tighter">
                     Hey 👋! My name is Ryan, I&apos;m a second year Computer Science student, and I&apos;m currently
                     working as an Undergraduate Computer Science Teaching Assistant at UBC for the course, CPSC 110.
                     <br/>
