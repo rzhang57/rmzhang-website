@@ -106,14 +106,14 @@ export default function Landing() {
 
             <section id="about" className="flex flex-col space-y-5 w-full py-12 md:py-24 lg:py-32 xl:py-48">
               <div className="flex justify-center">
-                <h1 className="text-3xl font-extrabold tracking-tighter">
+                <h1 className="text-3xl font-extrabold tracking-tighter text-left">
                   About me
                 </h1>
               </div>
 
               <div className="flex justify-center">
                 <div className="grid lg:grid-cols-[1fr_3fr] sm:grid-cols-1 items-center">
-                  <Avatar className="lg:w-48 lg:h-48 sm:w-32 sm:h-32 md:w-32 md:w-32 m-auto hover:scale-105 transition-transform my-2">
+                  <Avatar className="w-48 h-48 m-auto hover:scale-105 transition-transform my-2">
                     <AvatarImage src={"/statics/myface.jpg"}/>
                     <AvatarFallback>My face</AvatarFallback>
                   </Avatar>
