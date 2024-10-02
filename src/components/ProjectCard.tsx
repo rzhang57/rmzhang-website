@@ -22,7 +22,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     return (
         <a href={githubLink} target="_blank" rel="noopener noreferrer">
             <div
-                className="bg-opacity-70 bg-white bg-gray-200 hover:bg-gray-50 transition-all rounded-3xl p-6 outline-none hover:outline-pink-100 duration-500 h-full">
+                className="scale-100 bg-opacity-70 bg-gray-100 hover:opacity-100 transition-all rounded-3xl p-6 outline-none hover:outline-pink-100 duration-500 h-full hover:scale-110">
                 <h3 className="text-xl font-semibold mb-2">{title}</h3>
                 <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">{date}</p>
                 <div className="mb-4">
