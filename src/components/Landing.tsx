@@ -93,7 +93,7 @@ export default function Landing() {
               <div className="space-y-2 text-center">
                 <h1
                     onClick={handleNameClick}
-                    className="group relative font-bold tracking-tighter hover:tracking-normal transition-all text-6xl py-4 duration-1000 hover:cursor-grab">
+                    className="group relative font-bold tracking-tighter hover:tracking-normal transition-all text-6xl py-4 duration-1000 hover:cursor-grab dyntxt">
                   Ryan Zhang
                 </h1>
                 <div className="inline text-muted-foreground md:text-3xl text-center self-center tracking-tighter">

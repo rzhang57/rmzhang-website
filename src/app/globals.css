@@ -90,3 +90,19 @@ html {
   animation: bgShift 16s infinite;
   background-attachment: fixed;
 }
+
+@keyframes textspace {
+  0% {
+    letter-spacing: -0.05em;
+  }
+  50%{
+    letter-spacing: -0.025em;
+  }
+  100% {
+    letter-spacing: -0.05em;
+  }
+}
+
+.dyntxt {
+  animation: textspace 5s infinite;
+}
