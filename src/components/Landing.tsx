@@ -11,7 +11,7 @@ import Link from "next/link";
 export default function Landing() {
   const [recycleConfetti, setRecycleConfetti] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
-  const { width, height } = useWindowSize()
+  const { width, height } = useWindowSize();
 
   function handleNameClick() {
     setShowConfetti(true);
@@ -83,8 +83,6 @@ export default function Landing() {
                 </Avatar>
               </a>
             </div>
-
-
           </header>
 
           <main className="flex-col space-y-96 mx-auto w-full px-6 items-center max-w-5xl">
@@ -93,11 +91,12 @@ export default function Landing() {
               <div className="space-y-2 text-center">
                 <h1
                     onClick={handleNameClick}
-                    className="group relative font-bold tracking-tighter hover:tracking-normal transition-all text-6xl py-4 duration-1000 hover:cursor-grab dyntxt">
+                    className="group relative font-bold tracking-tighter hover:tracking-normal transition-all text-6xl py-4 duration-1000 hover:cursor-grab">
                   Ryan Zhang
                 </h1>
                 <div className="inline text-muted-foreground md:text-3xl text-center self-center tracking-tighter">
-                  Second year computer science student at <Link href="https://www.cs.ubc.ca/" target="_blank" className="transition-all duration-100 font-bold inline bg-gradient-to-r from-pink-400 to-pink-600 bg-clip-text text-transparent hover:brightness-125 hover:cursor-pointer">UBC</Link>
+                  Incoming Software Engineer Intern @ <Link href="https://www.planview.com/" target="_blank"
+                                                            className="transition-all duration-100 font-bold inline bg-gradient-to-r from-pink-400 to-pink-600 bg-clip-text text-transparent hover:brightness-125 hover:cursor-pointer">Planview</Link>
                 </div>
               </div>
 
