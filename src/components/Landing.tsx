@@ -57,7 +57,7 @@ export default function Landing() {
         {showConfetti && <Confetti width={width} height={height} recycle={recycleConfetti} numberOfPieces={100} />}
         <div id={"home"} className="flex flex-col min-h-[100dvh] justify-center mx-auto items-center dynbg">
           <header
-              className="px-6 py-6 h-14 flex items-center justify-between w-full sticky top-0 bg-gray-50 rounded-full max-w-xl z-10 bg-opacity-30 backdrop-blur-md">
+              className="px-6 py-6 h-14 flex items-center justify-between w-full sticky top-0 bg-gray-50 rounded-full max-w-xl z-10 bg-opacity-0 backdrop-blur-md">
 
             <nav className="flex gap-4 sm:gap-6 items-center">
               <NavLink href={"#home"} label={"home"}/>
@@ -94,9 +94,16 @@ export default function Landing() {
                     className="group relative font-bold tracking-tighter hover:tracking-normal transition-all text-6xl py-4 duration-1000 hover:cursor-grab">
                   Ryan Zhang
                 </h1>
-                <div className="inline text-muted-foreground md:text-3xl text-center self-center tracking-tighter">
-                  Incoming Software Engineer Intern @ <Link href="https://www.planview.com/" target="_blank"
-                                                            className="transition-all duration-100 font-bold inline bg-gradient-to-r from-pink-400 to-pink-600 bg-clip-text text-transparent hover:brightness-125 hover:cursor-pointer">Planview</Link>
+                <div
+                    className="inline text-muted-foreground md:text-3xl text-center self-center tracking-tighter leading-relaxed">
+                  Incoming SWE @
+                  <Link
+                      href="https://www.planview.com/"
+                      target="_blank"
+                      className="inline-block transition-all duration-100 font-bold bg-gradient-to-r from-pink-400 to-pink-600 bg-clip-text text-transparent hover:brightness-125 hover:cursor-pointer px-1"
+                  >
+                    Planview
+                  </Link>
                 </div>
               </div>
 
@@ -106,7 +113,7 @@ export default function Landing() {
             <section id="about" className="flex flex-col space-y-5 w-full py-12 md:py-24 lg:py-32 xl:py-48">
               <div className="flex justify-center">
                 <h1 className="text-3xl font-extrabold tracking-tighter text-left">
-                  About me
+                  Who am I?
                 </h1>
               </div>
 
