@@ -32,10 +32,10 @@ export default function Landing() {
 
   function LinkCustom({href, label}: { href: string; label: string }) {
     return (
-        <a href={href} className="text-blue-300 md:text-xl sm:text-md flex-1 transition-all tracking-tighter hover:tracking-tight relative group" target={"_blank"}>
+        <a href={href} className="text-blue-500 md:text-xl sm:text-md flex-1 transition-all tracking-tighter hover:tracking-tight relative group" target={"_blank"}>
           {label}
           <span
-              className="block absolute bottom-0 left-0 w-0 h-[2px] bg-blue-300 transition-all duration-500 group-hover:w-full"></span>
+              className="block absolute bottom-0 left-0 w-0 h-[2px] bg-blue-600 transition-all duration-500 group-hover:w-full"></span>
         </a>
     );
   }
@@ -111,32 +111,37 @@ export default function Landing() {
             </section>
 
             <section id="about" className="flex flex-col space-y-5 w-full py-12 md:py-24 lg:py-32 xl:py-48">
-              <div className="flex justify-center">
-                <h1 className="text-3xl font-extrabold tracking-tighter text-left">
+              <div className="flex">
+                <h1 className="md:text-3xl sm:text-xl font-extrabold tracking-tighter text-left">
                   Who am I?
                 </h1>
               </div>
 
               <div className="flex justify-center">
-                <div className="grid lg:grid-cols-[1fr_3fr] sm:grid-cols-1 items-center">
-                  <Avatar className="w-48 h-48 m-auto hover:scale-105 transition-transform my-2">
-                    <AvatarImage src={"/statics/myface.jpg"}/>
-                    <AvatarFallback>My face</AvatarFallback>
-                  </Avatar>
-                  <p className="inline-block text-muted-foreground md:text-xl sm:text-md flex-1 tracking-tighter">
-                    Hey 👋! My name is Ryan, I&apos;m a second year Computer Science student, and I&apos;m currently
-                    working as an Undergraduate Computer Science Teaching Assistant at UBC for the course, CPSC 110.
-                    <br/>
-                    <br/>
-                    I&apos;ve been a Java developer since high school and previously competed in the FIRST Tech Challenge robotics competition alongside
+                <div className="grid lg:grid-cols-[3fr_1fr] sm:grid-cols-1 items-center">
+
+                  <p className="inline-block text-muted-foreground md:text-xl sm:text-sm flex-1 tracking-tighter">
+                    Hey 👋! My name is Ryan, I&apos;m a second year Computer Science student, CS Teaching assistant at
+                    UBC, and incoming Software Engineer at Planview.
+                    I&apos;ve been a passionate developer since high school, previously competing in the FIRST Tech
+                    Challenge robotics competition alongside
                     team 16031,
                     <> </>
                     <LinkCustom href={"https://ftc-events.firstinspires.org/team/16031"} label={"Parabellum"}/>
-                    , where we won the provincial Championship (2x) in BC and a Judges&apos; Award at the 2022 FTC World Championships in Houston, Texas.
+                    , where we won the provincial Championship (2x) in BC and a Judges&apos; Award at the 2022 FTC World
+                    Championships in Houston, Texas.
+                    <br/>
+                    I&apos;ve always loved building things, learning, solving problems, and having fun along the way!
+                    Outside of software, robotics, and engineering, I&apos;m big into Formula 1, English Football, cars,
+                    video editing, keyboards, and games.
                     <br/>
                     <br/>
-                    I&apos;ve always loved building things, learning, and having fun along the way! Outside of software, robotics, and engineering, I&apos;m big into Formula 1, English Football, cars, video editing, and games. I&apos;m happy to connect, and always open to chat!
+                    Feel free to connect, I'm always happy to chat!
                   </p>
+                  <Avatar className="md:w-48 md:h-48 sm:h-32 sm:w-32 m-auto scale-105 hover:scale-110 transition-all my-2">
+                    <AvatarImage src={"/statics/myface.jpg"}/>
+                    <AvatarFallback>:P</AvatarFallback>
+                  </Avatar>
                 </div>
 
               </div>
@@ -144,7 +149,7 @@ export default function Landing() {
 
             <section id="projects" className="flex flex-col space-y-5 w-full py-12 md:py-24 lg:py-32 xl:py-48">
               <h1 className="text-3xl font-extrabold tracking-tighter">
-                I&apos;m busy working on:
+                Currently busy working on...
               </h1>
               <div className="grid lg:grid-cols-[1fr_1fr] sm:grid-cols-1 items-stretch gap-4">
                 <ProjectCard title={"Ride Rater"} date={"Jul 2024 - Present"}
