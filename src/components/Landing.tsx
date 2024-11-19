@@ -136,7 +136,7 @@ export default function Landing() {
                     video editing, keyboards, and games.
                     <br/>
                     <br/>
-                    Feel free to connect, I'm always happy to chat!
+                    Feel free to connect, I&apos;m always happy to chat!
                   </p>
                   <Avatar className="md:w-48 md:h-48 sm:h-32 sm:w-32 m-auto scale-105 hover:scale-110 transition-all my-2">
                     <AvatarImage src={"/statics/myface.jpg"}/>
