@@ -121,8 +121,8 @@ export default function Landing() {
                 <div className="grid lg:grid-cols-[3fr_1fr] sm:grid-cols-1 items-center">
 
                   <p className="inline-block text-muted-foreground md:text-xl sm:text-sm flex-1 tracking-tighter">
-                    Hey 👋! My name is Ryan, I&apos;m a second year Computer Science student, CS Teaching assistant at
-                    UBC, and Software Engineer at Planview on the Copilot team.
+                    Hey 👋! My name is Ryan, I&apos;m a second year Computer Science student, (prev) a CS Teaching assistant at
+                    UBC, and a Software Engineer at Planview working on Copilot.
                     I&apos;ve been a passionate developer since high school, previously competing in the FIRST Tech
                     Challenge robotics competition alongside
                     team 16031,
@@ -135,8 +135,7 @@ export default function Landing() {
                     Outside of software, robotics, and engineering, I&apos;m big into Formula 1, English Football, cars,
                     video editing, keyboards, and gaming (immortal top 4k in Valorant for those who care).
                     <br/>
-                    <br/>
-                    Feel free to connect, I&apos;m always happy to chat!
+                    Feel free to connect by email or LinkedIn, I&apos;m always happy to chat!
                   </p>
                   <Avatar className="md:w-48 md:h-48 sm:h-32 sm:w-32 m-auto scale-105 hover:scale-110 transition-all my-2">
                     <AvatarImage src={"/statics/myface.jpg"}/>
@@ -152,8 +151,11 @@ export default function Landing() {
                 Currently busy working on...
               </h1>
               <div className="grid lg:grid-cols-[1fr_1fr] sm:grid-cols-1 items-stretch gap-4">
+                <ProjectCard title={"Planview Copilot"} date={"Jan 2024 - Present"}
+                             technologies={["React", "Java Spring Boot", "PostgreSQL", "AWS", "Docker"]}
+                             description={"Full stack web development and messing with LLMs."} githubLink={"https://www.planview.com/ai/"}/>
                 <ProjectCard title={"Ride Rater"} date={"Jul 2024 - Present"}
-                             technologies={["ReactJS", "Java Spring Boot", "PostgreSQL", "Docker"]}
+                             technologies={["React", "Java Spring Boot", "PostgreSQL", "Docker"]}
                              description={"Full stack app that allows real riders to rate rides at various amusement parks"} githubLink={"https://github.com/rzhang57/riderater"}/>
                 <ProjectCard title={"Kumon Homework Grader"} date={"Jun 2024 - Present"}
                              technologies={["Tensorflow", "Keras", "Flask", "React", "PostgreSQL", "OpenCV"]}
