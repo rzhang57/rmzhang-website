@@ -14,7 +14,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "dev: Ryan Zhang",
+  title: "prod: Ryan Zhang",
   description: "Hey, I'm Ryan!",
 };
 
