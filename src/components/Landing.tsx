@@ -133,7 +133,7 @@ export default function Landing() {
                     <br/>
                     I&apos;ve always loved building things, learning, solving problems, and having fun along the way!
                     Outside of software, robotics, and engineering, I&apos;m big into Formula 1, English Football, cars,
-                    video editing, keyboards, and gaming.
+                    video editing, keyboards, and gaming (immortal top 4k in Valorant for those who care).
                     <br/>
                     <br/>
                     Feel free to connect, I&apos;m always happy to chat!
