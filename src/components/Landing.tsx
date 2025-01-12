@@ -96,7 +96,7 @@ export default function Landing() {
                 </h1>
                 <div
                     className="inline text-muted-foreground md:text-3xl text-center self-center tracking-tighter leading-relaxed">
-                  Incoming SWE @
+                  Software Engineer Intern @
                   <Link
                       href="https://www.planview.com/"
                       target="_blank"
@@ -122,7 +122,7 @@ export default function Landing() {
 
                   <p className="inline-block text-muted-foreground md:text-xl sm:text-sm flex-1 tracking-tighter">
                     Hey 👋! My name is Ryan, I&apos;m a second year Computer Science student, CS Teaching assistant at
-                    UBC, and incoming Software Engineer at Planview.
+                    UBC, and Software Engineer at Planview on the Copilot team.
                     I&apos;ve been a passionate developer since high school, previously competing in the FIRST Tech
                     Challenge robotics competition alongside
                     team 16031,
@@ -133,7 +133,7 @@ export default function Landing() {
                     <br/>
                     I&apos;ve always loved building things, learning, solving problems, and having fun along the way!
                     Outside of software, robotics, and engineering, I&apos;m big into Formula 1, English Football, cars,
-                    video editing, keyboards, and games.
+                    video editing, keyboards, and gaming.
                     <br/>
                     <br/>
                     Feel free to connect, I&apos;m always happy to chat!
