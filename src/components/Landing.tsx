@@ -10,7 +10,7 @@ import Link from "next/link";
 export default function Landing() {
   const [recycleConfetti, setRecycleConfetti] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
-
+  const [imageSrc, setImageSrc] = useState("/statics/myface.jpg");
   function handleNameClick() {
     setShowConfetti(true);
     setRecycleConfetti(true);
@@ -49,6 +49,12 @@ export default function Landing() {
           console.error('Failed to copy text: ', err);
         });
   };
+
+  function handleImageClick() {
+    setImageSrc((prevSrc) =>
+        prevSrc === "/statics/myface.jpg" ? "/statics/otherimage.png" : "/statics/myface.jpg"
+    );
+  }
 
   return (
       <>
@@ -136,8 +142,10 @@ export default function Landing() {
                     Feel free to connect by email or LinkedIn, I&apos;m always happy to chat!
                   </p>
                   <Avatar className="md:w-48 md:h-48 sm:h-32 sm:w-32 m-auto scale-105 hover:scale-110 transition-all my-2">
-                    <AvatarImage src={"/statics/myface.jpg"}/>
-                    <AvatarFallback>:P</AvatarFallback>
+                    <div onClick={handleImageClick} className={"cursor-pointer"}>
+                      <AvatarImage src={imageSrc}/>
+                      <AvatarFallback>:P</AvatarFallback>
+                    </div>
                   </Avatar>
                 </div>
               </div>
