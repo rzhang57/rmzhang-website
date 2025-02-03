@@ -3,7 +3,6 @@
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
 import {useState} from "react";
 import Confetti from "react-confetti";
-import useWindowSize from 'react-use/lib/useWindowSize'
 import ProjectCard from "@/components/ProjectCard";
 import Link from "next/link";
 
@@ -11,7 +10,6 @@ import Link from "next/link";
 export default function Landing() {
   const [recycleConfetti, setRecycleConfetti] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
-  const { width, height } = useWindowSize();
 
   function handleNameClick() {
     setShowConfetti(true);
@@ -54,8 +52,8 @@ export default function Landing() {
 
   return (
       <>
-        {showConfetti && <Confetti width={width} height={height} recycle={recycleConfetti} numberOfPieces={100} />}
         <div id={"home"} className="flex flex-col min-h-[100dvh] justify-center mx-auto items-center dynbg">
+          {showConfetti && <Confetti width={window.innerWidth-17} height={window.innerHeight+100} recycle={recycleConfetti} numberOfPieces={100} />}
           <header
               className="px-6 py-6 h-14 flex items-center justify-between w-full sticky top-0 bg-gray-50 rounded-full max-w-xl z-10 bg-opacity-0 backdrop-blur-md">
 
@@ -91,7 +89,7 @@ export default function Landing() {
               <div className="space-y-2 text-center">
                 <h1
                     onClick={handleNameClick}
-                    className="group relative font-bold tracking-tighter hover:tracking-normal transition-all text-6xl py-4 duration-1000 hover:cursor-grab">
+                    className="group relative font-bold tracking-tighter hover:tracking-normal transition-all text-6xl py-4 duration-1000 hover:cursor-pointer">
                   Ryan Zhang
                 </h1>
                 <div
