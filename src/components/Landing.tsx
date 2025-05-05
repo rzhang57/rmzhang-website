@@ -6,11 +6,11 @@ import Confetti from "react-confetti";
 import ProjectCard from "@/components/ProjectCard";
 import Link from "next/link";
 
-
 export default function Landing() {
   const [recycleConfetti, setRecycleConfetti] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
   const [imageSrc, setImageSrc] = useState("/statics/myface.jpg");
+
   function handleNameClick() {
     setShowConfetti(true);
     setRecycleConfetti(true);
@@ -137,14 +137,13 @@ export default function Landing() {
                     <br/>
                     I&apos;ve always loved building things, learning, solving problems, and having fun along the way!
                     Outside of software, robotics, and engineering, I&apos;m big into Formula 1, English Football, cars,
-                    video editing, keyboards, and gaming (immortal top 4k in Valorant for those who care).
+                    video editing, keyboards, and FPS games.
                     <br/>
                     Feel free to connect by email or LinkedIn, I&apos;m always happy to chat!
                   </p>
                   <Avatar className="md:w-48 md:h-48 sm:h-32 sm:w-32 m-auto scale-105 hover:scale-110 transition-all my-2">
                     <div onClick={handleImageClick} className={"cursor-pointer"}>
                       <AvatarImage src={imageSrc}/>
-                      <AvatarFallback>:P</AvatarFallback>
                     </div>
                   </Avatar>
                 </div>
