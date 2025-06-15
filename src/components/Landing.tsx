@@ -199,7 +199,7 @@ export default function Landing() {
                     <AvatarFallback>Me</AvatarFallback>
                   </Avatar>
                   <p className="inline-block text-muted-foreground md:text-lg flex-1">
-                    Inquires? Email me at:
+                    Inquiries? Email me at:
                     <> </>
                     <a onClick={handleCopyClick} className={"underline tracking-tight hover:tracking-normal hover:cursor-pointer transition-all hover:text-pink-200"}>rmzhang@student.ubc.ca</a>
                   </p>
