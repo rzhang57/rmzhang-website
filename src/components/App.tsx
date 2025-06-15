@@ -5,7 +5,7 @@ import {useEffect, useState} from "react";
 import Head from "next/head";
 
 export default function App() {
-    const [isLoading, setIsLoading] = useState(false); // State to track if the site is loading
+    const [isLoading, setIsLoading] = useState(true); // State to track if the site is loading
 
 
     useEffect(() => {
