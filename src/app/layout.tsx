@@ -14,8 +14,16 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "prod: Ryan Zhang",
-  description: "Hey, I'm Ryan!",
+  title: "ryan zhang - developer",
+  description: "cs student and developer at ubc",
+  openGraph: {
+    images: [
+      {
+        url: "https://ryanz.dev/statics/pfp.png",
+        alt: "rz pfp :P",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
