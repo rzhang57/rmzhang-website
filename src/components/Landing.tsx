@@ -7,7 +7,49 @@ import ProjectCard from "@/components/ProjectCard";
 import Link from "next/link";
 
 export default function Landing() {
-  const [recycleConfetti, setRecycleConfetti] = useState(false);
+  const aboutMeNormal = (
+      <p className="inline-block text-muted-foreground md:text-xl sm:text-sm flex-1 tracking-tighter">
+        hey 👋! i&apos;m ryan, a third year cs student and ta @ ubc, and a software engineer intern at planview working
+        on <LinkCustom href={"https://www.planview.com/ai"} label={"copilot"}/>, a multi-agent ai assistant
+        integrated into planview&apos;s software product suite!
+        i&apos;m incredibly passionate about building robust and efficient systems that make a difference,
+        solving tough problems, learning fast, and having fun along the way!
+        <br/>
+        <br/>
+        otherwise, i&apos;m also into f1, english football (liverpool supporter), sports cars, video
+        editing, mechanical keyboards (topre), and games. click my face to read more about these things!
+        <br/>
+        <br/>
+        feel free to connect, i&apos;m always down for a good chat. thanks for visiting, talk soon!
+      </p>
+  )
+  const aboutHobbies = (
+      <p className="inline-block text-muted-foreground md:text-xl sm:text-sm flex-1 tracking-tighter">
+          more about my hobbies:
+          <br/>
+          <br/>
+          <span className="font-bold">f1:</span> i love the cross section of engineering, sport, and speed.
+          unfortunately, i support ferarri.
+          <br/>
+          <br/>
+          <span className="font-bold">football:</span> i follow the premier league, and european football in general. i
+          support liverpool (rip jota). i also follow international competitions.
+          <br/>
+          <br/>
+          <span className="font-bold">sports cars:</span> i hope to own and maintain a clean nb or nc miata in the near future. into cars in general though.
+          <br/>
+          <br/>
+          <span className="font-bold">video editing :</span> vegas pro user since 2018. made montages, school projects,
+          funny short-form videos, and more.
+          <br/>
+          <br/>
+          <span className="font-bold">mechanical keyboards:</span> i primarily use a realforce r3s with topre switches which i purchased from japan. i have a few other custom boards with more traditional cherry style switches, both soldered and hot-swappable.
+          <br/>
+          <br/>
+          <span className="font-bold">games:</span> currently enjoying valorant, peak with friends, gta v while waiting for gta vi. previously played overwatch, fortnite, minecraft, fifa, f1.
+      </p>
+  )
+    const [recycleConfetti, setRecycleConfetti] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
   const [imageSrc, setImageSrc] = useState("/statics/myface.jpg");
 
@@ -20,7 +62,8 @@ export default function Landing() {
 
   function NavLink({href, label}: { href: string; label: string }) {
     return (
-        <a href={href} className="relative group tracking-tighter text-sm font-medium text-gray-900 transition-all hover:tracking-tight">
+        <a href={href}
+           className="relative group tracking-tighter text-sm font-medium text-gray-900 transition-all hover:tracking-tight">
           {label}
           <span
               className="block absolute bottom-0 left-0 w-0 h-[2px] bg-pink-200 transition-all duration-500 group-hover:w-full"></span>
@@ -30,7 +73,9 @@ export default function Landing() {
 
   function LinkCustom({href, label}: { href: string; label: string }) {
     return (
-        <a href={href} className="text-blue-700 md:text-xl sm:text-md flex-1 transition-all tracking-tighter hover:tracking-tight relative group" target={"_blank"}>
+        <a href={href}
+           className="text-blue-700 md:text-xl sm:text-md flex-1 transition-all tracking-tighter hover:tracking-tight relative group"
+           target={"_blank"}>
           {label}
           <span
               className="block absolute bottom-0 left-0 w-0 h-[2px] bg-blue-500 transition-all duration-500 group-hover:w-full"></span>
@@ -42,7 +87,6 @@ export default function Landing() {
     const textToCopy = 'rmzhang@student.ubc.ca';
     navigator.clipboard.writeText(textToCopy)
         .then(() => {
-          // Optionally, provide feedback to the user
           alert('Text copied to clipboard!');
         })
         .catch((err) => {
@@ -124,21 +168,7 @@ export default function Landing() {
 
               <div className="flex justify-center">
                 <div className="grid lg:grid-cols-[3fr_1fr] sm:grid-cols-1 items-center">
-
-                  <p className="inline-block text-muted-foreground md:text-xl sm:text-sm flex-1 tracking-tighter">
-                    hey 👋! i&apos;m ryan, a third year cs student and ta @ ubc, and a software at planview working
-                    on <LinkCustom href={"https://www.planview.com/ai"} label={"copilot"}/>, a multi-agent ai assistant
-                    integrated into planview&apos;s vast product suite!
-                    i&apos;m incredibly passionate about building robust and efficient systems that make a difference,
-                    solving tough problems, learning fast, and having fun along the way!
-                    <br/>
-                    <br/>
-                    otherwise, i&apos;m also into f1, english football (liverpool supporter), sports cars, video
-                    editing, mechanical keyboards (topre), and fps games.
-                    <br/>
-                    <br/>
-                    feel free to connect, i&apos;m always down for a good chat. thanks for visiting, talk soon!
-                  </p>
+                  {imageSrc === "/statics/myface.jpg" ? aboutMeNormal : aboutHobbies}
                   <Avatar className="md:w-48 md:h-48 sm:h-32 sm:w-32 m-auto scale-105 hover:scale-110 transition-all my-2">
                     <div onClick={handleImageClick} className={"cursor-pointer"}>
                       <AvatarImage src={imageSrc}/>
