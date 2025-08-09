@@ -9,22 +9,23 @@ import Link from "next/link";
 export default function Landing() {
   const aboutMeNormal = (
       <p className="inline-block text-muted-foreground md:text-xl sm:text-sm flex-1 tracking-tighter">
-        hey 👋! i&apos;m ryan, a third year cs student and ta @ ubc, and a software engineer intern at planview working
-        on <LinkCustom href={"https://www.planview.com/ai"} label={"copilot"}/>, a multi-agent ai assistant
-        integrated into planview&apos;s software product suite!
-        i&apos;m incredibly passionate about building robust and efficient systems that make a difference,
-        solving tough problems, learning fast, and having fun along the way!
-        <br/>
-        <br/>
-        otherwise, i&apos;m also into f1, english football (liverpool supporter), sports cars, video
-        editing, mechanical keyboards (topre), and games. click my face to read more about these things!
-        <br/>
-        <br/>
-        feel free to connect, i&apos;m always down for a good chat. thanks for visiting, talk soon!
+          hey 👋! i&apos;m ryan, a third year cs student and ta @ ubc, and a software engineer intern at planview working
+          on <LinkCustom href={"https://www.planview.com/ai"} label={"copilot"}/>, a multi-agent ai assistant
+          integrated into planview&apos;s software product suite!
+          i&apos;m incredibly passionate about building robust and efficient systems that make a difference,
+          solving tough problems, learning fast, and having fun along the way!
+          <br/>
+          <br/>
+          otherwise, i&apos;m also into f1, english football (liverpool supporter), sports cars, video
+          editing, mechanical keyboards (topre), and games. <span className="text-red-500">click my face (on the right)</span> to read
+          more about the things i'm into!
+          <br/>
+          <br/>
+          feel free to connect, i&apos;m always down for a good chat. thanks for visiting, talk soon!
       </p>
   )
-  const aboutHobbies = (
-      <p className="inline-block text-muted-foreground md:text-xl sm:text-sm flex-1 tracking-tighter">
+    const aboutHobbies = (
+        <p className="inline-block text-muted-foreground md:text-xl sm:text-sm flex-1 tracking-tighter">
           more about my hobbies:
           <br/>
           <br/>
@@ -33,7 +34,7 @@ export default function Landing() {
           <br/>
           <br/>
           <span className="font-bold">football:</span> i follow the premier league, and european football in general. i
-          support liverpool (rip jota). i also follow international competitions.
+          support liverpool (rip jota ❤️). i also follow international competitions.
           <br/>
           <br/>
           <span className="font-bold">sports cars:</span> i hope to own and maintain a clean nb or nc miata in the near future. into cars in general though.
