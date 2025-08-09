@@ -17,7 +17,7 @@ export default function Landing() {
           <br/>
           <br/>
           otherwise, i&apos;m also into f1, english football (liverpool supporter), sports cars, video
-          editing, mechanical keyboards (topre), and games. <span className="text-red-500">click my face (on the right)</span> to read
+          editing, mechanical keyboards (topre), and games. <span className="text-pink-400">click my face (on the right)</span> to read
           more about the things i'm into!
           <br/>
           <br/>
