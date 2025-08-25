@@ -1,0 +1,44 @@
+{
+  "aboutMe": {
+    "normal": {
+      "intro": "hey 👋! i'm ryan, a third year cs student and ta @ ubc, and a software engineer intern at planview working on",
+      "copilotLink": {
+        "href": "https://www.planview.com/ai",
+        "label": "copilot"
+      },
+      "description": ", a multi-agent ai assistant integrated into planview's software product suite! i'm incredibly passionate about building robust and efficient systems that make a difference, solving tough problems, learning fast, and having fun along the way!",
+      "hobbiesIntro": "otherwise, i'm also into f1, english football (liverpool supporter), sports cars, video editing, mechanical keyboards (topre), and games.",
+      "clickPrompt": "click my face (on the right)",
+      "closing": "to read more about the things i'm into! feel free to connect, i'm always down for a good chat. thanks for visiting, talk soon!"
+    },
+    "hobbies": {
+      "title": "more about my hobbies:",
+      "items": [
+        {
+          "category": "f1:",
+          "description": "i love the cross section of engineering, sport, and speed. unfortunately, i support ferarri."
+        },
+        {
+          "category": "football:",
+          "description": "i follow the premier league, and european football in general. i support liverpool (rip jota ❤️). i also follow international competitions."
+        },
+        {
+          "category": "sports cars:",
+          "description": "i hope to own and maintain a clean nb or nc miata in the near future. into cars in general though."
+        },
+        {
+          "category": "video editing :",
+          "description": "vegas pro user since 2018. made montages, school projects, funny short-form videos, and more."
+        },
+        {
+          "category": "mechanical keyboards:",
+          "description": "i primarily use a realforce r3s with topre switches which i purchased from japan. i have a few other custom boards with more traditional cherry style switches, both soldered and hot-swappable."
+        },
+        {
+          "category": "games:",
+          "description": "currently enjoying valorant, peak with friends, gta v while waiting for gta vi. previously played overwatch, fortnite, minecraft, fifa, f1."
+        }
+      ]
+    }
+  }
+}
