@@ -8,9 +8,8 @@ import ReactGA from "react-ga4";
 export default function App() {
     const [isLoading, setIsLoading] = useState(false);
 
-    ReactGA.initialize("G-T7HS5MGK42");
-
     useEffect(() => {
+        ReactGA.initialize("G-T7HS5MGK42");
         window.addEventListener("load", () => {
             setIsLoading(false);
         });
