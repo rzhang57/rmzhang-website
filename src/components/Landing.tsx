@@ -8,6 +8,9 @@ import Link from "next/link";
 import contentData from "@/data/content.json";
 
 export default function Landing() {
+    const [copySuccess, setCopySuccess] = useState(false);
+    const [copyError, setCopyError] = useState(false);
+
     const aboutMeNormal = (
         <p className="inline-block text-muted-foreground md:text-xl sm:text-sm flex-1 tracking-tighter">
             {contentData.aboutMe.normal.intro}{" "}
@@ -81,12 +84,15 @@ export default function Landing() {
         const textToCopy = 'ryanzhang@outlook.com';
         navigator.clipboard.writeText(textToCopy)
             .then(() => {
-                alert('Text copied to clipboard!');
+                setCopySuccess(true);
+                setTimeout(() => setCopySuccess(false), 2000);
             })
             .catch((err) => {
                 console.error('Failed to copy text: ', err);
+                setCopyError(true);
+                setTimeout(() => setCopyError(false), 2000);
             });
-    };
+    }
 
     function handleImageClick() {
         setImageSrc((prevSrc) =>
@@ -153,7 +159,8 @@ export default function Landing() {
 
                     </section>
 
-                    <section id="about" className="flex flex-col space-y-5 w-full py-12 md:py-24 lg:py-32 xl:py-48 mb-48">
+                    <section id="about"
+                             className="flex flex-col space-y-5 w-full py-12 md:py-24 lg:py-32 xl:py-48 mb-48">
                         <div className="flex">
                             <h1 className="md:text-3xl sm:text-xl font-extrabold tracking-tighter text-left">
                                 who am i?
@@ -163,7 +170,8 @@ export default function Landing() {
                         <div className="flex justify-center">
                             <div className="grid lg:grid-cols-[3fr_1fr] sm:grid-cols-1 items-center">
                                 {imageSrc === "/statics/myface.jpg" ? aboutMeNormal : aboutHobbies}
-                                <Avatar className="md:w-48 md:h-48 sm:h-32 sm:w-32 m-auto scale-105 hover:scale-110 transition-all my-2">
+                                <Avatar
+                                    className="md:w-48 md:h-48 sm:h-32 sm:w-32 m-auto scale-105 hover:scale-110 transition-all my-2">
                                     <div onClick={handleImageClick} className={"cursor-pointer"}>
                                         <AvatarImage src={imageSrc}/>
                                     </div>
@@ -179,13 +187,16 @@ export default function Landing() {
                         <div className="grid lg:grid-cols-[1fr_1fr] sm:grid-cols-1 items-stretch gap-4">
                             <ProjectCard title={"noteblock"} date={"june 2025 - present"}
                                          technologies={["Go", "React", "SQLite", "Electron", "Docker", "Ollama"]}
-                                         description={"desktop note taking made intuitive"} githubLink={"https://github.com/rzhang57/noteblock"}/>
+                                         description={"desktop note taking made intuitive"}
+                                         githubLink={"https://github.com/rzhang57/noteblock"}/>
                             <ProjectCard title={"planview copilot"} date={"jan 2025 - present"}
                                          technologies={["React", "Java Spring Boot", "PostgreSQL", "AWS", "Docker"]}
-                                         description={"applied ai full stack engineering on the copilot team"} githubLink={"https://www.planview.com/ai/"}/>
+                                         description={"applied ai full stack engineering on the copilot team"}
+                                         githubLink={"https://www.planview.com/ai/"}/>
                             <ProjectCard title={"ride rater"} date={"jul 2024 - oct 2024"}
                                          technologies={["React", "Java Spring Boot", "PostgreSQL", "Docker"]}
-                                         description={"full stack app that allows real riders to rate rides at various amusement parks"} githubLink={"https://github.com/rzhang57/riderater"}/>
+                                         description={"full stack app that allows real riders to rate rides at various amusement parks"}
+                                         githubLink={"https://github.com/rzhang57/riderater"}/>
                             <ProjectCard title={"kumon homework grader"} date={"jun 2024 - aug 2024"}
                                          technologies={["Tensorflow", "Keras", "Flask", "React", "PostgreSQL", "OpenCV"]}
                                          description={"full-stack automated homework grading application built using opencv and keras handwriting model"}/>
@@ -209,31 +220,47 @@ export default function Landing() {
 
                     </section>
 
-                    <section id={"contact"} className="flex flex-col space-y-5 w-full py-12 md:py-24 lg:py-32 xl:py-48 mb-48">
+                    <section id={"contact"}
+                             className="flex flex-col space-y-5 w-full py-12 md:py-24 lg:py-32 xl:py-48 mb-48">
                         <div className="flex justify-center m-0">
                             <h1 className="text-3xl font-extrabold tracking-tighter">
                                 contact me
                             </h1>
                         </div>
 
-                        <div className="flex justify-center m-0">
+                        <div className="flex justify-center m-0 relative">
                             <div className="grid grid-cols-[1fr_6fr] items-center">
                                 <Avatar className="w-12 h-12">
-                                    <AvatarImage
-                                        src="/statics/pfp.png"/>
+                                    <AvatarImage src="/statics/pfp.png"/>
                                     <AvatarFallback>Me</AvatarFallback>
                                 </Avatar>
                                 <p className="inline-block text-muted-foreground md:text-lg flex-1">
                                     inquiries? email me at:
                                     <> </>
-                                    <a onClick={handleCopyClick} className={"underline tracking-tight hover:tracking-normal hover:cursor-pointer transition-all hover:text-pink-200"}>ryanzhang@outlook.com</a>
+                                    <a onClick={handleCopyClick}
+                                       className={"underline tracking-tight hover:tracking-normal hover:cursor-pointer transition-all hover:text-pink-500"}>
+                                        ryanzhang@outlook.com
+                                    </a>
+                                    {" "}or find me on linkedin!
                                 </p>
                             </div>
-                        </div>
 
+                            {copySuccess && (
+                                <div
+                                    className="absolute top-full mt-2 bg-green-300 text-gray-600 px-4 py-2 rounded-lg shadow-lg animate-in fade-in-0 slide-in-from-top-2 duration-300">
+                                    ✓ Email copied to clipboard!
+                                </div>
+                            )}
+
+                            {copyError && (
+                                <div
+                                    className="absolute top-full mt-2 bg-red-500 text-white px-4 py-2 rounded-lg shadow-lg animate-in fade-in-0 slide-in-from-top-2 duration-300">
+                                    ✗ Failed to copy email
+                                </div>
+                            )}
+                        </div>
                     </section>
                 </main>
-
             </div>
         </>
     )
