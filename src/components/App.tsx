@@ -3,10 +3,12 @@
 import Landing from "./Landing"
 import {useEffect, useState} from "react";
 import Head from "next/head";
+import ReactGA from "react-ga4";
 
 export default function App() {
     const [isLoading, setIsLoading] = useState(false);
 
+    ReactGA.initialize("G-T7HS5MGK42");
 
     useEffect(() => {
         window.addEventListener("load", () => {
