@@ -38,34 +38,35 @@ export default function About() {
   );
 
   const aboutHobbies = (
-    <div className="flex-1">
-      <div className="flex items-center justify-between mb-3">
-        <h2 className="md:text-2xl sm:text-lg font-bold tracking-tighter">
-          {contentData.aboutMe.hobbies.title}
-        </h2>
-        <Button variant="ghost" size="sm" onClick={goBackToProfessional} className="text-pink-500 hover:text-pink-600">
-          ← back
-        </Button>
+      <div className="flex-1">
+          <div className="flex gap-4 mb-3">
+              <h2 className="md:text-2xl sm:text-lg font-bold tracking-tighter">
+                  {contentData.aboutMe.hobbies.title}
+              </h2>
+              <Button variant="ghost" size="sm" onClick={goBackToProfessional}
+                      className="text-pink-500 hover:text-pink-600">
+                  ← back
+              </Button>
+          </div>
+          <div className="space-y-1">
+              {contentData.aboutMe.hobbies.items.map((item, index) => (
+                  <ExpandableCard key={index} title={item.category}>
+                      {item.description}
+                  </ExpandableCard>
+              ))}
+          </div>
       </div>
-      <div className="space-y-1">
-        {contentData.aboutMe.hobbies.items.map((item, index) => (
-          <ExpandableCard key={index} title={item.category}>
-            {item.description}
-          </ExpandableCard>
-        ))}
-      </div>
-    </div>
   );
 
-  return (
-    <>
-      <div className="flex">
-        <h1 className="md:text-3xl sm:text-xl font-extrabold tracking-tighter text-left">who am i?</h1>
-      </div>
+    return (
+        <>
+            <div className="flex">
+                <h1 className="md:text-3xl sm:text-xl font-extrabold tracking-tighter text-left">who am i?</h1>
+            </div>
 
-      <div className="flex justify-center">
-        <div className="grid lg:grid-cols-[3fr_1fr] sm:grid-cols-1 items-center gap-4 w-full">
-          {showHobbies ? aboutHobbies : aboutMeNormal}
+            <div className="flex justify-center">
+                <div className="grid lg:grid-cols-[3fr_1fr] sm:grid-cols-1 items-center gap-4 w-full">
+                    {showHobbies ? aboutHobbies : aboutMeNormal}
           <Avatar className="md:w-48 md:h-48 sm:h-32 sm:w-32 m-auto scale-105 hover:scale-110 transition-all my-2">
             <div onClick={handleImageClick} className="cursor-pointer">
               <AvatarImage src={imageSrc} />
