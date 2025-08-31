@@ -16,7 +16,7 @@ export default function Projects() {
         />
         <ProjectCard
           title={"planview copilot"}
-          date={"jan 2025 - present"}
+          date={"jan 2025 - aug 2025"}
           technologies={["React", "Java Spring Boot", "PostgreSQL", "AWS", "Docker"]}
           description={"applied ai full stack engineering on the copilot team"}
           githubLink={"https://www.planview.com/ai/"}

@@ -2,7 +2,9 @@
 
 import { useState } from "react";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
 import LinkCustom from "@/components/landing/LinkCustom";
+import ExpandableCard from "@/components/landing/ExpandableCard";
 import contentData from "@/data/content.json";
 
 export default function About() {
@@ -13,6 +15,10 @@ export default function About() {
     setImageSrc((prevSrc) =>
       prevSrc === "/statics/myface.jpg" ? "/statics/otherimage.png" : "/statics/myface.jpg"
     );
+  }
+
+  function goBackToProfessional() {
+    setImageSrc("/statics/myface.jpg");
   }
 
   const aboutMeNormal = (
@@ -32,22 +38,23 @@ export default function About() {
   );
 
   const aboutHobbies = (
-    <p className="inline-block text-muted-foreground md:text-xl sm:text-sm flex-1 tracking-tighter">
-      {contentData.aboutMe.hobbies.title}
-      <br />
-      <br />
-      {contentData.aboutMe.hobbies.items.map((item, index) => (
-        <span key={index}>
-          <span className="font-bold">{item.category}</span> {item.description}
-          {index < contentData.aboutMe.hobbies.items.length - 1 && (
-            <>
-              <br />
-              <br />
-            </>
-          )}
-        </span>
-      ))}
-    </p>
+    <div className="flex-1">
+      <div className="flex items-center justify-between mb-3">
+        <h2 className="md:text-2xl sm:text-lg font-bold tracking-tighter">
+          {contentData.aboutMe.hobbies.title}
+        </h2>
+        <Button variant="ghost" size="sm" onClick={goBackToProfessional} className="text-pink-500 hover:text-pink-600">
+          ← back
+        </Button>
+      </div>
+      <div className="space-y-1">
+        {contentData.aboutMe.hobbies.items.map((item, index) => (
+          <ExpandableCard key={index} title={item.category}>
+            {item.description}
+          </ExpandableCard>
+        ))}
+      </div>
+    </div>
   );
 
   return (
@@ -57,7 +64,7 @@ export default function About() {
       </div>
 
       <div className="flex justify-center">
-        <div className="grid lg:grid-cols-[3fr_1fr] sm:grid-cols-1 items-center">
+        <div className="grid lg:grid-cols-[3fr_1fr] sm:grid-cols-1 items-center gap-4 w-full">
           {showHobbies ? aboutHobbies : aboutMeNormal}
           <Avatar className="md:w-48 md:h-48 sm:h-32 sm:w-32 m-auto scale-105 hover:scale-110 transition-all my-2">
             <div onClick={handleImageClick} className="cursor-pointer">

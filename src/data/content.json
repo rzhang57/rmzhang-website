@@ -12,31 +12,35 @@
       "closing": "to read more about the things i'm into! feel free to connect, i'm always down for a good chat. thanks for visiting, talk soon!"
     },
     "hobbies": {
-      "title": "more about my hobbies:",
+      "title": "more about my hobbies outside of programming:",
       "items": [
         {
-          "category": "f1:",
+          "category": "formula 1",
           "description": "i love the cross section of engineering, sport, and speed. unfortunately, i support ferarri."
         },
         {
-          "category": "football:",
-          "description": "i follow the premier league, and european football in general. i support liverpool (rip jota ❤️). i also follow international competitions."
+          "category": "football",
+          "description": "i primarily follow the premier league and european football, though i also keep up with international games and the mls. i support liverpool (rip jota ❤️)."
         },
         {
-          "category": "sports cars:",
-          "description": "i hope to own and maintain a clean nb or nc miata in the near future. into cars in general though."
+          "category": "sports cars",
+          "description": "i hope to own and maintain a clean nb or nc miata in the near future. into any cars that are cool."
         },
         {
-          "category": "video editing :",
+          "category": "video editing",
           "description": "vegas pro user since 2018. made montages, school projects, funny short-form videos, and more."
         },
         {
-          "category": "mechanical keyboards:",
-          "description": "i primarily use a realforce r3s with topre switches which i purchased from japan. i have a few other custom boards with more traditional cherry style switches, both soldered and hot-swappable."
+          "category": "mechanical keyboards",
+          "description": "i primarily use a realforce r3s (45g topre) which i got when i was visiting japan in 2025. i have a few other custom boards with more traditional cherry style switches, both soldered and hot-swappable."
         },
         {
-          "category": "games:",
+          "category": "games",
           "description": "currently enjoying valorant, peak with friends, gta v while waiting for gta vi. previously played overwatch, fortnite, minecraft, fifa, f1."
+        },
+        {
+          "category": "pokemon",
+          "description": "girlfriend got me back back into pokemon tcg. collection isn't great but i have a few cool cards. also used to play a lot of pokemon go."
         }
       ]
     }
