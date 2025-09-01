@@ -39,7 +39,7 @@ export default function Contact() {
             <a
               onClick={handleCopyClick}
               className={
-                "underline tracking-tight hover:tracking-normal hover:cursor-pointer transition-all hover:text-pink-500"
+                "underline tracking-tight hover:tracking-normal hover:cursor-pointer transition-all text-foreground hover:underline"
               }
             >
               ryanzhang@outlook.com
@@ -49,13 +49,13 @@ export default function Contact() {
         </div>
 
         {copySuccess && (
-          <div className="absolute top-full mt-2 bg-green-300 text-gray-600 px-4 py-2 rounded-lg shadow-lg animate-in fade-in-0 slide-in-from-top-2 duration-300">
+          <div className="absolute top-full mt-2 bg-neutral-200 text-neutral-700 px-4 py-2 rounded-lg shadow-lg animate-in fade-in-0 slide-in-from-top-2 duration-300">
             ✓ Email copied to clipboard!
           </div>
         )}
 
         {copyError && (
-          <div className="absolute top-full mt-2 bg-red-500 text-white px-4 py-2 rounded-lg shadow-lg animate-in fade-in-0 slide-in-from-top-2 duration-300">
+          <div className="absolute top-full mt-2 bg-neutral-900 text-white px-4 py-2 rounded-lg shadow-lg animate-in fade-in-0 slide-in-from-top-2 duration-300">
             ✗ Failed to copy email
           </div>
         )}
@@ -63,4 +63,3 @@ export default function Contact() {
     </>
   );
 }
-
