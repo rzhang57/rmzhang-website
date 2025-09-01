@@ -32,7 +32,9 @@ export default function About() {
       <br />
       <br />
       {contentData.aboutMe.normal.hobbiesIntro}{" "}
-      <span className="text-pink-400">{contentData.aboutMe.normal.clickPrompt}</span>{" "}
+      <span className="text-foreground underline underline-offset-4">
+        {contentData.aboutMe.normal.clickPrompt}
+      </span>{" "}
       {contentData.aboutMe.normal.closing}
     </p>
   );
@@ -44,7 +46,7 @@ export default function About() {
                   {contentData.aboutMe.hobbies.title}
               </h2>
               <Button variant="ghost" size="sm" onClick={goBackToProfessional}
-                      className="text-pink-500 hover:text-pink-600">
+                      className="text-foreground hover:underline underline-offset-4">
                   ← back
               </Button>
           </div>

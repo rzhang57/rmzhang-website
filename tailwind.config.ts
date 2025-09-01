@@ -48,9 +48,9 @@ const config: Config = {
 
             // Adding border radius customizations
             borderRadius: {
-                lg: "var(--radius)",
-                md: "calc(var(--radius) - 2px)",
-                sm: "calc(var(--radius) - 4px)",
+                lg: "max(0px, var(--radius))",
+                md: "max(0px, calc(var(--radius) - 2px))",
+                sm: "max(0px, calc(var(--radius) - 4px))",
             },
 
             // Adding custom keyframes for animations

@@ -19,7 +19,7 @@ export default function Hero() {
         <Link
           href="https://www.planview.com/"
           target="_blank"
-          className="inline-block transition-all duration-100 font-bold bg-gradient-to-r from-pink-400 to-pink-600 bg-clip-text text-transparent hover:brightness-125 hover:cursor-pointer px-1 pl-0"
+          className="inline-block transition-all duration-100 font-bold text-foreground underline-offset-4 hover:underline px-1 pl-0"
         >
           planview
         </Link>
