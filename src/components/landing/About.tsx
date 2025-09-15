@@ -112,7 +112,7 @@ export default function About() {
             </div>
 
             <div
-                className="relative flex w-fit mx-auto items-center justify-center rounded-full border border-border bg-muted/50 p-1">
+                className="relative flex w-fit items-center justify-start rounded-full border border-border bg-muted/50 p-1 ml-0">
                 {tabs.map((tab) => (
                     <button
                         key={tab.id}
