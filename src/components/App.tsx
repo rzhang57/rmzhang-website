@@ -25,9 +25,8 @@ export default function App() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             {isLoading ? (
-                // TODO: make loading screen nicer than just ...
                 <div className="flex items-center justify-center min-h-screen bg-gray-50">
-                    ...
+                    <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-b-4 border-gray-900"></div>
                 </div>
             ) : (
                 <Landing />
