@@ -1,13 +1,13 @@
 {
   "aboutMe": {
     "normal": {
-      "intro": "hey 👋! i'm ryan, a third year cs student studying at ubc, previously also a ta @ ubc cs and software engineer intern at planview working on",
+      "intro": "hey 👋! i'm ryan, a third year cs student studying at ubc. i was previously also a ta @ ubc cs and a software engineer intern at planview working on",
       "copilotLink": {
         "href": "https://www.planview.com/ai",
-        "label": "copilot"
+        "label": "copilot (now known as planview anvi)"
       },
-      "description": ", a multi-agent ai assistant integrated into planview's software product suite! i'm also currently building noteblock, a desktop note-taking app that focuses on a seamless offline/online block-based note taking experience with on-device AI features and cloud syncing. i'm incredibly passionate about building robust and efficient systems that make a difference, solving tough problems, learning fast, and having fun along the way! i take particular interest in applied AI/ML, backend engineering, data engineering, distributed systems, and infrastructure.",
-      "hobbiesIntro": "otherwise, i'm also into f1, english football (liverpool supporter), sports cars, video editing, mechanical keyboards (topre), and games.",
+      "description": ", a multi-agent ai assistant integrated into planview's product/project management software suite! i'm currently building noteblock, a desktop note-taking app that focuses on a seamless offline/online block-based note taking experience with on-device AI features and cloud content syncing. i'm incredibly passionate about building robust and efficient systems that make a difference, solving tough problems, learning fast, and having fun along the way! i take particular interest in applied AI/ML, backend engineering, data engineering, distributed systems, and infrastructure.",
+      "hobbiesIntro": "otherwise, i'm also into f1, english football (liverpool supporter), sports cars, video editing, mechanical keyboards, and games.",
       "clickPrompt": "dive deep",
       "closing": "to read more about the things i'm into! feel free to connect, i'm always down for a good chat. thanks for visiting, talk soon!"
     },
