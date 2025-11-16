@@ -9,7 +9,7 @@ import Contact from "@/components/landing/Contact";
 export default function Landing() {
     return (
         <>
-            <div id={"home"} className="flex flex-col min-h-[100dvh] justify-center mx-auto items-center dynbg">
+            <div id={"home"} className="flex flex-col min-h-[100dvh] justify-center mx-auto items-center dynbg pt-24">
                 <Header/>
 
                 <main className="flex-col space-y-96 mx-auto w-full px-6 items-center max-w-5xl">
@@ -25,12 +25,11 @@ export default function Landing() {
                     <section id="projects" className="flex flex-col space-y-5 w-full py-12 md:py-24 lg:py-32 xl:py-48">
                         <Projects/>
                     </section>
-
-                    <section id={"contact"}
-                             className="flex flex-col space-y-5 w-full py-12 md:py-24 lg:py-32 xl:py-48 mb-48">
-                        <Contact/>
-                    </section>
                 </main>
+                <section id={"contact"}
+                         className="flex flex-col space-y-5 w-full mb-48">
+                    <Contact/>
+                </section>
             </div>
         </>
     )
