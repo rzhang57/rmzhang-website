@@ -14,7 +14,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "ryan zhang - developer",
+  title: "about ryan zhang",
   description: "cs student and developer at ubc",
   openGraph: {
     images: [
