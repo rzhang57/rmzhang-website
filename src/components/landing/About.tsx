@@ -3,18 +3,18 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
-import LinkCustom from "@/components/landing/LinkCustom";
 import ExpandableCard from "@/components/landing/ExpandableCard";
 import contentData from "@/data/content.json";
 
+type ActiveView = "overview" | "work" | "hobbies";
+
 export default function About() {
-    const [activeView, setActiveView] = useState<"overview" | "hobbies">(
-        "overview"
-    );
+    const [activeView, setActiveView] = useState<ActiveView>("overview");
+    const [activeHobby, setActiveHobby] = useState(0);
 
     const imageSrc =
         activeView === "overview"
-            ? "/statics/myface.jpg"
+            ? "/statics/potential.jpg"
             : "/statics/otherimage.png";
 
     function handleAvatarClick() {
@@ -27,7 +27,7 @@ export default function About() {
         exit: { opacity: 0, y: -20 },
     };
 
-    const aboutMeNormal = (
+    const overviewContent = (
         <motion.div
             key="overview"
             initial="hidden"
@@ -37,25 +37,51 @@ export default function About() {
             transition={{ duration: 0.3 }}
         >
             <p className="text-muted-foreground md:text-xl sm:text-sm tracking-tighter">
-                {contentData.aboutMe.normal.intro}{" "}
-                <LinkCustom
-                    href={contentData.aboutMe.normal.copilotLink.href}
-                    label={contentData.aboutMe.normal.copilotLink.label}
-                />
-                {contentData.aboutMe.normal.description}
-                <br />
-                <br />
-                {contentData.aboutMe.normal.hobbiesIntro}{" "}
+                {contentData.aboutMe.overview.intro}
                 <span
-                    className="text-pink-400 cursor-pointer relative"
-                    onClick={() => setActiveView("hobbies")}
+                    className="text-[#6ca1ff] cursor-pointer relative"
+                    onClick={() => setActiveView("work")}
                 >
-                    <span className="hover-underline">{contentData.aboutMe.normal.clickPrompt}</span>
+                    <span className="hover-underline">{contentData.aboutMe.overview.workClickPrompt}</span>
                     <style jsx>{`
                         .hover-underline {
                             position: relative;
                             display: inline-block;
                         }
+
+                        .hover-underline::after {
+                            content: "";
+                            position: absolute;
+                            left: 0;
+                            bottom: 0;
+                            width: 0;
+                            height: 2px;
+                            background: #6ca1ff;
+                            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                        }
+
+                        .hover-underline:hover::after {
+                            width: 100%;
+                        }
+                    `}</style>
+                </span>{". "}
+                <br/>
+                <br/>
+                {contentData.aboutMe.overview.interests}{" "}
+                <br/>
+                <br/>
+                {contentData.aboutMe.overview.hobbiesIntro}{" "}
+                <span
+                    className="text-pink-400 cursor-pointer relative"
+                    onClick={() => setActiveView("hobbies")}
+                >
+                    <span className="hover-underline">{contentData.aboutMe.overview.clickPrompt}</span>
+                    <style jsx>{`
+                        .hover-underline {
+                            position: relative;
+                            display: inline-block;
+                        }
+
                         .hover-underline::after {
                             content: "";
                             position: absolute;
@@ -64,19 +90,51 @@ export default function About() {
                             width: 0;
                             height: 2px;
                             background: #ec4899;
-                            transition: width 0.4s cubic-bezier(0.4,0,0.2,1);
+                            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
                         }
+
                         .hover-underline:hover::after {
                             width: 100%;
                         }
                     `}</style>
-                </span>{" "}
-                {contentData.aboutMe.normal.closing}
+                </span>
+                {contentData.aboutMe.overview.closing}
             </p>
         </motion.div>
     );
 
-    const aboutHobbies = (
+    const workContent = (
+        <motion.div
+            key="work"
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            variants={contentVariants}
+            transition={{ duration: 0.3 }}
+        >
+            <h2 className="md:text-2xl sm:text-lg font-bold tracking-tighter mb-3">
+                {contentData.aboutMe.work.title}
+            </h2>
+            <div className="space-y-4 text-muted-foreground md:text-xl sm:text-sm tracking-tighter">
+                {contentData.aboutMe.work.experiences.map((exp, index) => (
+                    <div key={index}>
+                        <h3 className="text-foreground font-medium"><span
+                            className="font-bold text-[#6ca1ff] italic">{exp.company} {'>'} </span> {exp.role}</h3>
+                        <p className="font-light">{exp.overview}</p>
+                        <ExpandableCard title={<span className="text-sm italic text-muted-foreground/80">more details</span>}>
+                            <ul className="list-disc list-inside mt-2 pl-2 space-y-1 text-muted-foreground text-base">
+                                {exp.description.map((point, i) => (
+                                    <li key={i}>{point}</li>
+                                ))}
+                            </ul>
+                        </ExpandableCard>
+                    </div>
+                ))}
+            </div>
+        </motion.div>
+    );
+
+    const hobbiesContent = (
         <motion.div
             key="hobbies"
             initial="hidden"
@@ -85,23 +143,59 @@ export default function About() {
             variants={contentVariants}
             transition={{ duration: 0.3 }}
         >
-            <h2 className="md:text-2xl sm:text-lg font-bold tracking-tighter mb-3">
+            <h2 className="md:text-2xl sm:text-lg font-bold tracking-tighter mb-4">
                 {contentData.aboutMe.hobbies.title}
             </h2>
-            <div className="space-y-1">
-                {contentData.aboutMe.hobbies.items.map((item, index) => (
-                    <ExpandableCard key={index} title={item.category}>
-                        {item.description}
-                    </ExpandableCard>
-                ))}
+            <div className="grid md:grid-cols-[200px_1fr] sm:grid-cols-1 gap-6">
+                <div className="space-y-1 bg-muted/30 rounded-lg p-4">
+                    {contentData.aboutMe.hobbies.items.map((item, index) => (
+                        <button
+                            key={index}
+                            onClick={() => setActiveHobby(index)}
+                            className={`w-full text-left px-4 py-2.5 rounded-lg transition-all text-sm ${
+                                activeHobby === index
+                                    ? "bg-gray-200 text-[#ec4899] font-semibold shadow-[0_6px_0_0_rgba(236,72,153,0.3)] translate-y-[-2px]"
+                                    : "text-muted-foreground font-medium hover:bg-muted/50 hover:shadow-[0_4px_0_0_rgba(0,0,0,0.1)] hover:translate-y-[-1px]"
+                            }`}
+                        >
+                            {item.category}
+                        </button>
+                    ))}
+                </div>
+                <div className="bg-muted/30 rounded-lg p-6 min-h-[200px] flex items-start">
+                    <AnimatePresence mode="wait">
+                        <motion.div
+                            key={activeHobby}
+                            initial={{ opacity: 0, x: 20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: -20 }}
+                            transition={{ duration: 0.2 }}
+                            className="w-full"
+                        >
+                            <h3 className="text-lg font-semibold text-[#ec4899] mb-3">
+                                {contentData.aboutMe.hobbies.items[activeHobby].category}
+                            </h3>
+                            <p className="text-muted-foreground md:text-base sm:text-sm leading-relaxed">
+                                {contentData.aboutMe.hobbies.items[activeHobby].description}
+                            </p>
+                        </motion.div>
+                    </AnimatePresence>
+                </div>
             </div>
         </motion.div>
     );
 
     const tabs = [
-        { id: "overview", label: "Overview" },
-        { id: "hobbies", label: "Deep dive" },
+        { id: "overview", label: "overview" },
+        { id: "work", label: "my work" },
+        { id: "hobbies", label: "my hobbies" },
     ];
+
+    const tabColors: Record<ActiveView, string> = {
+        overview: "#ff91c1",
+        work: "#6ca1ff",
+        hobbies: "#ff3189",
+    };
 
     return (
         <>
@@ -116,7 +210,7 @@ export default function About() {
                 {tabs.map((tab) => (
                     <button
                         key={tab.id}
-                        onClick={() => setActiveView(tab.id as "overview" | "hobbies")}
+                        onClick={() => setActiveView(tab.id as ActiveView)}
                         className={`relative rounded-full h-8 px-4 transition-colors text-sm font-medium ${
                             activeView === tab.id ? "" : "hover:text-primary"
                         }`}
@@ -129,10 +223,7 @@ export default function About() {
                                 layoutId="bubble"
                                 className="absolute inset-0 z-10 rounded-full"
                                 style={{
-                                    backgroundColor:
-                                        activeView === "overview"
-                                            ? "#ff91c1"
-                                            : "#ff3189",
+                                    backgroundColor: tabColors[activeView],
                                 }}
                                 transition={{type: "spring", bounce: 0.2, duration: 0.6}}
                             />
@@ -144,8 +235,8 @@ export default function About() {
                                     : "text-muted-foreground"
                             }`}
                         >
-              {tab.label}
-            </span>
+                            {tab.label}
+                        </span>
                     </button>
                 ))}
             </div>
@@ -153,7 +244,9 @@ export default function About() {
             <div className="grid lg:grid-cols-[3fr_1fr] sm:grid-cols-1 items-start gap-8 w-full mt-4">
                 <div className="min-h-[250px]">
                     <AnimatePresence mode="wait">
-                        {activeView === "overview" ? aboutMeNormal : aboutHobbies}
+                        {activeView === "overview" && overviewContent}
+                        {activeView === "work" && workContent}
+                        {activeView === "hobbies" && hobbiesContent}
                     </AnimatePresence>
                 </div>
                 <div className="flex justify-center items-start">

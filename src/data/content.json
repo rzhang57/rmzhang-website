@@ -1,18 +1,43 @@
 {
   "aboutMe": {
-    "normal": {
-      "intro": "hey 👋! i'm ryan, a third year cs student studying at ubc. i was previously also a ta @ ubc cs and a software engineer intern at planview working on",
-      "copilotLink": {
-        "href": "https://www.planview.com/ai",
-        "label": "copilot"
-      },
-      "description": " (now known as planview anvi), a multi-agent ai assistant integrated into planview's product/project management software suite! i'm currently building noteblock, a desktop note-taking app that focuses on a seamless offline/online block-based note taking experience with on-device AI features and cloud content syncing. i'm incredibly passionate about building robust and efficient systems that make a difference, solving tough problems, learning fast, and having fun along the way! i take particular interest in applied AI/ML, backend engineering, data engineering, distributed systems, and infrastructure.",
-      "hobbiesIntro": "otherwise, i'm also into f1, english football (liverpool supporter), sports cars, video editing, mechanical keyboards, and games.",
-      "clickPrompt": "dive deep",
-      "closing": "to read more about the things i'm into! feel free to connect, i'm always down for a good chat. thanks for visiting, talk soon!"
+    "overview": {
+      "intro": "third year cs student at ubc. previously a software engineer intern at planview working on copilot/ anvi. learn more @ ",
+      "workClickPrompt": "work",
+      "interests": "interested in applied AI/ML, backend engineering, data engineering, distributed systems, and infra.",
+      "hobbiesIntro": "also into f1, english football, sports cars, video editing, mechanical keyboards, games and more. learn more @ ",
+      "clickPrompt": "hobbies",
+      "closing": ". always down for a good chat so feel free to connect. thanks for visiting, talk soon!"
+    },
+    "work": {
+      "title": "work",
+      "experiences": [
+        {
+          "role": "software engineer intern",
+          "company": "planview",
+          "overview": "full stack engineering alongside a team of 7 for copilot/ anvi, an integrated multi-agent ai assistant and automation platform embedded into planview's work management software suite",
+          "description": [
+            "led e2e development of 'workflows', a multi-step action and workflow automation framework for all planview apps provided through copilot, with an implementation focus on the backend asynchronous execution engine, API, and agentic email client",
+            "led e2e development of prompt and workflow template library, increasing user adoption of saved prompts and workflows",
+            "designed mcp server integration registry for hybrid tool calling client, increasing quality and accuracy of answers while maintaining backwards compatibility with non-mcp tools",
+            "developed system prompt injection pipeline api for response personalization, increasing per-user customizability",
+            "developed e2e follow up prompt generation pipeline, increasing per-session user interactions and overall retention",
+            "led migration of unobfuscated logs to independent secure logging pipeline pushed to cloudwatch via fluent bit daemonset to remain compliant with data retention policy while maintaining full observability"
+          ]
+        },
+        {
+          "role": "teaching assistant",
+          "company": "ubc",
+          "overview": "ta for cpsc 110, ubc's intro course to computer science through functional programming",
+          "description": [
+            "led labs for 600+ total cpsc 110 students",
+            "held office hours to support students in their understanding of algorithms and data structures",
+            "given an overall 90% favorable rating by students on the metrics of helpfulness and clear communication"
+          ]
+        }
+      ]
     },
     "hobbies": {
-      "title": "deep dive into my hobbies outside of programming:",
+      "title": "hobbies",
       "items": [
         {
           "category": "formula 1",

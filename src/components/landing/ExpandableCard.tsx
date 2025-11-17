@@ -2,54 +2,35 @@
 
 import * as React from "react";
 import { cn } from "@/lib/utils";
+import {ReactNode} from "react";
 
 export default function ExpandableCard({
                                            title,
                                            children,
                                            defaultOpen = false,
                                        }: {
-    title: string;
-    children: React.ReactNode;
+    title: string | ReactNode;
+    children: ReactNode;
     defaultOpen?: boolean;
 }) {
     const [open, setOpen] = React.useState(defaultOpen);
     const panelRef = React.useRef<HTMLDivElement>(null);
-
-    React.useLayoutEffect(() => {
-        const el = panelRef.current;
-        if (!el) return;
-        el.style.height = open ? "auto" : "0px";
-    }, []);
 
     React.useEffect(() => {
         const el = panelRef.current;
         if (!el) return;
 
         if (open) {
-            const target = el.scrollHeight;
-            el.style.height = `${target}px`;
-            const onEnd = () => {
-                if (open) el.style.height = "auto";
-                el.removeEventListener("transitionend", onEnd);
-            };
-            el.addEventListener("transitionend", onEnd);
-        } else {
-            const current = el.scrollHeight;
-            el.style.height = `${current}px`;
-            void el.offsetHeight;
             el.style.height = "0px";
+            requestAnimationFrame(() => {
+                el.style.height = `${el.scrollHeight}px`;
+            });
+        } else {
+            el.style.height = `${el.scrollHeight}px`;
+            requestAnimationFrame(() => {
+                el.style.height = "0px";
+            });
         }
-    }, [open]);
-
-    React.useEffect(() => {
-        const el = panelRef.current;
-        if (!el || !open) return;
-        const ro = new ResizeObserver(() => {
-            if (!el) return;
-            if (el.style.height !== "auto") return;
-        });
-        ro.observe(el);
-        return () => ro.disconnect();
     }, [open]);
 
     return (
@@ -75,6 +56,7 @@ export default function ExpandableCard({
             <div
                 ref={panelRef}
                 className="transition-[height] duration-300 ease-out overflow-clip will-change-[height]"
+                style={{ height: open ? undefined : "0px" }}
                 aria-hidden={!open}
             >
                 <div className="py-3 text-sm text-muted-foreground">
