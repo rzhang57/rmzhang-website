@@ -22,12 +22,11 @@ export default function Landing() {
                         <About/>
                     </section>
 
-                    <section id="projects" className="flex flex-col space-y-5 w-full py-12 md:py-24 lg:py-32 xl:py-48">
+                    <section id="projects" className="flex flex-col space-y-5 w-full pt-12 md:pt-24 lg:pt-32 xl:pt-48 pb-10">
                         <Projects/>
                     </section>
                 </main>
-                <section id={"contact"}
-                         className="flex flex-col space-y-5 w-full mb-48">
+                <section id="contact" className="flex flex-col space-y-5 w-full px-6 mb-48 mx-auto max-w-5xl">
                     <Contact/>
                 </section>
             </div>

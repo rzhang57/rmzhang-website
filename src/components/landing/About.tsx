@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import ExpandableCard from "@/components/landing/ExpandableCard";
 import contentData from "@/data/content.json";
+import GlassCard from "@/components/ui/GlassCard";
 
 type ActiveView = "overview" | "work" | "hobbies";
 
@@ -198,13 +199,12 @@ export default function About() {
     };
 
     return (
-        <>
+        <GlassCard>
             <div className="flex justify-between items-center mb-4">
                 <h1 className="md:text-3xl sm:text-xl font-extrabold tracking-tighter">
                     who am i?
                 </h1>
             </div>
-
             <div
                 className="relative flex w-fit items-center justify-start rounded-full border border-border bg-muted/50 p-1 ml-0">
                 {tabs.map((tab) => (
@@ -243,11 +243,20 @@ export default function About() {
 
             <div className="grid lg:grid-cols-[3fr_1fr] sm:grid-cols-1 items-start gap-8 w-full mt-4">
                 <div className="min-h-[250px]">
-                    <AnimatePresence mode="wait">
-                        {activeView === "overview" && overviewContent}
-                        {activeView === "work" && workContent}
-                        {activeView === "hobbies" && hobbiesContent}
-                    </AnimatePresence>
+                    <motion.div
+                        key={activeView}
+                        initial={{opacity: 0}}
+                        animate={{opacity: 1}}
+                        exit={{opacity: 0}}
+                        transition={{duration: 0.3}}
+                        style={{overflow: "hidden"}}
+                    >
+                        <AnimatePresence mode="wait">
+                            {activeView === "overview" && overviewContent}
+                            {activeView === "work" && workContent}
+                            {activeView === "hobbies" && hobbiesContent}
+                        </AnimatePresence>
+                    </motion.div>
                 </div>
                 <div className="flex justify-center items-start">
                     <div onClick={handleAvatarClick} className="cursor-pointer">
@@ -274,6 +283,6 @@ export default function About() {
                     </div>
                 </div>
             </div>
-        </>
+        </GlassCard>
     );
 }

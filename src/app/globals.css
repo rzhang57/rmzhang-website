@@ -85,6 +85,11 @@ html {
   }
 }
 
+@keyframes shimmer {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(200%); }
+}
+
 .dynbg {
   background: linear-gradient(-45deg, #faece3, #fae3f6, #e3f0fa, white, white);
   background-size: 300% 300%;
