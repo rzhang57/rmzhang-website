@@ -1,4 +1,3 @@
-// src/components/CustomCursor.tsx
 "use client";
 
 import { useEffect, useState, useRef } from "react";
@@ -16,6 +15,7 @@ const CustomCursor = () => {
     });
     const [isHovering, setIsHovering] = useState(false);
     const [isVisible, setIsVisible] = useState(false);
+    const [isInIframe, setIsInIframe] = useState(false);
     const animationFrameRef = useRef<number>();
 
     useEffect(() => {
@@ -39,6 +39,16 @@ const CustomCursor = () => {
         interactiveElements.forEach((el) => {
             el.addEventListener("mouseenter", handleElementMouseEnter);
             el.addEventListener("mouseleave", handleElementMouseLeave);
+        });
+
+        const checkIframeClass = () => {
+            setIsInIframe(document.body.classList.contains('hide-custom-cursor'));
+        };
+
+        const observer = new MutationObserver(checkIframeClass);
+        observer.observe(document.body, {
+            attributes: true,
+            attributeFilter: ['class']
         });
 
         const animate = () => {
@@ -76,6 +86,7 @@ const CustomCursor = () => {
                 el.removeEventListener("mouseenter", handleElementMouseEnter);
                 el.removeEventListener("mouseleave", handleElementMouseLeave);
             });
+            observer.disconnect();
             if (animationFrameRef.current) {
                 cancelAnimationFrame(animationFrameRef.current);
             }
@@ -91,7 +102,7 @@ const CustomCursor = () => {
                     width: "8px",
                     height: "8px",
                     backgroundColor: "rgba(128, 128, 128, 0.2)",
-                    opacity: isVisible ? 1 : 0,
+                    opacity: (isVisible && !isInIframe) ? 1 : 0,
                     transition: "opacity 0.2s",
                 }}
             />
@@ -104,7 +115,7 @@ const CustomCursor = () => {
                     backgroundColor: "rgba(128, 128, 128, 0.3)",
                     backdropFilter: "grayscale(100%) invert(100%)",
                     WebkitBackdropFilter: "grayscale(100%) invert(100%)",
-                    opacity: isVisible ? 1 : 0,
+                    opacity: (isVisible && !isInIframe) ? 1 : 0,
                     transition: "width 0.6s, height 0.7s, opacity 0.2s",
                 }}
             />

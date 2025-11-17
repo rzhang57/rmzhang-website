@@ -6,15 +6,16 @@ import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import ExpandableCard from "@/components/landing/ExpandableCard";
 import contentData from "@/data/content.json";
 import GlassCard from "@/components/ui/GlassCard";
+import SpotifySection from "@/components/landing/SpotifySection";
 
-type ActiveView = "overview" | "work" | "hobbies";
+type ActiveView = "overview" | "work" | "hobbies" | "music";
 
 export default function About() {
     const [activeView, setActiveView] = useState<ActiveView>("overview");
     const [activeHobby, setActiveHobby] = useState(0);
 
     const imageSrc =
-        activeView === "overview"
+        activeView === "overview" || activeView === "work"
             ? "/statics/potential.jpg"
             : "/statics/otherimage.png";
 
@@ -190,12 +191,14 @@ export default function About() {
         { id: "overview", label: "overview" },
         { id: "work", label: "my work" },
         { id: "hobbies", label: "my hobbies" },
+        { id: "music", label: "on repeat" },
     ];
 
     const tabColors: Record<ActiveView, string> = {
         overview: "#ff91c1",
         work: "#6ca1ff",
         hobbies: "#ff3189",
+        music: "#1db954",
     };
 
     return (
@@ -255,6 +258,7 @@ export default function About() {
                             {activeView === "overview" && overviewContent}
                             {activeView === "work" && workContent}
                             {activeView === "hobbies" && hobbiesContent}
+                            {activeView === "music" && <SpotifySection />}
                         </AnimatePresence>
                     </motion.div>
                 </div>
