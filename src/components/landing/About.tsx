@@ -204,17 +204,17 @@ export default function About() {
     return (
         <GlassCard>
             <div className="flex justify-between items-center mb-4">
-                <h1 className="md:text-3xl sm:text-xl font-extrabold tracking-tighter">
+                <h1 className="text-3xl font-extrabold tracking-tighter">
                     who am i?
                 </h1>
             </div>
             <div
-                className="relative flex w-fit items-center justify-start rounded-full border border-border bg-muted/50 p-1 ml-0">
+                className="relative flex w-fit items-center justify-start rounded-full border border-border bg-muted/50 p-1 ml-0 overflow-x-auto">
                 {tabs.map((tab) => (
                     <button
                         key={tab.id}
                         onClick={() => setActiveView(tab.id as ActiveView)}
-                        className={`relative rounded-full h-8 px-4 transition-colors text-sm font-medium ${
+                        className={`relative rounded-full h-8 px-2 md:px-4 transition-colors text-xs md:text-sm font-medium whitespace-nowrap ${
                             activeView === tab.id ? "" : "hover:text-primary"
                         }`}
                         style={{
@@ -238,8 +238,8 @@ export default function About() {
                                     : "text-muted-foreground"
                             }`}
                         >
-                            {tab.label}
-                        </span>
+                {tab.label}
+            </span>
                     </button>
                 ))}
             </div>
@@ -258,7 +258,7 @@ export default function About() {
                             {activeView === "overview" && overviewContent}
                             {activeView === "work" && workContent}
                             {activeView === "hobbies" && hobbiesContent}
-                            {activeView === "music" && <SpotifySection />}
+                            {activeView === "music" && <SpotifySection/>}
                         </AnimatePresence>
                     </motion.div>
                 </div>
@@ -279,7 +279,7 @@ export default function About() {
                                     transition: {type: "spring", stiffness: 300, damping: 30}
                                 }}
                             >
-                                <Avatar className="md:w-48 md:h-48 sm:h-32 sm:w-32">
+                                <Avatar className="w-36 h-36 md:w-48 md:h-48">
                                     <AvatarImage src={imageSrc}/>
                                 </Avatar>
                             </motion.div>

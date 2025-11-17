@@ -62,8 +62,14 @@
 @layer base {
   * {
     @apply border-border;
-    cursor: none !important;
   }
+
+  @media (min-width: 768px) {
+    * {
+      cursor: none !important;
+    }
+  }
+
   body {
     @apply bg-background text-foreground;
   }

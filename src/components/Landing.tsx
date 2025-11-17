@@ -10,7 +10,7 @@ export default function Landing() {
     return (
         <>
             <div id={"home"} className="flex flex-col min-h-[100dvh] justify-center mx-auto items-center dynbg pt-24">
-                <Header/>
+                <div className="hidden xl:block"><Header/></div>
 
                 <main className="flex-col space-y-96 mx-auto w-full px-6 items-center max-w-5xl">
                     <section className="w-full py-12 sm:py-0 md:py-24 lg:py-32 xl:py-48 mb-96">
@@ -18,14 +18,15 @@ export default function Landing() {
                     </section>
                 </main>
                 <section id="about"
-                         className="flex flex-col space-y-5 w-full pt-10 md:pt-12 lg:pt-16 xl:pt-24 max-w-5xl">
+                         className="flex flex-col space-y-5 w-full pt-10 md:pt-12 lg:pt-16 xl:pt-24 max-w-5xl px-6">
                     <About/>
                 </section>
                 <section id="projects"
-                         className="flex flex-col space-y-5 w-full pt-10 md:pt-12 lg:pt-16 xl:pt-24 mx-auto max-w-5xl">
+                         className="flex flex-col space-y-5 w-full pt-10 md:pt-12 lg:pt-16 xl:pt-24 mx-auto max-w-5xl px-6">
                     <Projects/>
                 </section>
-                <section id="contact" className="flex flex-col space-y-5 w-full pt-10 md:pt-12 lg:pt-16 xl:pt-24 mb-96 mx-auto max-w-5xl">
+                <section id="contact"
+                         className="flex flex-col space-y-5 w-full pt-10 md:pt-12 lg:pt-16 xl:pt-24 mb-96 mx-auto max-w-5xl px-6">
                     <Contact/>
                 </section>
             </div>

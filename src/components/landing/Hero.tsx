@@ -10,7 +10,7 @@ export default function Hero() {
         onClick={() => {
             window.location.href = "#about";
         }}
-        className="group relative font-bold tracking-tighter hover:tracking-normal transition-all text-6xl py-4 duration-1000 hover:cursor-pointer"
+        className="group relative font-bold tracking-tighter hover:tracking-normal transition-all text-4xl md:text-5xl lg:text-6xl py-4 duration-1000 hover:cursor-pointer"
       >
         ryan zhang
       </h1>
