@@ -214,7 +214,7 @@ export default function About() {
                     <button
                         key={tab.id}
                         onClick={() => setActiveView(tab.id as ActiveView)}
-                        className={`relative rounded-full h-8 px-2 md:px-4 transition-colors text-xs md:text-sm font-medium whitespace-nowrap ${
+                        className={`relative rounded-full h-8 px-2 md:px-4 transition-colors text-xs tracking-tighter md:text-sm font-medium whitespace-nowrap ${
                             activeView === tab.id ? "" : "hover:text-primary"
                         }`}
                         style={{
