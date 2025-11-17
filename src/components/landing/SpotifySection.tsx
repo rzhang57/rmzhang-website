@@ -52,22 +52,31 @@ export default function SpotifySection() {
 
     if (loading) {
         return (
-            <div className="flex justify-center py-8">
-                <div className="animate-spin rounded-full h-8 w-8 border-2 border-[#1db954] border-t-transparent"/>
-            </div>
+            <>
+                <h2 className="md:text-2xl sm:text-lg font-bold tracking-tighter mb-4">
+                    songs
+                </h2>
+                <div className="font-light text-gray-500 pb-5">random selection of 5 songs i&apos;ve been listening to
+                    recently
+                </div>
+                <div className="flex justify-center py-8">
+                    <div className="animate-spin rounded-full h-8 w-8 border-2 border-[#1db954] border-t-transparent"/>
+                </div>
+            </>
         );
     }
 
     return (
         <motion.div
             initial={{opacity: 0, y: 20}}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
+            animate={{opacity: 1, y: 0}}
+            transition={{duration: 0.3}}
         >
             <h2 className="md:text-2xl sm:text-lg font-bold tracking-tighter mb-4">
                 songs
             </h2>
-            <div className="font-light text-gray-500 pb-5">random selection of 5 songs i&apos;ve been listening to recently</div>
+            <div className="font-light text-gray-500 pb-5">random selection of 5 songs i&apos;ve been listening to
+                recently</div>
             <div className="grid gap-3">
                 {tracks.map((track, index) => (
                     <div
