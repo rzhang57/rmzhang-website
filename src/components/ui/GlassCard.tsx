@@ -1,4 +1,3 @@
-// src/components/ui/GlassCard.tsx
 "use client";
 
 import { ReactNode } from "react";

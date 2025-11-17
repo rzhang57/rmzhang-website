@@ -53,20 +53,21 @@ export default function SpotifySection() {
     if (loading) {
         return (
             <div className="flex justify-center py-8">
-                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#1db954]" />
+                <div className="animate-spin rounded-full h-8 w-8 border-2 border-[#1db954] border-t-transparent"/>
             </div>
         );
     }
 
     return (
         <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{opacity: 0, y: 20}}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
         >
             <h2 className="md:text-2xl sm:text-lg font-bold tracking-tighter mb-4">
-                on repeat
+                songs
             </h2>
+            <div className="font-light text-gray-500 pb-5">random selection of 5 songs i&apos;ve been listening to recently</div>
             <div className="grid gap-3">
                 {tracks.map((track, index) => (
                     <div
@@ -116,7 +117,7 @@ export default function SpotifySection() {
                             {playingIndex === index && (
                                 <motion.div
                                     initial={{height: 0, opacity: 0}}
-                                    animate={{height: 152, opacity: 1}}
+                                    animate={{height: 80, opacity: 1}}
                                     exit={{height: 0, opacity: 0}}
                                     transition={{duration: 0.3}}
                                     className="overflow-hidden"
@@ -127,16 +128,14 @@ export default function SpotifySection() {
                                         onMouseLeave={() => document.body.classList.remove('hide-custom-cursor')}
                                     >
                                         {loadingIframe === index && (
-                                            <div
-                                                className="absolute inset-0 flex items-center justify-center bg-muted/50 rounded z-10">
-                                                <div
-                                                    className="animate-spin rounded-full h-6 w-6 border-b-2 border-[#1db954]"/>
+                                            <div className="absolute inset-0 flex items-center justify-center rounded z-10">
+                                                <div className="animate-spin rounded-full h-6 w-6 border-2 border-[#1db954] border-t-transparent" />
                                             </div>
                                         )}
                                         <iframe
                                             src={`https://open.spotify.com/embed/track/${track.id}?utm_source=generator&autoplay=1`}
                                             width="100%"
-                                            height="152"
+                                            height="80"
                                             frameBorder="0"
                                             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                                             loading="eager"

@@ -1,8 +1,30 @@
 import { NextResponse } from "next/server";
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 const CLIENT_ID = process.env.SPOTIFY_CLIENT_ID;
 const CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET;
 const REFRESH_TOKEN = process.env.SPOTIFY_REFRESH_TOKEN;
+
+interface SpotifyArtist {
+    name: string;
+}
+
+interface SpotifyAlbum {
+    name: string;
+    images: { url: string }[];
+}
+
+interface SpotifyTrack {
+    name: string;
+    artists: SpotifyArtist[];
+    album: SpotifyAlbum;
+    external_urls: { spotify: string };
+    preview_url: string | null;
+    id: string;
+    uri: string;
+}
 
 async function getAccessToken() {
     const response = await fetch("https://accounts.spotify.com/api/token", {
@@ -32,7 +54,7 @@ export async function GET() {
         const { access_token } = await getAccessToken();
 
         const response = await fetch(
-            "https://api.spotify.com/v1/me/top/tracks?time_range=short_term&limit=45",
+            "https://api.spotify.com/v1/me/top/tracks?time_range=short_term&limit=50",
             {
                 headers: {
                     Authorization: `Bearer ${access_token}`,
@@ -49,9 +71,9 @@ export async function GET() {
 
         const data = await response.json();
 
-        const tracks = data.items.map((track: any) => ({
+        const tracks = data.items.map((track: SpotifyTrack) => ({
             name: track.name,
-            artist: track.artists.map((a: any) => a.name).join(", "),
+            artist: track.artists.map((a) => a.name).join(", "),
             album: track.album.name,
             image: track.album.images[0]?.url,
             url: track.external_urls.spotify,
