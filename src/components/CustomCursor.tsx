@@ -16,6 +16,7 @@ const CustomCursor = () => {
     const [isHovering, setIsHovering] = useState(false);
     const [isVisible, setIsVisible] = useState(false);
     const [isInIframe, setIsInIframe] = useState(false);
+    const [isClicking, setIsClicking] = useState(false);
     const animationFrameRef = useRef<number>();
 
     useEffect(() => {
@@ -30,7 +31,17 @@ const CustomCursor = () => {
         const handleElementMouseEnter = () => setIsHovering(true);
         const handleElementMouseLeave = () => setIsHovering(false);
 
+        const handleMouseDown = () => {
+            setIsClicking(true);
+        };
+
+        const handleMouseUp = () => {
+            setIsClicking(false);
+        };
+
         document.addEventListener("mousemove", handleMouseMove);
+        document.addEventListener("mousedown", handleMouseDown);
+        document.addEventListener("mouseup", handleMouseUp);
         document.body.addEventListener("mouseleave", handleBodyMouseLeave);
 
         const interactiveElements = document.querySelectorAll(
@@ -81,6 +92,8 @@ const CustomCursor = () => {
 
         return () => {
             document.removeEventListener("mousemove", handleMouseMove);
+            document.removeEventListener("mousedown", handleMouseDown);
+            document.removeEventListener("mouseup", handleMouseUp);
             document.body.removeEventListener("mouseleave", handleBodyMouseLeave);
             interactiveElements.forEach((el) => {
                 el.removeEventListener("mouseenter", handleElementMouseEnter);
@@ -112,11 +125,16 @@ const CustomCursor = () => {
                 style={{
                     width: isHovering ? "48px" : "24px",
                     height: isHovering ? "48px" : "24px",
-                    backgroundColor: "rgba(128, 128, 128, 0.3)",
+                    backgroundColor: isClicking
+                        ? "rgba(239,178,202,0.7)"
+                        : "rgba(128, 128, 128, 0.3)",
                     backdropFilter: "grayscale(100%) invert(100%)",
                     WebkitBackdropFilter: "grayscale(100%) invert(100%)",
                     opacity: (isVisible && !isInIframe) ? 1 : 0,
-                    transition: "width 0.6s, height 0.7s, opacity 0.2s",
+                    transition: isClicking
+                        ? "width 0.1s, height 0.1s, opacity 0.2s, background-color 0.1s"
+                        : "width 0.6s, height 0.7s, opacity 0.2s, background-color 0.2s",
+                    transform: isClicking ? "scale(0.8)" : "scale(1)",
                 }}
             />
         </>
