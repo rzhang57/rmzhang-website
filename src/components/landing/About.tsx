@@ -121,7 +121,7 @@ export default function About() {
                 {contentData.aboutMe.work.experiences.map((exp, index) => (
                     <div key={index}>
                         <h3 className="text-foreground font-medium"><span
-                            className="font-bold text-[#6ca1ff] italic">{exp.company} {'>'} </span> {exp.role}</h3>
+                            className="font-bold text-[#6ca1ff] italic pl-0.5">{exp.company} {'>'} </span> {exp.role}</h3>
                         <p className="font-light">{exp.overview}</p>
                         <ExpandableCard
                             title={<span className="text-sm italic text-muted-foreground/80">more details</span>}>

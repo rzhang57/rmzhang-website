@@ -21,10 +21,8 @@ export default function SpotifySection() {
     const [loadingIframe, setLoadingIframe] = useState<number | null>(null);
     const hasFetched = useRef(false);
 
-    useEffect(() => {
-        if (hasFetched.current) return;
-        hasFetched.current = true;
-
+    const fetchTracks = async () => {
+        setLoading(true);
         fetch("/api/spotify/top-tracks", { method: "GET" })
             .then((res) => res.json())
             .then((data) => {
@@ -34,6 +32,13 @@ export default function SpotifySection() {
                 setLoading(false);
             })
             .catch(() => setLoading(false));
+    }
+
+    useEffect(() => {
+        if (hasFetched.current) return;
+        hasFetched.current = true;
+
+        void fetchTracks();
     }, []);
 
     const togglePlayer = (index: number) => {
@@ -75,15 +80,26 @@ export default function SpotifySection() {
             <h2 className="md:text-2xl sm:text-lg font-bold tracking-tighter mb-4">
                 songs
             </h2>
-            <div className="font-light text-gray-500 pb-5">random selection of 5 songs i&apos;ve been listening to
-                recently</div>
+            <div className="font-light text-gray-500 pb-5 flex items-center justify-between">
+                <span>random selection of 5 songs i&apos;ve been listening to recently</span>
+                <button
+                    type="button"
+                    className="text-muted-foreground hover:text-[#1db954] transition-colors ml-3 italic pr-3"
+                    onClick={() => {
+                        void fetchTracks();
+                    }}
+                >
+                    refresh
+                </button>
+            </div>
             <div className="grid gap-3">
                 {tracks.map((track, index) => (
                     <div
                         key={index}
                         className="rounded-lg bg-muted/30 hover:bg-muted/50 transition-all overflow-hidden"
                     >
-                        <div className="flex items-center gap-4 p-3 group cursor-pointer" onClick={() => togglePlayer(index)}>
+                        <div className="flex items-center gap-4 p-3 group cursor-pointer"
+                             onClick={() => togglePlayer(index)}>
                             <div className="relative flex-shrink-0">
                                 <img
                                     src={track.image}
@@ -118,7 +134,8 @@ export default function SpotifySection() {
                                     stroke="currentColor"
                                     viewBox="0 0 24 24"
                                 >
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                                          d="M19 9l-7 7-7-7"/>
                                 </svg>
                             </div>
                         </div>
@@ -137,8 +154,10 @@ export default function SpotifySection() {
                                         onMouseLeave={() => document.body.classList.remove('hide-custom-cursor')}
                                     >
                                         {loadingIframe === index && (
-                                            <div className="absolute inset-0 flex items-center justify-center rounded z-10">
-                                                <div className="animate-spin rounded-full h-6 w-6 border-2 border-[#1db954] border-t-transparent" />
+                                            <div
+                                                className="absolute inset-0 flex items-center justify-center rounded z-10">
+                                                <div
+                                                    className="animate-spin rounded-full h-6 w-6 border-2 border-[#1db954] border-t-transparent"/>
                                             </div>
                                         )}
                                         <iframe
