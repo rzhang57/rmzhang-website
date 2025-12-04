@@ -2,7 +2,7 @@
 
 import Header from "@/components/landing/Header";
 import Hero from "@/components/landing/Hero";
-import About from "@/components/landing/About";
+import About from "@/components/landing/About/About";
 import Projects from "@/components/landing/Projects";
 import Contact from "@/components/landing/Contact";
 
