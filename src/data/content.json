@@ -1,11 +1,11 @@
 {
   "aboutMe": {
     "overview": {
-      "intro": "third year cs student at ubc. previously a software engineer intern at planview working on copilot/ anvi. learn more @ ",
-      "workClickPrompt": "work",
+      "intro": "third year cs student at ubc. incoming software engineering intern at microsoft. previously a software engineer intern at planview working on copilot/ anvi. learn more ",
+      "workClickPrompt": "@work",
       "interests": "interested in applied AI/ML, backend engineering, data engineering, distributed systems, and infra.",
-      "hobbiesIntro": "also into f1, english football, sports cars, video editing, mechanical keyboards, games and more. learn more @ ",
-      "clickPrompt": "hobbies",
+      "hobbiesIntro": "also into f1, english football, sports cars, video editing, mechanical keyboards, games and more. learn more ",
+      "clickPrompt": "@hobbies",
       "closing": ". always down for a good chat so feel free to connect. thanks for visiting, talk soon!"
     },
     "work": {
