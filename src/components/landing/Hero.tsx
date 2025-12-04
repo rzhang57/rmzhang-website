@@ -19,7 +19,7 @@ export default function Hero() {
           <Link
               href="https://www.microsoft.com/"
               target="_blank"
-              className="inline-block transition-all duration-100 font-bold bg-gradient-to-r bg-clip-text text-transparent hover:brightness-125 hover:cursor-pointer px-1 pl-0 tracking-normal"
+              className="inline-block transition-all duration-100 font-bold bg-gradient-to-r bg-clip-text text-transparent hover:brightness-125 hover:cursor-pointer px-1 pl-0 tracking-tighter"
           >
                 <span className="text-[#F25022]" style={{
                     WebkitTextStroke: '3px black',
