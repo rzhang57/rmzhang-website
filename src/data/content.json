@@ -13,6 +13,12 @@
       "experiences": [
         {
           "role": "software engineer intern",
+          "company": "microsoft",
+          "overview": "incoming summer 2026",
+          "description": []
+        },
+        {
+          "role": "software engineer intern",
           "company": "planview",
           "overview": "full stack engineering alongside a team of 7 for copilot/ anvi, an integrated multi-agent ai assistant and automation platform embedded into planview's work management software suite",
           "description": [
