@@ -110,21 +110,22 @@ const CustomCursor = () => {
         <>
             <div
                 ref={trailCursorRef}
-                className="pointer-events-none fixed left-0 top-0 z-50 hidden rounded-full md:block"
+                className="pointer-events-none fixed left-0 top-0 z-50 hidden md:block"
                 style={{
-                    width: "8px",
-                    height: "8px",
+                    width: "7px",
+                    height: "7px",
                     backgroundColor: "rgba(128, 128, 128, 0.2)",
                     opacity: (isVisible && !isInIframe) ? 1 : 0,
                     transition: "opacity 0.2s",
+                    borderRadius: "100px",
                 }}
             />
             <div
                 ref={mainCursorRef}
-                className="pointer-events-none fixed left-0 top-0 z-50 hidden rounded-full md:block"
+                className="pointer-events-none fixed left-0 top-0 z-50 hidden md:block"
                 style={{
-                    width: isHovering ? "48px" : "24px",
-                    height: isHovering ? "48px" : "24px",
+                    width: isHovering ? "40px" : "24px",
+                    height: isHovering ? "40px" : "24px",
                     backgroundColor: isClicking
                         ? "rgba(239,178,202,0.7)"
                         : "rgba(128, 128, 128, 0.3)",
@@ -135,6 +136,7 @@ const CustomCursor = () => {
                         ? "width 0.1s, height 0.1s, opacity 0.2s, background-color 0.1s"
                         : "width 0.6s, height 0.7s, opacity 0.2s, background-color 0.2s",
                     transform: isClicking ? "scale(0.8)" : "scale(1)",
+                    borderRadius: "0px",
                 }}
             />
         </>
