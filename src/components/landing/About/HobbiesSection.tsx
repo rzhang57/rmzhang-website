@@ -26,12 +26,12 @@ export default function HobbiesSection({ setActiveHobby, activeHobby}: HobbiesSe
                 {contentData.aboutMe.hobbies.title}
             </h2>
             <div className="grid md:grid-cols-[200px_1fr] sm:grid-cols-1 gap-6">
-                <div className="space-y-1 bg-muted/30 rounded-lg p-4">
+                <div className="space-y-1 bg-muted/30 p-4">
                     {contentData.aboutMe.hobbies.items.map((item, index) => (
                         <button
                             key={index}
                             onClick={() => setActiveHobby(index)}
-                            className={`w-full text-left px-4 py-2.5 rounded-lg transition-all text-sm ${
+                            className={`w-full text-left px-4 py-2.5 transition-all text-sm ${
                                 activeHobby === index
                                     ? "bg-gray-200 text-[#ec4899] font-semibold shadow-[0_6px_0_0_rgba(236,72,153,0.3)] translate-y-[-2px]"
                                     : "text-muted-foreground font-medium hover:bg-muted/50 hover:shadow-[0_4px_0_0_rgba(0,0,0,0.1)] hover:translate-y-[-1px]"
@@ -41,7 +41,7 @@ export default function HobbiesSection({ setActiveHobby, activeHobby}: HobbiesSe
                         </button>
                     ))}
                 </div>
-                <div className="bg-muted/30 rounded-lg p-6 min-h-[200px] flex items-start">
+                <div className="bg-muted/30 p-6 min-h-[200px] flex items-start">
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={activeHobby}

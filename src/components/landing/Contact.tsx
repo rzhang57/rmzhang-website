@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import GlassCard from "@/components/ui/GlassCard";
+import {AnimatePresence, motion} from "framer-motion";
 
 export default function Contact() {
     const [copySuccess, setCopySuccess] = useState(false);
@@ -52,18 +53,36 @@ export default function Contact() {
                 </div>
             </GlassCard>
 
-            {copySuccess && (
-                <div
-                    className="absolute top-full mt-2 left-1/2 -translate-x-1/2 bg-green-300 text-gray-600 px-4 py-2 rounded-lg shadow-lg animate-in fade-in-0 slide-in-from-top-2 duration-300 z-50">
-                    ✓ Email copied to clipboard!
-                </div>
-            )}
-
-            {copyError && (
-                <div className="absolute top-full mt-2 left-1/2 -translate-x-1/2 bg-red-500 text-white px-4 py-2 rounded-lg shadow-lg animate-in fade-in-0 slide-in-from-top-2 duration-300 z-50">
-                    ✗ Failed to copy email
-                </div>
-            )}
+            <AnimatePresence>
+                {copySuccess && (
+                    <div className="absolute top-full mt-2 left-0 right-0 flex justify-center z-50">
+                        <motion.div
+                            initial={{ opacity: 0, y: -8 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -8 }}
+                            transition={{ duration: 0.3 }}
+                            className="bg-green-300 text-gray-600 px-4 py-2 shadow-lg"
+                        >
+                            ✓ Email copied to clipboard!
+                        </motion.div>
+                    </div>
+                )}
+            </AnimatePresence>
+            <AnimatePresence>
+                {copyError && (
+                    <div className="absolute top-full mt-2 left-0 right-0 flex justify-center z-50">
+                        <motion.div
+                            initial={{ opacity: 0, y: -8 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -8 }}
+                            transition={{ duration: 0.3 }}
+                            className="bg-red-500 text-white px-4 py-2 shadow-lg"
+                        >
+                            ✗ Failed to copy email
+                        </motion.div>
+                    </div>
+                )}
+            </AnimatePresence>
         </div>
     );
 }

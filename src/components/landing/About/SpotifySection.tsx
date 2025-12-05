@@ -96,7 +96,7 @@ export default function SpotifySection() {
                 {tracks.map((track, index) => (
                     <div
                         key={index}
-                        className="rounded-lg bg-muted/30 hover:bg-muted/50 transition-all overflow-hidden"
+                        className="bg-muted/30 hover:bg-muted/50 transition-all overflow-hidden"
                     >
                         <div className="flex items-center gap-4 p-3 group cursor-pointer"
                              onClick={() => togglePlayer(index)}>
@@ -104,7 +104,7 @@ export default function SpotifySection() {
                                 <img
                                     src={track.image}
                                     alt={track.album}
-                                    className="w-16 h-16 rounded"
+                                    className="w-16 h-16"
                                 />
                             </div>
                             <div className="flex-1 min-w-0" onClick={(e) => e.stopPropagation()}>
@@ -155,7 +155,7 @@ export default function SpotifySection() {
                                     >
                                         {loadingIframe === index && (
                                             <div
-                                                className="absolute inset-0 flex items-center justify-center rounded z-10">
+                                                className="absolute inset-0 flex items-center justify-center z-10">
                                                 <div
                                                     className="animate-spin rounded-full h-6 w-6 border-2 border-[#1db954] border-t-transparent"/>
                                             </div>
@@ -167,7 +167,6 @@ export default function SpotifySection() {
                                             frameBorder="0"
                                             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                                             loading="eager"
-                                            className="rounded"
                                             onLoad={handleIframeLoad}
                                         />
                                     </div>

@@ -46,14 +46,12 @@ export default function About() {
                 </h1>
             </div>
             <div
-                className="relative flex w-fit items-center justify-start rounded-full border border-border bg-muted/50 p-1 ml-0 overflow-x-auto">
+                className="relative flex w-fit items-center justify-start border-2 border-primary/30 bg-muted/70 p-1.5 ml-0 overflow-x-auto shadow-lg backdrop-blur-sm">
                 {tabs.map((tab) => (
                     <button
                         key={tab.id}
                         onClick={() => setActiveView(tab.id as ActiveView)}
-                        className={`relative rounded-full h-8 px-2 md:px-4 transition-colors text-xs tracking-tighter md:text-sm font-medium whitespace-nowrap ${
-                            activeView === tab.id ? "" : "hover:text-primary"
-                        }`}
+                        className={`relative h-9 px-3 md:px-5 transition-all duration-200 text-xs tracking-tight md:text-sm font-semibold whitespace-nowrap`}
                         style={{
                             WebkitTapHighlightColor: "transparent",
                         }}
@@ -61,7 +59,7 @@ export default function About() {
                         {activeView === tab.id && (
                             <motion.span
                                 layoutId="bubble"
-                                className="absolute inset-0 z-10 rounded-full"
+                                className="absolute inset-0 z-10 shadow-md ring-2 ring-white/20"
                                 style={{
                                     backgroundColor: tabColors[activeView],
                                 }}
@@ -71,7 +69,7 @@ export default function About() {
                         <span
                             className={`relative z-20 ${
                                 activeView === tab.id
-                                    ? "text-white"
+                                    ? "text-white font-bold"
                                     : "text-muted-foreground"
                             }`}
                         >
@@ -80,7 +78,6 @@ export default function About() {
                     </button>
                 ))}
             </div>
-
             <div className="grid lg:grid-cols-[3fr_1fr] sm:grid-cols-1 items-start gap-8 w-full mt-4">
                 <div className="min-h-[250px]">
                     <motion.div
@@ -94,7 +91,8 @@ export default function About() {
                         <AnimatePresence mode="wait">
                             {activeView === "overview" && <OverviewSection setActiveView={setActiveView}/>}
                             {activeView === "work" && <WorkSection/>}
-                            {activeView === "hobbies" && <HobbiesSection setActiveHobby={setActiveHobby} activeHobby={activeHobby}/>}
+                            {activeView === "hobbies" &&
+                                <HobbiesSection setActiveHobby={setActiveHobby} activeHobby={activeHobby}/>}
                             {activeView === "music" && <SpotifySection/>}
                         </AnimatePresence>
                     </motion.div>
