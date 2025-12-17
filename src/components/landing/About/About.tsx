@@ -8,6 +8,7 @@ import SpotifySection from "@/components/landing/About/SpotifySection";
 import HobbiesSection from "@/components/landing/About/HobbiesSection";
 import OverviewSection from "@/components/landing/About/OverviewSection";
 import WorkSection from "@/components/landing/About/WorkSection";
+import MusicSection from "@/components/landing/About/MusicSection";
 
 export type ActiveView = "overview" | "work" | "hobbies" | "music";
 
@@ -93,7 +94,7 @@ export default function About() {
                             {activeView === "work" && <WorkSection/>}
                             {activeView === "hobbies" &&
                                 <HobbiesSection setActiveHobby={setActiveHobby} activeHobby={activeHobby}/>}
-                            {activeView === "music" && <SpotifySection/>}
+                            {activeView === "music" && <MusicSection/>}
                         </AnimatePresence>
                     </motion.div>
                 </div>
