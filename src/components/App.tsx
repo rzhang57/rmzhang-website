@@ -21,7 +21,7 @@ export default function App() {
         <>
             <Head>
                 <title>ryan m zhang</title>
-                <meta name="description" content="about ryan zhang" />
+                <meta name="description" content="ryan zhang" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             {isLoading ? (
