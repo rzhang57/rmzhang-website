@@ -7,7 +7,7 @@ export default function Header() {
   return (
       <header className="fixed left-0 top-0 h-full w-24 flex flex-col items-center justify-center z-10">
         <div className="flex flex-col items-center justify-center gap-16 h-full py-6">
-          <nav className="flex flex-col gap-6 items-center">
+          <nav className="flex flex-col gap-6">
             <NavLink href="#home" label="home" />
             <NavLink href="#about" label="about" />
             <NavLink href="#projects" label="projects" />
