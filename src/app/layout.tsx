@@ -15,13 +15,13 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "about ryan zhang",
-  description: "cs student and developer at ubc",
+  title: "ryan zhang",
+  description: "developer; cs student at ubc",
   openGraph: {
     images: [
       {
         url: "https://ryanz.dev/statics/pfp.png",
-        alt: "rz pfp :P",
+        alt: "pfp",
       },
     ],
   },
