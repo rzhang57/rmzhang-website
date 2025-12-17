@@ -1,4 +1,5 @@
 import SpotifySection from "@/components/landing/About/SpotifySection";
+import CurrentlyPlaying from "@/components/landing/About/CurrentlyPlaying";
 
 export default function MusicSection() {
     return (
@@ -6,6 +7,7 @@ export default function MusicSection() {
             <h2 className="md:text-2xl sm:text-lg font-bold tracking-tighter mb-4">
                 songs
             </h2>
+            <CurrentlyPlaying/>
             <SpotifySection/>
         </>
     );
