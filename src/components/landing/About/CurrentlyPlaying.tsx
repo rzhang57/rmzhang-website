@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import ExpandableCard from "@/components/landing/ExpandableCard";
 
 interface CurrentlyPlaying {
@@ -173,11 +172,11 @@ export default function CurrentlyPlaying() {
                 if you do the math, i&apos;d hit spotify&apos;s rate limits at ~25 concurrent users ...
             </ExpandableCard>
         </>
-            );
-            }
+    );
+}
 
-            function formatTime(ms: number): string {
-            const seconds = Math.floor(ms / 1000);
+function formatTime(ms: number): string {
+    const seconds = Math.floor(ms / 1000);
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = seconds % 60;
     return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
