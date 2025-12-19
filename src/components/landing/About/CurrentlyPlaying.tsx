@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import ExpandableCard from "@/components/landing/ExpandableCard";
 
 interface CurrentlyPlaying {
     name: string;
@@ -162,12 +163,21 @@ export default function CurrentlyPlaying() {
                     </div>
                 </div>
             </div>
+            <ExpandableCard title={<span className="text-sm italic text-muted-foreground/80">fun fact</span>}>
+                currently, this site is hosted on vercel, which doesn&apos;t support websockets due to its serverless
+                nature.
+                as a result, i&apos;m actually polling from every client, pulling updates from spotify every 5 seconds
+                to make this feature possible (f12 {`>`} network to see all the requests!)
+                <br/>
+                <br/>
+                if you do the math, i&apos;d hit spotify&apos;s rate limits at ~25 concurrent users ...
+            </ExpandableCard>
         </>
-    );
-}
+            );
+            }
 
-function formatTime(ms: number): string {
-    const seconds = Math.floor(ms / 1000);
+            function formatTime(ms: number): string {
+            const seconds = Math.floor(ms / 1000);
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = seconds % 60;
     return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
