@@ -15,13 +15,16 @@ const CustomCursor = () => {
         orbitY: -100,
     });
     const angleRef = useRef(0);
+
+    // Added currentPhase to track wave position smoothly
     const particleOffsetsRef = useRef(
         Array(MS_COLORS.length).fill(null).map(() => ({
             speed: 0.02 + Math.random() * 0.02,
             radiusOffset: 0,
             angleOffset: Math.random() * Math.PI * 2,
             wobbleSpeed: 0.05 + Math.random() * 0.05,
-            wobbleAmount: Math.random() * 10
+            wobbleAmount: Math.random() * 10,
+            currentPhase: Math.random() * Math.PI * 2
         }))
     );
 
@@ -93,7 +96,19 @@ const CustomCursor = () => {
             const dx = mouseX - positionRef.current.orbitX;
             const dy = mouseY - positionRef.current.orbitY;
             const speed = Math.sqrt(dx * dx + dy * dy);
-            const chaosMultiplier = Math.min(speed * 0.02, 1.5);
+
+            const chaosMultiplier = Math.min(speed * 0.01, 0.5);
+
+            particleOffsetsRef.current.forEach((p, i) => {
+                p.currentPhase += p.wobbleSpeed * 0.1;
+
+                if (speed > 0.5) {
+                    p.angleOffset += speed * 0.0005 * (i % 2 === 0 ? 1 : -1);
+
+                    p.wobbleSpeed += (Math.random() - 0.5) * 0.0005 * speed;
+                    p.wobbleSpeed = Math.max(0.02, Math.min(0.15, p.wobbleSpeed));
+                }
+            });
 
             angleRef.current += 0.02;
 
@@ -113,10 +128,10 @@ const CustomCursor = () => {
                     const baseRadius = 24 + (index * 8);
                     const baseAngle = angleRef.current + particle.angleOffset;
 
-                    const wobble = Math.sin(Date.now() * 0.005 * particle.wobbleSpeed) * (particle.wobbleAmount + chaosMultiplier * 10);
+                    const wobble = Math.sin(particle.currentPhase) * (particle.wobbleAmount + chaosMultiplier * 4);
                     const radius = baseRadius + wobble;
 
-                    const currentAngle = baseAngle + (chaosMultiplier * 0.2 * (index % 2 === 0 ? 1 : -1));
+                    const currentAngle = baseAngle + (chaosMultiplier * 0.1 * (index % 2 === 0 ? 1 : -1));
 
                     const x = centerX + Math.cos(currentAngle) * radius;
                     const y = centerY + Math.sin(currentAngle) * radius;
