@@ -16,7 +16,6 @@ const CustomCursor = () => {
     });
     const angleRef = useRef(0);
 
-    // Added currentPhase to track wave position smoothly
     const particleOffsetsRef = useRef(
         Array(MS_COLORS.length).fill(null).map(() => ({
             speed: 0.02 + Math.random() * 0.02,
@@ -24,7 +23,9 @@ const CustomCursor = () => {
             angleOffset: Math.random() * Math.PI * 2,
             wobbleSpeed: 0.05 + Math.random() * 0.05,
             wobbleAmount: Math.random() * 10,
-            currentPhase: Math.random() * Math.PI * 2
+            currentPhase: Math.random() * Math.PI * 2,
+            transitionAngle: 0,
+            targetTransitionAngle: 0
         }))
     );
 
@@ -46,6 +47,9 @@ const CustomCursor = () => {
 
         const handleMouseDown = () => {
             setIsClicking(true);
+            particleOffsetsRef.current.forEach(p => {
+                p.targetTransitionAngle += (Math.PI / 2 + Math.random() * Math.PI) * (Math.random() > 0.5 ? 1 : -1);
+            });
         };
 
         const handleMouseUp = () => {
@@ -101,6 +105,8 @@ const CustomCursor = () => {
 
             particleOffsetsRef.current.forEach((p, i) => {
                 p.currentPhase += p.wobbleSpeed * 0.1;
+                // Reduced interpolation factor from 0.08 to 0.04 for slower transition
+                p.transitionAngle += (p.targetTransitionAngle - p.transitionAngle) * 0.04;
 
                 if (speed > 0.5) {
                     p.angleOffset += speed * 0.0005 * (i % 2 === 0 ? 1 : -1);
@@ -126,7 +132,7 @@ const CustomCursor = () => {
                     const particle = particleOffsetsRef.current[index];
 
                     const baseRadius = 24 + (index * 8);
-                    const baseAngle = angleRef.current + particle.angleOffset;
+                    const baseAngle = angleRef.current + particle.angleOffset + particle.transitionAngle;
 
                     const wobble = Math.sin(particle.currentPhase) * (particle.wobbleAmount + chaosMultiplier * 4);
                     const radius = baseRadius + wobble;
