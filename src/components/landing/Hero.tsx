@@ -15,7 +15,7 @@ export default function Hero() {
       </h1>
       <div className="inline text-muted-foreground md:text-3xl text-center self-center tracking-tighter leading-relaxed">
         <span className="cycle-item">
-            incoming software engineer intern at{' '}
+            incoming software engineering intern at{' '}
           <Link
               href="https://www.microsoft.com/"
               target="_blank"
