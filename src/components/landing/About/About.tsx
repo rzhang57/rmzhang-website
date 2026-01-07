@@ -4,7 +4,6 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import GlassCard from "@/components/ui/GlassCard";
-import SpotifySection from "@/components/landing/About/SpotifySection";
 import HobbiesSection from "@/components/landing/About/HobbiesSection";
 import OverviewSection from "@/components/landing/About/OverviewSection";
 import WorkSection from "@/components/landing/About/WorkSection";
