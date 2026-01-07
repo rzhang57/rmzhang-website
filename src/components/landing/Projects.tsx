@@ -9,36 +9,43 @@ export default function Projects() {
         <h1 className="text-3xl font-extrabold tracking-tighter mb-6">probably busy working on...</h1>
         <div className="grid lg:grid-cols-[1fr_1fr] sm:grid-cols-1 items-stretch gap-4">
           <ProjectCard
+              title={"qot"}
+              date={"dec 2025 - present"}
+              technologies={["C#", "TypeScript", ".NET", "React", "Redis", "Docker"]}
+              description={"frictionless real-time collaborative team workspace"}
+              githubLink={"https://github.com/rzhang57/qot"}
+          />
+          <ProjectCard
               title={"noteblock"}
-              date={"june 2025 - present"}
-              technologies={["Go", "React", "SQLite", "Electron", "Docker", "Ollama"]}
-              description={"desktop note taking made intuitive"}
+              date={"jun 2025 - present"}
+              technologies={["Go", "TypeScript", "React", "SQLite", "Electron", "Docker", "Ollama"]}
+              description={"optimized desktop note taking application"}
               githubLink={"https://github.com/rzhang57/noteblock"}
           />
           <ProjectCard
               title={"planview copilot"}
               date={"jan 2025 - aug 2025"}
-              technologies={["React", "Java Spring Boot", "PostgreSQL", "AWS", "Docker"]}
+              technologies={["Java", "TypeScript", "Spring Boot", "React", "PostgreSQL", "AWS", "Docker"]}
               description={"applied ai full stack engineering on the copilot team"}
               githubLink={"https://www.planview.com/ai/"}
           />
           <ProjectCard
               title={"ride rater"}
               date={"jul 2024 - oct 2024"}
-              technologies={["React", "Java Spring Boot", "PostgreSQL", "Docker"]}
-              description={"full stack app that allows real riders to rate rides at various amusement parks"}
+              technologies={["Java", "TypeScript", "Spring Boot", "React", "PostgreSQL", "Docker"]}
+              description={"amusement park ride ratings crowdsourced by real riders"}
               githubLink={"https://github.com/rzhang57/riderater"}
           />
           <ProjectCard
               title={"kumon homework grader"}
               date={"jun 2024 - aug 2024"}
-              technologies={["Tensorflow", "Keras", "Flask", "React", "PostgreSQL", "OpenCV"]}
-              description={"full-stack automated homework grading application built using opencv and keras handwriting model"}
+              technologies={["Python", "TypeScript", "Flask", "OpenCV", "Tensorflow", "Keras", "React", "PostgreSQL"]}
+              description={"automated homework grading for kumon worksheets"}
           />
           <ProjectCard
               title={"ryanz.dev"}
               date={"sept 2024 - present"}
-              technologies={["Typescript", "Next.js"]}
+              technologies={["TypeScript", "Next.js"]}
               description={"all about me and what i'm working on"}
               githubLink={"https://github.com/rzhang57/rmzhang-website"}
           />
