@@ -47,12 +47,12 @@ export default function About() {
                 </h1>
             </div>
             <div
-                className="relative flex w-fit items-center justify-start border-2 border-primary/30 bg-muted/70 p-1.5 ml-0 overflow-x-auto shadow-lg backdrop-blur-sm">
+                className="relative flex w-fit items-center justify-start border border-white/20 bg-white/10 p-1.5 ml-0 overflow-x-auto shadow-sm backdrop-blur-xl">
                 {tabs.map((tab) => (
                     <button
                         key={tab.id}
                         onClick={() => setActiveView(tab.id as ActiveView)}
-                        className={`relative h-9 px-3 md:px-5 transition-all duration-200 text-xs tracking-tight md:text-sm font-semibold whitespace-nowrap`}
+                        className={`relative h-9 px-4 md:px-6 transition-all duration-200 text-xs tracking-tight md:text-sm font-semibold whitespace-nowrap`}
                         style={{
                             WebkitTapHighlightColor: "transparent",
                         }}
@@ -60,9 +60,10 @@ export default function About() {
                         {activeView === tab.id && (
                             <motion.span
                                 layoutId="bubble"
-                                className="absolute inset-0 z-10 shadow-md ring-2 ring-white/20"
+                                className="absolute inset-0 z-10 shadow-sm backdrop-blur-sm"
                                 style={{
-                                    backgroundColor: tabColors[activeView],
+                                    background: tabColors[activeView],
+                                    boxShadow: `inset 0 1px 1px rgba(255,255,255,0.4), 0 0 20px ${tabColors[activeView]}80`
                                 }}
                                 transition={{type: "spring", bounce: 0.2, duration: 0.6}}
                             />
@@ -70,15 +71,16 @@ export default function About() {
                         <span
                             className={`relative z-20 ${
                                 activeView === tab.id
-                                    ? "text-white font-bold"
-                                    : "text-muted-foreground"
+                                    ? "text-white font-bold drop-shadow-md"
+                                    : "text-muted-foreground/80 hover:text-primary transition-colors"
                             }`}
                         >
-                {tab.label}
-            </span>
+                            {tab.label}
+                        </span>
                     </button>
                 ))}
             </div>
+
             <div className="grid lg:grid-cols-[3fr_1fr] sm:grid-cols-1 items-start gap-8 w-full mt-4">
                 <div className="min-h-[250px]">
                     <motion.div
