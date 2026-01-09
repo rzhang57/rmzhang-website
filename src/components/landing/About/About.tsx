@@ -13,6 +13,7 @@ export type ActiveView = "overview" | "work" | "hobbies" | "music";
 
 export default function About() {
     const [activeView, setActiveView] = useState<ActiveView>("overview");
+    const [hoveredTab, setHoveredTab] = useState<string | null>(null);
     const [activeHobby, setActiveHobby] = useState(0);
 
     const imageSrc =
@@ -46,23 +47,53 @@ export default function About() {
                 </h1>
             </div>
             <div
-                className="relative flex w-fit items-center justify-start border border-white/20 bg-white/10 p-1.5 ml-0 overflow-x-auto shadow-sm backdrop-blur-xl">
+                className="relative flex w-fit items-center justify-start border border-white/20 bg-white/5 p-1.5 ml-0 overflow-x-auto shadow-inner backdrop-blur-3xl"
+                onMouseLeave={() => setHoveredTab(null)}
+            >
                 {tabs.map((tab) => (
                     <button
                         key={tab.id}
                         onClick={() => setActiveView(tab.id as ActiveView)}
+                        onMouseEnter={() => setHoveredTab(tab.id)}
                         className={`relative h-9 px-4 md:px-6 transition-all duration-200 text-xs tracking-tight md:text-sm font-semibold whitespace-nowrap`}
                         style={{
                             WebkitTapHighlightColor: "transparent",
                         }}
                     >
+                        {/* Hover Preview Bubble */}
+                        {hoveredTab === tab.id && activeView !== tab.id && (
+                            <motion.span
+                                layoutId="hover-bubble"
+                                className="absolute inset-0 z-0 user-select-none"
+                                style={{
+                                    background: `linear-gradient(180deg, ${tabColors[tab.id as ActiveView]}10 0%, ${tabColors[tab.id as ActiveView]}30 100%)`,
+                                    boxShadow: `
+                                        inset 0 1px 0 0 rgba(255,255,255,0.4), 
+                                        inset 0 0 10px ${tabColors[tab.id as ActiveView]}20,
+                                        0 4px 15px ${tabColors[tab.id as ActiveView]}30
+                                    `,
+                                    backdropFilter: "blur(4px)",
+                                    border: "1px solid rgba(255,255,255,0.1)"
+                                }}
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                exit={{ opacity: 0, scale: 0.9 }}
+                                transition={{ duration: 0.2 }}
+                            />
+                        )}
+
+                        {/* Active Bubble */}
                         {activeView === tab.id && (
                             <motion.span
                                 layoutId="bubble"
-                                className="absolute inset-0 z-10 shadow-sm backdrop-blur-sm"
+                                className="absolute inset-0 z-10 shadow-lg backdrop-blur-lg"
                                 style={{
                                     background: tabColors[activeView],
-                                    boxShadow: `inset 0 1px 1px rgba(255,255,255,0.4), 0 0 20px ${tabColors[activeView]}80`
+                                    boxShadow: `
+                                        inset 0 2px 2px rgba(255,255,255,0.6), 
+                                        inset 0 -2px 6px rgba(0,0,0,0.2), 
+                                        0 8px 20px ${tabColors[activeView]}66
+                                    `
                                 }}
                                 transition={{type: "spring", bounce: 0.2, duration: 0.6}}
                             />
@@ -93,8 +124,9 @@ export default function About() {
                         <AnimatePresence mode="wait">
                             {activeView === "overview" && <OverviewSection setActiveView={setActiveView}/>}
                             {activeView === "work" && <WorkSection/>}
-                            {activeView === "hobbies" &&
-                                <HobbiesSection setActiveHobby={setActiveHobby} activeHobby={activeHobby}/>}
+                            {activeView === "hobbies" && (
+                                <HobbiesSection setActiveHobby={setActiveHobby} activeHobby={activeHobby}/>
+                            )}
                             {activeView === "music" && <MusicSection/>}
                         </AnimatePresence>
                     </motion.div>
