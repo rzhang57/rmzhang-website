@@ -102,7 +102,7 @@ export default function About() {
                             className={`relative z-20 ${
                                 activeView === tab.id
                                     ? "text-white font-bold drop-shadow-md"
-                                    : "text-muted-foreground/80 hover:text-primary transition-colors"
+                                    : "text-muted-foreground/80 transition-colors"
                             }`}
                         >
                             {tab.label}
