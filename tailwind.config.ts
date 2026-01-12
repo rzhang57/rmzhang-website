@@ -7,12 +7,20 @@ const config: Config = {
     ],
     theme: {
         extend: {
+            fontFamily: {
+                sans: [
+                    '-apple-system',
+                    'BlinkMacSystemFont',
+                    'Segoe UI',
+                    'Roboto',
+                    'Helvetica Neue',
+                    'Arial',
+                    'sans-serif',
+                ],
+            },
             colors: {
-                // Merging background and foreground with existing custom colors
                 background: "var(--background)",
                 foreground: "var(--foreground)",
-
-                // Your custom HSL-based color variables
                 border: "hsl(var(--border))",
                 input: "hsl(var(--input))",
                 ring: "hsl(var(--ring))",
@@ -45,15 +53,11 @@ const config: Config = {
                     foreground: "hsl(var(--card-foreground))",
                 },
             },
-
-            // Adding border radius customizations
             borderRadius: {
                 lg: "var(--radius)",
                 md: "calc(var(--radius) - 2px)",
                 sm: "calc(var(--radius) - 4px)",
             },
-
-            // Adding custom keyframes for animations
             keyframes: {
                 "accordion-down": {
                     from: { height: "0" },
@@ -64,8 +68,6 @@ const config: Config = {
                     to: { height: "0" },
                 },
             },
-
-            // Adding the `accordion-down` and `accordion-up` animations
             animation: {
                 "accordion-down": "accordion-down 0.2s ease-out",
                 "accordion-up": "accordion-up 0.2s ease-out",
@@ -73,7 +75,6 @@ const config: Config = {
         },
     },
 
-    // Adding the tailwindcss-animate plugin
     plugins: [require("tailwindcss-animate")],
 };
 
