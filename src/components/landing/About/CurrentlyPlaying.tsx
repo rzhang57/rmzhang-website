@@ -131,10 +131,10 @@ export default function CurrentlyPlaying() {
                 >
                     <span className="flex items-center gap-2">
                         <Music className="w-4 h-4" />
-                        <span className="text-xs font-medium"><span className="text-red-500">LIVE: </span>listening now</span>
+                        <span className="text-xs font-medium"><span className="text-red-500">live: </span>listening now</span>
                     </span>
                     <span className="text-[10px] tracking-wider font-bold opacity-60 group-hover:opacity-100 transition-opacity group-hover:text-[#1db954]">
-                        reveal
+                        ?
                     </span>
                 </Button>
             </div>
