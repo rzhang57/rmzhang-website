@@ -18,7 +18,7 @@ export default function Landing() {
                     </section>
                 </main>
                 <section id="about"
-                         className="flex flex-col space-y-5 w-full pt-10 md:pt-12 lg:pt-16 xl:pt-24 max-w-5xl px-6">
+                         className="flex flex-col space-y-5 w-full pt-10 md:pt-12 lg:pt-16 xl:pt-24 max-w-7xl px-6">
                     <About/>
                 </section>
                 <section id="projects"

@@ -1,23 +1,9 @@
-import {motion} from "framer-motion";
 import contentData from "@/data/content.json";
 import ExpandableCard from "@/components/landing/ExpandableCard";
 
 const WorkSection = () => {
-    const contentVariants = {
-        hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0 },
-        exit: { opacity: 0, y: -20 },
-    };
-
     return (
-        <motion.div
-            key="work"
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            variants={contentVariants}
-            transition={{ duration: 0.3 }}
-        >
+        <div id="work" className="scroll-mt-24">
             <h2 className="md:text-2xl sm:text-lg font-bold tracking-tighter mb-3">
                 {contentData.aboutMe.work.title}
             </h2>
@@ -41,7 +27,7 @@ const WorkSection = () => {
                     </div>
                 ))}
             </div>
-        </motion.div>
+        </div>
     );
 }
 

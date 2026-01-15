@@ -7,21 +7,8 @@ interface HobbiesSectionProps {
 }
 
 export default function HobbiesSection({ setActiveHobby, activeHobby}: HobbiesSectionProps) {
-    const contentVariants = {
-        hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0 },
-        exit: { opacity: 0, y: -20 },
-    };
-
     return (
-        <motion.div
-            key="hobbies"
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            variants={contentVariants}
-            transition={{ duration: 0.3 }}
-        >
+        <div id="hobbies" className="scroll-mt-24">
             <h2 className="md:text-2xl sm:text-lg font-bold tracking-tighter mb-4">
                 {contentData.aboutMe.hobbies.title}
             </h2>
@@ -61,6 +48,6 @@ export default function HobbiesSection({ setActiveHobby, activeHobby}: HobbiesSe
                     </AnimatePresence>
                 </div>
             </div>
-        </motion.div>
+        </div>
     );
 }

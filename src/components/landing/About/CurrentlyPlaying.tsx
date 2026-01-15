@@ -2,6 +2,8 @@
 
 import { useEffect, useState, useRef } from "react";
 import ExpandableCard from "@/components/landing/ExpandableCard";
+import { Button } from "@/components/ui/button";
+import { Music, X } from "lucide-react";
 
 interface CurrentlyPlaying {
     name: string;
@@ -19,6 +21,9 @@ interface CurrentlyPlaying {
 export default function CurrentlyPlaying() {
     const [currentlyPlaying, setCurrentlyPlaying] = useState<CurrentlyPlaying | null>(null);
     const [localProgress, setLocalProgress] = useState(0);
+    const [isRevealed, setIsRevealed] = useState(false);
+    const [initialCheckDone, setInitialCheckDone] = useState(false);
+    
     const pollingInterval = useRef<NodeJS.Timeout | null>(null);
     const progressInterval = useRef<NodeJS.Timeout | null>(null);
 
@@ -45,10 +50,35 @@ export default function CurrentlyPlaying() {
     };
 
     useEffect(() => {
-        if (!currentlyPlaying || !currentlyPlaying.isPlaying) {
-            if (progressInterval.current) {
-                clearInterval(progressInterval.current);
-            }
+        const init = async () => {
+            await fetchCurrentlyPlaying();
+            setInitialCheckDone(true);
+        };
+        void init();
+    }, []);
+
+    useEffect(() => {
+        if (!isRevealed) {
+            // Cleanup intervals if not revealed
+            if (pollingInterval.current) clearInterval(pollingInterval.current);
+            if (progressInterval.current) clearInterval(progressInterval.current);
+            return;
+        }
+
+        void fetchCurrentlyPlaying(); // Immediate update on reveal
+        pollingInterval.current = setInterval(() => {
+            void fetchCurrentlyPlaying();
+        }, 5000);
+
+        return () => {
+            if (pollingInterval.current) clearInterval(pollingInterval.current);
+            if (progressInterval.current) clearInterval(progressInterval.current);
+        };
+    }, [isRevealed]);
+
+    useEffect(() => {
+        if (!currentlyPlaying || !currentlyPlaying.isPlaying || !isRevealed) {
+            if (progressInterval.current) clearInterval(progressInterval.current);
             return;
         }
 
@@ -62,61 +92,76 @@ export default function CurrentlyPlaying() {
         }, 1000);
 
         return () => {
-            if (progressInterval.current) {
-                clearInterval(progressInterval.current);
-            }
+            if (progressInterval.current) clearInterval(progressInterval.current);
         };
-    }, [currentlyPlaying]);
-
-    const startPolling = () => {
-        void fetchCurrentlyPlaying();
-        pollingInterval.current = setInterval(() => {
-            void fetchCurrentlyPlaying();
-        }, 5000);
-    };
-
-    const stopPolling = () => {
-        if (pollingInterval.current) {
-            clearInterval(pollingInterval.current);
-            pollingInterval.current = null;
-        }
-        if (progressInterval.current) {
-            clearInterval(progressInterval.current);
-            progressInterval.current = null;
-        }
-    };
+    }, [currentlyPlaying, isRevealed]);
 
     useEffect(() => {
-        startPolling();
+        if (!isRevealed) return;
 
-        return () => {
-            stopPolling();
-        };
-    }, []);
-
-    useEffect(() => {
         const handleVisibilityChange = () => {
             if (document.hidden) {
-                stopPolling();
+                if (pollingInterval.current) clearInterval(pollingInterval.current);
+                if (progressInterval.current) clearInterval(progressInterval.current);
             } else {
-                startPolling();
+                void fetchCurrentlyPlaying();
+                pollingInterval.current = setInterval(() => {
+                    void fetchCurrentlyPlaying();
+                }, 5000);
             }
         };
 
         document.addEventListener("visibilitychange", handleVisibilityChange);
-
         return () => {
             document.removeEventListener("visibilitychange", handleVisibilityChange);
         };
-    }, []);
+    }, [isRevealed]);
 
-    if (!currentlyPlaying) {
-        return null;
+    if (!initialCheckDone) return null;
+
+    if (!currentlyPlaying && !isRevealed) return null;
+
+    if (!isRevealed) {
+        return (
+            <div className="mb-4">
+                <Button 
+                    variant="outline" 
+                    className="w-full justify-between bg-white/5 border-white/10 hover:bg-white/10 text-muted-foreground transition-all group"
+                    onClick={() => setIsRevealed(true)}
+                >
+                    <span className="flex items-center gap-2">
+                        <Music className="w-4 h-4" />
+                        <span className="text-xs font-medium"><span className="text-red-500">LIVE: </span>listening now</span>
+                    </span>
+                    <span className="text-[10px] tracking-wider font-bold opacity-60 group-hover:opacity-100 transition-opacity group-hover:text-[#1db954]">
+                        reveal
+                    </span>
+                </Button>
+            </div>
+        );
     }
 
+    if (!currentlyPlaying && isRevealed) {
+         return (
+            <div className="mb-4 bg-white/5 border border-white/10 rounded-md p-4 text-center">
+                 <p className="text-sm text-muted-foreground mb-2">session ended or paused</p>
+                 <Button 
+                    variant="ghost" 
+                    size="sm" 
+                    onClick={() => setIsRevealed(false)}
+                    className="text-xs"
+                >
+                    close
+                </Button>
+            </div>
+         );
+    }
+
+    if (!currentlyPlaying) return null;
+
     return (
-        <>
-            <div className="flex items-center gap-3 mb-3">
+        <div className="relative">
+            <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center gap-2">
                     {currentlyPlaying.isPlaying ? (
                         <div className="w-2 h-2 bg-[#1db954] animate-pulse"/>
@@ -124,33 +169,41 @@ export default function CurrentlyPlaying() {
                         <div className="w-2 h-2 bg-gray-400"/>
                     )}
                     <span className="text-sm font-medium text-[#1db954]">
-                    {currentlyPlaying.isPlaying ? "Currently Playing" : "Paused"}
-                </span>
+                        {currentlyPlaying.isPlaying ? "Currently Playing" : "Paused"}
+                    </span>
                 </div>
+                <button 
+                    onClick={() => setIsRevealed(false)}
+                    className="text-muted-foreground/50 hover:text-red-600 transition-colors p-1 hover:bg-white/10 rounded-full"
+                    title="Hide player"
+                >
+                    <X className="w-4 h-4" />
+                </button>
             </div>
+            
             <div className="flex items-center gap-4 mb-4">
                 <img
                     src={currentlyPlaying.image}
                     alt={currentlyPlaying.album}
-                    className="w-16 h-16"
+                    className="w-16 h-16 rounded-md shadow-lg"
                 />
                 <div className="flex-1 min-w-0">
                     <a
                         href={currentlyPlaying.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="block"
+                        className="block group"
                     >
-                        <p className="font-medium text-sm truncate hover:text-[#1db954] transition-colors">
+                        <p className="font-medium text-sm truncate group-hover:text-[#1db954] transition-colors">
                             {currentlyPlaying.name}
                         </p>
                         <p className="text-xs text-muted-foreground truncate">
                             {currentlyPlaying.artist}
                         </p>
                     </a>
-                    <div className="mt-2 w-full bg-gray-200 dark:bg-gray-700 h-1">
+                    <div className="mt-2 w-full bg-gray-200 dark:bg-gray-700 h-1 rounded-full overflow-hidden">
                         <div
-                            className="bg-[#1db954] h-1 ease-linear"
+                            className="bg-[#1db954] h-1 ease-linear transition-all duration-1000"
                             style={{
                                 width: `${Math.min((localProgress / currentlyPlaying.durationMs) * 100, 100)}%`
                             }}
@@ -165,13 +218,12 @@ export default function CurrentlyPlaying() {
             <ExpandableCard title={<span className="text-sm italic text-muted-foreground/80">fun fact</span>}>
                 currently, this site is hosted on vercel, which doesn&apos;t support websockets due to its serverless
                 nature.
-                as a result, i&apos;m actually polling from every client, pulling updates from spotify every 5 seconds
-                to make this feature possible (f12 {`>`} network to see all the requests!)
+                as a result, i&apos;m actually polling from every client (when you expand this player!), pulling updates from spotify every 5 seconds.
                 <br/>
                 <br/>
                 if you do the math, i&apos;d hit spotify&apos;s rate limits at ~25 concurrent users ...
             </ExpandableCard>
-        </>
+        </div>
     );
 }
 

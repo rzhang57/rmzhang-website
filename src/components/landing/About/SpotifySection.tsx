@@ -58,7 +58,7 @@ export default function SpotifySection() {
     if (loading) {
         return (
             <>
-                <div className="font-light text-gray-500 pb-5">random selection of 5 songs i&apos;ve been listening to
+                <div className="font-light text-gray-500 pb-5">5 songs i&apos;ve been listening to
                     recently
                 </div>
                 <div className="flex justify-center py-8">
@@ -71,7 +71,7 @@ export default function SpotifySection() {
     return (
         <>
             <div className="font-light text-gray-500 pb-5 flex items-center justify-between">
-                <span>random selection of 5 songs i&apos;ve been listening to recently</span>
+                <span>5 songs i&apos;ve been listening to recently</span>
                 <button
                     type="button"
                     className="text-muted-foreground hover:text-[#1db954] transition-colors ml-3 italic pr-3"
