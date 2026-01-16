@@ -131,7 +131,7 @@ export default function CurrentlyPlaying() {
                 >
                     <span className="flex items-center gap-2">
                         <Music className="w-4 h-4" />
-                        <span className="text-xs font-medium"><span className="text-red-500">live: </span>listening now</span>
+                        <span className="text-xs font-medium"><span className="text-red-500 group-hover:text-[#1db954] transition-colors">live: </span>listening now</span>
                     </span>
                     <span className="text-[10px] tracking-wider font-bold opacity-60 group-hover:opacity-100 transition-opacity group-hover:text-[#1db954]">
                         ?
@@ -174,7 +174,7 @@ export default function CurrentlyPlaying() {
                 </div>
                 <button 
                     onClick={() => setIsRevealed(false)}
-                    className="text-muted-foreground/50 hover:text-red-600 transition-colors p-1 hover:bg-white/10 rounded-full"
+                    className="text-muted-foreground/50 hover:text-red-600 transition-colors p-1 hover:bg-white/10"
                     title="Hide player"
                 >
                     <X className="w-4 h-4" />
@@ -185,7 +185,7 @@ export default function CurrentlyPlaying() {
                 <img
                     src={currentlyPlaying.image}
                     alt={currentlyPlaying.album}
-                    className="w-16 h-16 rounded-md shadow-lg"
+                    className="w-16 h-16 shadow-lg"
                 />
                 <div className="flex-1 min-w-0">
                     <a
@@ -201,7 +201,7 @@ export default function CurrentlyPlaying() {
                             {currentlyPlaying.artist}
                         </p>
                     </a>
-                    <div className="mt-2 w-full bg-gray-200 dark:bg-gray-700 h-1 rounded-full overflow-hidden">
+                    <div className="mt-2 w-full bg-gray-200 dark:bg-gray-700 h-1 overflow-hidden">
                         <div
                             className="bg-[#1db954] h-1 ease-linear transition-all duration-1000"
                             style={{
