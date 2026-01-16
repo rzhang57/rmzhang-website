@@ -3,8 +3,10 @@
 import { useEffect, useState, useRef } from "react";
 
 const MS_COLORS = ["#F25022", "#7FBA00", "#00A4EF", "#FFB900"];
+
 const CustomCursor = () => {
     const mainCursorRef = useRef<HTMLDivElement>(null);
+    const glowRef = useRef<HTMLDivElement>(null);
     const orbitRefs = useRef<(HTMLDivElement | null)[]>([]);
     const positionRef = useRef({
         mouseX: -100,
@@ -13,6 +15,8 @@ const CustomCursor = () => {
         mainY: -100,
         orbitX: -100,
         orbitY: -100,
+        glowX: -100,
+        glowY: -100,
     });
     const angleRef = useRef(0);
 
@@ -94,6 +98,10 @@ const CustomCursor = () => {
             positionRef.current.mainX = mouseX;
             positionRef.current.mainY = mouseY;
 
+            // Smooth glow follow
+            positionRef.current.glowX += (mouseX - positionRef.current.glowX) * 0.08;
+            positionRef.current.glowY += (mouseY - positionRef.current.glowY) * 0.08;
+
             positionRef.current.orbitX += (mouseX - positionRef.current.orbitX) * 0.1;
             positionRef.current.orbitY += (mouseY - positionRef.current.orbitY) * 0.1;
 
@@ -105,12 +113,10 @@ const CustomCursor = () => {
 
             particleOffsetsRef.current.forEach((p, i) => {
                 p.currentPhase += p.wobbleSpeed * 0.1;
-                // Reduced interpolation factor from 0.08 to 0.04 for slower transition
                 p.transitionAngle += (p.targetTransitionAngle - p.transitionAngle) * 0.04;
 
                 if (speed > 0.5) {
                     p.angleOffset += speed * 0.0005 * (i % 2 === 0 ? 1 : -1);
-
                     p.wobbleSpeed += (Math.random() - 0.5) * 0.0005 * speed;
                     p.wobbleSpeed = Math.max(0.02, Math.min(0.15, p.wobbleSpeed));
                 }
@@ -122,6 +128,12 @@ const CustomCursor = () => {
                 mainCursorRef.current.style.transform = `translate3d(${
                     Math.round(positionRef.current.mainX)
                 }px, ${Math.round(positionRef.current.mainY)}px, 0)`;
+            }
+
+            // Update glow position
+            if (glowRef.current) {
+                glowRef.current.style.left = `${positionRef.current.glowX}px`;
+                glowRef.current.style.top = `${positionRef.current.glowY}px`;
             }
 
             const centerX = positionRef.current.orbitX + 8;
@@ -167,6 +179,16 @@ const CustomCursor = () => {
 
     return (
         <>
+            {/* Gradient glow following cursor */}
+            <div
+                ref={glowRef}
+                className="cursor-glow hidden md:block"
+                style={{
+                    opacity: (isVisible && !isInIframe) ? 0.6 : 0,
+                }}
+            />
+
+            {/* Orbiting particles */}
             {MS_COLORS.map((color, i) => (
                 <div
                     key={i}
@@ -184,6 +206,8 @@ const CustomCursor = () => {
                     }}
                 />
             ))}
+
+            {/* Main cursor */}
             <div
                 ref={mainCursorRef}
                 className="pointer-events-none fixed left-0 top-0 z-50 hidden md:block"

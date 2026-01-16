@@ -5,31 +5,46 @@ import Hero from "@/components/landing/Hero";
 import About from "@/components/landing/About/About";
 import Projects from "@/components/landing/Projects";
 import Contact from "@/components/landing/Contact";
+import GradientOrbs from "@/components/effects/GradientOrbs";
+import NoiseOverlay from "@/components/effects/NoiseOverlay";
+import { PanelProvider } from "@/components/navigation/PanelContext";
+import PanelNavigator from "@/components/navigation/PanelNavigator";
+import Panel from "@/components/navigation/Panel";
+import PanelIndicator from "@/components/navigation/PanelIndicator";
 
 export default function Landing() {
     return (
-        <>
-            <div id={"home"} className="flex flex-col min-h-[100dvh] justify-center mx-auto items-center dynbg pt-24">
-                <div className="hidden xl:block"><Header/></div>
+        <PanelProvider>
+            <div className="dynbg min-h-screen w-screen overflow-hidden">
+                {/* Background effects */}
+                <GradientOrbs />
+                <NoiseOverlay />
 
-                <main className="flex-col space-y-96 mx-auto w-full px-6 items-center max-w-5xl">
-                    <section className="w-full py-12 sm:py-0 md:py-24 lg:py-32 xl:py-48 mb-96">
-                        <Hero/>
-                    </section>
-                </main>
-                <section id="about"
-                         className="flex flex-col space-y-5 w-full pt-10 md:pt-12 lg:pt-16 xl:pt-24 max-w-7xl px-6">
-                    <About/>
-                </section>
-                <section id="projects"
-                         className="flex flex-col space-y-5 w-full pt-10 md:pt-12 lg:pt-16 xl:pt-24 mx-auto max-w-5xl px-6">
-                    <Projects/>
-                </section>
-                <section id="contact"
-                         className="flex flex-col space-y-5 w-full pt-10 md:pt-12 lg:pt-16 xl:pt-24 mb-96 mx-auto max-w-5xl px-6">
-                    <Contact/>
-                </section>
+                {/* Floating navigation header */}
+                <Header />
+
+                {/* Horizontal panel navigation */}
+                <PanelNavigator>
+                    <Panel id="home">
+                        <Hero />
+                    </Panel>
+
+                    <Panel id="about">
+                        <About />
+                    </Panel>
+
+                    <Panel id="projects">
+                        <Projects />
+                    </Panel>
+
+                    <Panel id="contact">
+                        <Contact />
+                    </Panel>
+                </PanelNavigator>
+
+                {/* Panel indicator dots */}
+                <PanelIndicator />
             </div>
-        </>
-    )
+        </PanelProvider>
+    );
 }

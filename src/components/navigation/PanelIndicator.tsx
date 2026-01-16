@@ -1,6 +1,6 @@
 "use client";
 
-import { usePanelContext } from "./PanelNavigator";
+import { usePanelContext } from "./PanelContext";
 import { motion } from "framer-motion";
 
 const panelNames = ["home", "about", "projects", "contact"];

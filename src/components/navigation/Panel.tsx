@@ -2,7 +2,7 @@
 
 import { ReactNode, useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { usePanelContext } from "./PanelNavigator";
+import { usePanelContext } from "./PanelContext";
 
 interface PanelProps {
     id: string;
@@ -34,8 +34,6 @@ export default function Panel({ id, children, className = "" }: PanelProps) {
 
         return () => observer.disconnect();
     }, []);
-
-    const isActive = panelIndexRef.current === activePanel;
 
     return (
         <section

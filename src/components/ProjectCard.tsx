@@ -12,47 +12,45 @@ interface ProjectCardProps {
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
-                                                     title,
-                                                     date,
-                                                     technologies,
-                                                     description,
-                                                     githubLink,
-                                                     liveDemoLink,
-                                                 }) => {
+    title,
+    date,
+    technologies,
+    description,
+    githubLink,
+    liveDemoLink,
+}) => {
     return (
         <a href={githubLink} target="_blank" rel="noopener noreferrer">
-            <div
-                className="scale-100 bg-opacity-70 bg-gray-100 hover:opacity-100 transition-all p-6 outline-none duration-300 h-full hover:scale-105 hover:bg-black/10 hover:bg-opacity-20">
-                <h3 className="text-xl font-semibold mb-2">{title}</h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">{date}</p>
-                <div className="mb-4">
+            <div className="glass-subtle iridescent-border rounded-xl p-5 h-full transition-all duration-300 hover:scale-[1.02] hover:border-white/30 group">
+                <h3 className="text-xl font-semibold mb-2 group-hover:text-gray-900 transition-colors">
+                    {title}
+                </h3>
+                <p className="text-sm text-gray-500 mb-3">{date}</p>
+                <div className="mb-3 flex flex-wrap gap-1.5">
                     {technologies.map((tech) => (
                         <span
                             key={tech}
-                            className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm text-gray-700 mr-2 mb-2"
+                            className="glass-pill rounded-full px-2.5 py-0.5 text-xs text-gray-700 font-medium"
                         >
-            {tech}
-          </span>
+                            {tech}
+                        </span>
                     ))}
                 </div>
-                <p className="text-gray-700 dark:text-gray-400">{description}</p>
-                {(githubLink || liveDemoLink) && (
-                    <div className="mt-4">
-                        {liveDemoLink && (
-                            <a
-                                href={liveDemoLink}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-blue-500 hover:underline"
-                            >
-                                Live Demo
-                            </a>
-                        )}
+                <p className="text-gray-600 text-sm">{description}</p>
+                {liveDemoLink && (
+                    <div className="mt-3">
+                        <a
+                            href={liveDemoLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-sm text-blue-500 hover:underline"
+                        >
+                            Live Demo
+                        </a>
                     </div>
                 )}
             </div>
         </a>
-
     );
 };
 

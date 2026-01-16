@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import GlassCard from "@/components/ui/GlassCard";
-import {AnimatePresence, motion} from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function Contact() {
     const [copySuccess, setCopySuccess] = useState(false);
@@ -24,66 +24,69 @@ export default function Contact() {
     }
 
     return (
-        <div className="relative">
-            <GlassCard>
-                <div className="flex justify-center mb-0">
-                    <h1 className="text-3xl font-extrabold tracking-tighter">contact me</h1>
-                </div>
+        <div className="w-full max-w-2xl mx-auto">
+            <div className="relative">
+                <GlassCard iridescent glow className="text-center">
+                    <div className="flex justify-center mb-4">
+                        <h1 className="text-3xl font-extrabold tracking-tighter">contact me</h1>
+                    </div>
 
-                <div className="flex justify-center m-0">
-                    <div className="grid grid-cols-[auto_1fr] items-center gap-4 max-w-2xl w-full">
-                        <Avatar className="w-12 h-12">
-                            <AvatarImage src="/statics/pfp.png"/>
+                    <div className="flex flex-col items-center gap-4">
+                        <Avatar className="w-16 h-16 ring-2 ring-white/20">
+                            <AvatarImage src="/statics/pfp.png" />
                             <AvatarFallback>Me</AvatarFallback>
                         </Avatar>
-                        <p className="inline-block text-muted-foreground md:text-lg">
-                            inquiries? email me at:
-                            <> </>
-                            <a
+
+                        <p className="text-muted-foreground md:text-lg max-w-md">
+                            inquiries? email me at{" "}
+                            <button
                                 onClick={handleCopyClick}
-                                className={
-                                    "underline tracking-tight hover:tracking-normal hover:cursor-pointer transition-all hover:text-pink-500"
-                                }
+                                className="underline tracking-tight hover:tracking-normal transition-all hover:text-pink-500 font-medium iridescent-border px-1 rounded"
                             >
                                 ryanzhang@outlook.com
-                            </a>{" "}
+                            </button>{" "}
                             or find me on linkedin!
                         </p>
                     </div>
-                </div>
-            </GlassCard>
+                </GlassCard>
 
-            <AnimatePresence>
-                {copySuccess && (
-                    <div className="absolute top-full mt-2 left-0 right-0 flex justify-center z-50">
-                        <motion.div
-                            initial={{ opacity: 0, y: -8 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -8 }}
-                            transition={{ duration: 0.3 }}
-                            className="bg-green-300 text-gray-600 px-4 py-2 shadow-lg"
-                        >
-                            ✓ Email copied to clipboard!
-                        </motion.div>
-                    </div>
-                )}
-            </AnimatePresence>
-            <AnimatePresence>
-                {copyError && (
-                    <div className="absolute top-full mt-2 left-0 right-0 flex justify-center z-50">
-                        <motion.div
-                            initial={{ opacity: 0, y: -8 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -8 }}
-                            transition={{ duration: 0.3 }}
-                            className="bg-red-500 text-white px-4 py-2 shadow-lg"
-                        >
-                            ✗ Failed to copy email
-                        </motion.div>
-                    </div>
-                )}
-            </AnimatePresence>
+                <AnimatePresence>
+                    {copySuccess && (
+                        <div className="absolute top-full mt-4 left-0 right-0 flex justify-center z-50">
+                            <motion.div
+                                initial={{ opacity: 0, y: -8 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -8 }}
+                                transition={{ duration: 0.3 }}
+                                className="glass-pill rounded-full px-4 py-2 text-gray-700 flex items-center gap-2"
+                            >
+                                <svg className="w-4 h-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                </svg>
+                                Email copied to clipboard!
+                            </motion.div>
+                        </div>
+                    )}
+                </AnimatePresence>
+                <AnimatePresence>
+                    {copyError && (
+                        <div className="absolute top-full mt-4 left-0 right-0 flex justify-center z-50">
+                            <motion.div
+                                initial={{ opacity: 0, y: -8 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -8 }}
+                                transition={{ duration: 0.3 }}
+                                className="glass-pill rounded-full px-4 py-2 text-red-600 flex items-center gap-2"
+                            >
+                                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                                Failed to copy email
+                            </motion.div>
+                        </div>
+                    )}
+                </AnimatePresence>
+            </div>
         </div>
     );
 }
-
