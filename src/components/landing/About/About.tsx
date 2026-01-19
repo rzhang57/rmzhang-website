@@ -13,7 +13,7 @@ export default function About() {
     const [activeHobby, setActiveHobby] = useState(0);
     const [showAltImage, setShowAltImage] = useState(false);
 
-    const imageSrc = showAltImage ? "/statics/otherimage.png" : "/statics/potential.jpg";
+    const imageSrc = showAltImage ? "/statics/otherimage.png" : "/statics/potential2.jpg";
 
     function handleAvatarClick() {
         setShowAltImage((prev) => !prev);
@@ -45,7 +45,7 @@ export default function About() {
                                 }}
                                 exit={{ opacity: 0, scale: 0.9 }}
                             >
-                                <Avatar className="w-36 h-36 md:w-72 md:h-72 group-hover:scale-110 duration-300">
+                                <Avatar className="w-36 h-36 md:w-72 md:h-72 scale-110 group-hover:scale-125 duration-300">
                                     <AvatarImage src={imageSrc} />
                                 </Avatar>
                             </motion.div>
