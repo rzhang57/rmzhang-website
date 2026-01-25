@@ -17,6 +17,7 @@ const config: Config = {
                     'Arial',
                     'sans-serif',
                 ],
+                radon: ['var(--radon)'],
             },
             colors: {
                 background: "var(--background)",

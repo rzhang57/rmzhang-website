@@ -14,6 +14,11 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
+const radon = localFont({
+  src: "./fonts/Radon.woff",
+  variable: "--radon"
+});
+
 export const metadata: Metadata = {
   title: "ryan zhang",
   description: "developer; cs student at ubc",
@@ -35,7 +40,7 @@ export default function RootLayout({
   return (
       <html lang="en">
       <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+          className={`${geistSans.variable} ${geistMono.variable} ${radon.variable} antialiased`}
       >
           <CustomCursor />
           {children}
