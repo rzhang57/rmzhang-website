@@ -19,24 +19,9 @@ export default function Hero() {
           <Link
               href="https://www.microsoft.com/"
               target="_blank"
-              className="inline-block transition-all duration-100 font-bold bg-gradient-to-r bg-clip-text text-transparent hover:brightness-125 hover:cursor-pointer px-1 pl-0 tracking-tighter"
+              className="inline-block transition-all duration-100 font-bold hover:cursor-pointer tracking-tighter underline underline-offset-4 hover:text-foreground"
           >
-                <span className="text-[#F25022]" style={{
-                    WebkitTextStroke: '3px black',
-                    paintOrder: 'stroke fill'
-                }}>mi</span>
-                <span className="text-[#7FBA00]" style={{
-                    WebkitTextStroke: '3px black',
-                    paintOrder: 'stroke fill'
-                }}>cr</span>
-                <span className="text-[#00A4EF]" style={{
-                    WebkitTextStroke: '3px black',
-                    paintOrder: 'stroke fill'
-                }}>os</span>
-                <span className="text-[#FFB900]" style={{
-                    WebkitTextStroke: '3px black',
-                    paintOrder: 'stroke fill'
-                }}>oft</span>
+            microsoft
           </Link>
         </span>
       </div>

@@ -9,7 +9,7 @@ import Contact from "@/components/landing/Contact";
 export default function Landing() {
     return (
         <>
-            <div id={"home"} className="flex flex-col min-h-[100dvh] justify-center mx-auto items-center dynbg pt-24">
+            <div id={"home"} className="flex flex-col min-h-[100dvh] justify-center mx-auto items-center bg-background pt-24">
                 <div className="hidden xl:block"><Header/></div>
 
                 <main className="flex-col space-y-96 mx-auto w-full px-6 items-center max-w-5xl">

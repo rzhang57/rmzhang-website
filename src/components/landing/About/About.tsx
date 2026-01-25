@@ -54,19 +54,19 @@ export default function About() {
                 </div>
 
                 <div className="md:col-span-7 order-3">
-                    <div className="bg-white/5 rounded-xl p-6 border border-white/10 h-full hover:bg-white/[0.07] transition-colors">
+                    <div className="border border-foreground/20 p-6 h-full hover:bg-muted/30 transition-colors">
                         <WorkSection />
                     </div>
                 </div>
-                
+
                 <div className="md:col-span-5 order-4">
-                     <div className="bg-white/5 rounded-xl p-6 border border-white/10 h-full hover:bg-white/[0.07] transition-colors">
+                     <div className="border border-foreground/20 p-6 h-full hover:bg-muted/30 transition-colors">
                         <MusicSection />
                     </div>
                 </div>
 
                 <div className="md:col-span-12 order-5">
-                     <div className="bg-white/5 rounded-xl p-6 border border-white/10 hover:bg-white/[0.07] transition-colors">
+                     <div className="border border-foreground/20 p-6 hover:bg-muted/30 transition-colors">
                         <HobbiesSection setActiveHobby={setActiveHobby} activeHobby={activeHobby} />
                     </div>
                 </div>

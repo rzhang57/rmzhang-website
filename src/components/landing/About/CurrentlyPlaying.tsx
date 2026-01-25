@@ -23,7 +23,7 @@ export default function CurrentlyPlaying() {
     const [localProgress, setLocalProgress] = useState(0);
     const [isRevealed, setIsRevealed] = useState(false);
     const [initialCheckDone, setInitialCheckDone] = useState(false);
-    
+
     const pollingInterval = useRef<NodeJS.Timeout | null>(null);
     const progressInterval = useRef<NodeJS.Timeout | null>(null);
 
@@ -124,16 +124,16 @@ export default function CurrentlyPlaying() {
     if (!isRevealed) {
         return (
             <div className="mb-4">
-                <Button 
-                    variant="outline" 
-                    className="w-full justify-between bg-white/5 border-white/10 hover:bg-white/10 text-muted-foreground transition-all group"
+                <Button
+                    variant="outline"
+                    className="w-full justify-between bg-transparent border-foreground/20 hover:bg-muted/50 text-muted-foreground transition-all group"
                     onClick={() => setIsRevealed(true)}
                 >
                     <span className="flex items-center gap-2">
                         <Music className="w-4 h-4" />
-                        <span className="text-xs font-medium"><span className="text-red-500 group-hover:text-[#1db954] transition-colors">live: </span>listening now</span>
+                        <span className="text-xs font-medium"><span className="text-foreground group-hover:text-foreground transition-colors">live: </span>listening now</span>
                     </span>
-                    <span className="text-[10px] tracking-wider font-bold opacity-60 group-hover:opacity-100 transition-opacity group-hover:text-[#1db954]">
+                    <span className="text-[10px] tracking-wider font-bold opacity-60 group-hover:opacity-100 transition-opacity group-hover:text-foreground">
                         ?
                     </span>
                 </Button>
@@ -143,11 +143,11 @@ export default function CurrentlyPlaying() {
 
     if (!currentlyPlaying && isRevealed) {
          return (
-            <div className="mb-4 bg-white/5 border border-white/10 rounded-md p-4 text-center">
+            <div className="mb-4 bg-transparent border border-foreground/20 p-4 text-center">
                  <p className="text-sm text-muted-foreground mb-2">session ended or paused</p>
-                 <Button 
-                    variant="ghost" 
-                    size="sm" 
+                 <Button
+                    variant="ghost"
+                    size="sm"
                     onClick={() => setIsRevealed(false)}
                     className="text-xs"
                 >
@@ -164,28 +164,28 @@ export default function CurrentlyPlaying() {
             <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center gap-2">
                     {currentlyPlaying.isPlaying ? (
-                        <div className="w-2 h-2 bg-[#1db954] animate-pulse"/>
+                        <div className="w-2 h-2 bg-foreground animate-pulse"/>
                     ) : (
-                        <div className="w-2 h-2 bg-gray-400"/>
+                        <div className="w-2 h-2 bg-muted-foreground"/>
                     )}
-                    <span className="text-sm font-medium text-[#1db954]">
+                    <span className="text-sm font-medium text-foreground">
                         {currentlyPlaying.isPlaying ? "Currently Playing" : "Paused"}
                     </span>
                 </div>
-                <button 
+                <button
                     onClick={() => setIsRevealed(false)}
-                    className="text-muted-foreground/50 hover:text-red-600 transition-colors p-1 hover:bg-white/10"
+                    className="text-muted-foreground/50 hover:text-foreground transition-colors p-1 hover:bg-muted/50"
                     title="Hide player"
                 >
                     <X className="w-4 h-4" />
                 </button>
             </div>
-            
+
             <div className="flex items-center gap-4 mb-4">
                 <img
                     src={currentlyPlaying.image}
                     alt={currentlyPlaying.album}
-                    className="w-16 h-16 shadow-lg"
+                    className="w-16 h-16"
                 />
                 <div className="flex-1 min-w-0">
                     <a
@@ -194,16 +194,16 @@ export default function CurrentlyPlaying() {
                         rel="noopener noreferrer"
                         className="block group"
                     >
-                        <p className="font-medium text-sm truncate group-hover:text-[#1db954] transition-colors">
+                        <p className="font-medium text-sm truncate group-hover:text-muted-foreground transition-colors">
                             {currentlyPlaying.name}
                         </p>
                         <p className="text-xs text-muted-foreground truncate">
                             {currentlyPlaying.artist}
                         </p>
                     </a>
-                    <div className="mt-2 w-full bg-gray-200 dark:bg-gray-700 h-1 overflow-hidden">
+                    <div className="mt-2 w-full bg-muted h-1 overflow-hidden">
                         <div
-                            className="bg-[#1db954] h-1 ease-linear transition-all duration-1000"
+                            className="bg-foreground h-1 ease-linear transition-all duration-1000"
                             style={{
                                 width: `${Math.min((localProgress / currentlyPlaying.durationMs) * 100, 100)}%`
                             }}

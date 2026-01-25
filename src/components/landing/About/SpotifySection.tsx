@@ -58,11 +58,11 @@ export default function SpotifySection() {
     if (loading) {
         return (
             <>
-                <div className="font-light text-gray-500 pb-5">5 songs i&apos;ve been listening to
+                <div className="font-light text-muted-foreground pb-5">5 songs i&apos;ve been listening to
                     recently
                 </div>
                 <div className="flex justify-center py-8">
-                    <div className="animate-spin rounded-full h-8 w-8 border-2 border-[#1db954] border-t-transparent"/>
+                    <div className="animate-spin rounded-full h-8 w-8 border-2 border-foreground border-t-transparent"/>
                 </div>
             </>
         );
@@ -70,11 +70,11 @@ export default function SpotifySection() {
 
     return (
         <>
-            <div className="font-light text-gray-500 pb-5 flex items-center justify-between">
+            <div className="font-light text-muted-foreground pb-5 flex items-center justify-between">
                 <span>5 songs i&apos;ve been listening to recently</span>
                 <button
                     type="button"
-                    className="text-muted-foreground hover:text-[#1db954] transition-colors ml-3 italic pr-3"
+                    className="text-muted-foreground hover:text-foreground transition-colors ml-3 italic pr-3"
                     onClick={() => {
                         void fetchTracks();
                     }}
@@ -91,7 +91,7 @@ export default function SpotifySection() {
                     {tracks.map((track, index) => (
                         <div
                             key={index}
-                            className="bg-muted/30 hover:bg-muted/50 transition-all overflow-hidden"
+                            className="bg-muted/30 hover:bg-muted/50 transition-all overflow-hidden border border-foreground/10"
                         >
                             <div className="flex items-center gap-4 p-3 group cursor-pointer"
                                  onClick={() => togglePlayer(index)}>
@@ -109,7 +109,7 @@ export default function SpotifySection() {
                                         rel="noopener noreferrer"
                                         className="block"
                                     >
-                                        <p className="font-medium text-sm truncate hover:text-[#1db954] transition-colors">
+                                        <p className="font-medium text-sm truncate hover:text-foreground transition-colors">
                                             {track.name}
                                         </p>
                                         <p className="text-xs text-muted-foreground truncate">
@@ -152,7 +152,7 @@ export default function SpotifySection() {
                                                 <div
                                                     className="absolute inset-0 flex items-center justify-center z-10">
                                                     <div
-                                                        className="animate-spin rounded-full h-6 w-6 border-2 border-[#1db954] border-t-transparent"/>
+                                                        className="animate-spin rounded-full h-6 w-6 border-2 border-foreground border-t-transparent"/>
                                                 </div>
                                             )}
                                             <iframe

@@ -1,7 +1,7 @@
 "use client";
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import NavLink from "@/components/landing/NavLink";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Header() {
   return (
@@ -14,18 +14,23 @@ export default function Header() {
             <NavLink href="#contact" label="contact" />
           </nav>
           <div className="flex flex-col gap-4 items-center">
-            <a href="https://linkedin.com/in/rmzhang" target="_blank" rel="noreferrer">
-              <Avatar className="size-8 scale-100 hover:scale-110 transition-all">
-                <AvatarImage src="/statics/inlogo.png" />
-                <AvatarFallback></AvatarFallback>
-              </Avatar>
+            <a
+              href="https://linkedin.com/in/rmzhang"
+              target="_blank"
+              rel="noreferrer"
+              className="text-xs border border-foreground/20 px-2 py-1 hover:bg-foreground hover:text-background transition-colors"
+            >
+              in
             </a>
-            <a href="https://github.com/rzhang57" target="_blank" rel="noreferrer">
-              <Avatar className="scale-100 hover:scale-110 transition-all">
-                <AvatarImage src="/statics/gitlogo.png" />
-                <AvatarFallback></AvatarFallback>
-              </Avatar>
+            <a
+              href="https://github.com/rzhang57"
+              target="_blank"
+              rel="noreferrer"
+              className="text-xs border border-foreground/20 px-2 py-1 hover:bg-foreground hover:text-background transition-colors"
+            >
+              gh
             </a>
+            <ThemeToggle />
           </div>
         </div>
       </header>

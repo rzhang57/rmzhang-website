@@ -42,7 +42,7 @@ export default function Contact() {
                             <a
                                 onClick={handleCopyClick}
                                 className={
-                                    "underline tracking-tight hover:tracking-normal hover:cursor-pointer transition-all hover:text-pink-500"
+                                    "underline underline-offset-4 tracking-tight hover:tracking-normal hover:cursor-pointer transition-all hover:text-foreground"
                                 }
                             >
                                 ryanzhang@outlook.com
@@ -61,9 +61,9 @@ export default function Contact() {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -8 }}
                             transition={{ duration: 0.3 }}
-                            className="bg-green-300 text-gray-600 px-4 py-2 shadow-lg"
+                            className="bg-foreground text-background px-4 py-2"
                         >
-                            ✓ Email copied to clipboard!
+                            copied to clipboard
                         </motion.div>
                     </div>
                 )}
@@ -76,9 +76,9 @@ export default function Contact() {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -8 }}
                             transition={{ duration: 0.3 }}
-                            className="bg-red-500 text-white px-4 py-2 shadow-lg"
+                            className="bg-destructive text-destructive-foreground px-4 py-2"
                         >
-                            ✗ Failed to copy email
+                            failed to copy email
                         </motion.div>
                     </div>
                 )}
@@ -86,4 +86,3 @@ export default function Contact() {
         </div>
     );
 }
-

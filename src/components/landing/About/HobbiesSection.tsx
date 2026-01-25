@@ -13,22 +13,22 @@ export default function HobbiesSection({ setActiveHobby, activeHobby}: HobbiesSe
                 {contentData.aboutMe.hobbies.title}
             </h2>
             <div className="grid md:grid-cols-[200px_1fr] sm:grid-cols-1 gap-6">
-                <div className="space-y-1 bg-muted/30 p-4">
+                <div className="space-y-1 bg-muted/30 p-4 border border-foreground/10">
                     {contentData.aboutMe.hobbies.items.map((item, index) => (
                         <button
                             key={index}
                             onClick={() => setActiveHobby(index)}
                             className={`w-full text-left px-4 py-2.5 transition-all text-sm ${
                                 activeHobby === index
-                                    ? "bg-gray-200 text-[#ec4899] font-semibold shadow-[0_6px_0_0_rgba(236,72,153,0.3)] translate-y-[-2px]"
-                                    : "text-muted-foreground font-medium hover:bg-muted/50 hover:shadow-[0_4px_0_0_rgba(0,0,0,0.1)] hover:translate-y-[-1px]"
+                                    ? "bg-foreground text-background font-semibold"
+                                    : "text-muted-foreground font-medium hover:bg-muted/50"
                             }`}
                         >
                             {item.category}
                         </button>
                     ))}
                 </div>
-                <div className="bg-muted/30 p-6 min-h-[200px] flex items-start">
+                <div className="bg-muted/30 p-6 min-h-[200px] flex items-start border border-foreground/10">
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={activeHobby}
@@ -38,7 +38,7 @@ export default function HobbiesSection({ setActiveHobby, activeHobby}: HobbiesSe
                             transition={{ duration: 0.2 }}
                             className="w-full"
                         >
-                            <h3 className="text-lg font-semibold text-[#ec4899] mb-3">
+                            <h3 className="text-lg font-semibold text-foreground mb-3">
                                 {contentData.aboutMe.hobbies.items[activeHobby].category}
                             </h3>
                             <p className="text-muted-foreground md:text-base sm:text-sm leading-relaxed">
