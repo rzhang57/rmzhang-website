@@ -203,7 +203,7 @@ export default function CurrentlyPlaying() {
                     </a>
                     <div className="mt-2 w-full bg-gray-200 dark:bg-gray-700 h-1 overflow-hidden">
                         <div
-                            className="bg-[#1db954] h-1 ease-linear transition-all duration-1000"
+                            className="bg-[#1db954] h-1"
                             style={{
                                 width: `${Math.min((localProgress / currentlyPlaying.durationMs) * 100, 100)}%`
                             }}
