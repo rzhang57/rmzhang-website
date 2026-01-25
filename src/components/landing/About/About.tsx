@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import GlassCard from "@/components/ui/GlassCard";
 import HobbiesSection from "@/components/landing/About/HobbiesSection";
@@ -33,40 +32,27 @@ export default function About() {
                 </div>
 
                 <div className="md:col-span-4 flex justify-center items-start md:items-center order-1 md:order-2 mb-6 md:mb-0">
-                    <div onClick={handleAvatarClick} className="cursor-pointer group relative">
-                        <AnimatePresence mode="popLayout">
-                            <motion.div
-                                key={showAltImage ? "alt" : "main"}
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                animate={{
-                                    opacity: 1,
-                                    scale: 1,
-                                    transition: { type: "spring", stiffness: 300, damping: 30 }
-                                }}
-                                exit={{ opacity: 0, scale: 0.9 }}
-                            >
-                                <Avatar className="w-36 h-36 md:w-72 md:h-72 scale-110 group-hover:scale-125 duration-300">
-                                    <AvatarImage src={imageSrc} />
-                                </Avatar>
-                            </motion.div>
-                        </AnimatePresence>
+                    <div onClick={handleAvatarClick} className="cursor-pointer">
+                        <Avatar className="w-36 h-36 md:w-72 md:h-72">
+                            <AvatarImage src={imageSrc} />
+                        </Avatar>
                     </div>
                 </div>
 
                 <div className="md:col-span-7 order-3">
-                    <div className="bg-white/5 rounded-xl p-6 border border-white/10 h-full hover:bg-white/[0.07] transition-colors">
+                    <div className="bg-gray-50 p-6 border border-black h-full">
                         <WorkSection />
                     </div>
                 </div>
-                
+
                 <div className="md:col-span-5 order-4">
-                     <div className="bg-white/5 rounded-xl p-6 border border-white/10 h-full hover:bg-white/[0.07] transition-colors">
+                     <div className="bg-gray-50 p-6 border border-black h-full">
                         <MusicSection />
                     </div>
                 </div>
 
                 <div className="md:col-span-12 order-5">
-                     <div className="bg-white/5 rounded-xl p-6 border border-white/10 hover:bg-white/[0.07] transition-colors">
+                     <div className="bg-gray-50 p-6 border border-black">
                         <HobbiesSection setActiveHobby={setActiveHobby} activeHobby={activeHobby} />
                     </div>
                 </div>

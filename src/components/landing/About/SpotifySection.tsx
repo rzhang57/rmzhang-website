@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 
 interface Track {
     name: string;
@@ -62,7 +61,7 @@ export default function SpotifySection() {
                     recently
                 </div>
                 <div className="flex justify-center py-8">
-                    <div className="animate-spin rounded-full h-8 w-8 border-2 border-[#1db954] border-t-transparent"/>
+                    <div className="h-8 w-8 border-2 border-black border-t-transparent"/>
                 </div>
             </>
         );
@@ -74,7 +73,7 @@ export default function SpotifySection() {
                 <span>5 songs i&apos;ve been listening to recently</span>
                 <button
                     type="button"
-                    className="text-muted-foreground hover:text-[#1db954] transition-colors ml-3 italic pr-3"
+                    className="text-muted-foreground hover:underline ml-3 italic pr-3"
                     onClick={() => {
                         void fetchTracks();
                     }}
@@ -82,18 +81,14 @@ export default function SpotifySection() {
                     refresh
                 </button>
             </div>
-            <motion.div
-                initial={{opacity: 0, y: 20}}
-                animate={{opacity: 1, y: 0}}
-                transition={{duration: 0.3}}
-            >
+            <div>
                 <div className="grid gap-3">
                     {tracks.map((track, index) => (
                         <div
                             key={index}
-                            className="bg-muted/30 hover:bg-muted/50 transition-all overflow-hidden"
+                            className="bg-gray-100 border border-black overflow-hidden"
                         >
-                            <div className="flex items-center gap-4 p-3 group cursor-pointer"
+                            <div className="flex items-center gap-4 p-3 cursor-pointer"
                                  onClick={() => togglePlayer(index)}>
                                 <div className="relative flex-shrink-0">
                                     <img
@@ -109,7 +104,7 @@ export default function SpotifySection() {
                                         rel="noopener noreferrer"
                                         className="block"
                                     >
-                                        <p className="font-medium text-sm truncate hover:text-[#1db954] transition-colors">
+                                        <p className="font-medium text-sm truncate hover:underline">
                                             {track.name}
                                         </p>
                                         <p className="text-xs text-muted-foreground truncate">
@@ -122,7 +117,7 @@ export default function SpotifySection() {
                                     {playingIndex === index ? "close" : "listen"}
                                 </span>
                                     <svg
-                                        className={`w-5 h-5 text-muted-foreground transition-transform ${
+                                        className={`w-5 h-5 text-muted-foreground ${
                                             playingIndex === index ? "rotate-180" : ""
                                         }`}
                                         fill="none"
@@ -134,44 +129,36 @@ export default function SpotifySection() {
                                     </svg>
                                 </div>
                             </div>
-                            <AnimatePresence>
-                                {playingIndex === index && (
-                                    <motion.div
-                                        initial={{height: 0, opacity: 0}}
-                                        animate={{height: 80, opacity: 1}}
-                                        exit={{height: 0, opacity: 0}}
-                                        transition={{duration: 0.3}}
-                                        className="overflow-hidden"
+                            {playingIndex === index && (
+                                <div className="overflow-hidden">
+                                    <div
+                                        className="px-3 pb-3 relative"
+                                        onMouseEnter={() => document.body.classList.add('hide-custom-cursor')}
+                                        onMouseLeave={() => document.body.classList.remove('hide-custom-cursor')}
                                     >
-                                        <div
-                                            className="px-3 pb-3 relative"
-                                            onMouseEnter={() => document.body.classList.add('hide-custom-cursor')}
-                                            onMouseLeave={() => document.body.classList.remove('hide-custom-cursor')}
-                                        >
-                                            {loadingIframe === index && (
+                                        {loadingIframe === index && (
+                                            <div
+                                                className="absolute inset-0 flex items-center justify-center z-10">
                                                 <div
-                                                    className="absolute inset-0 flex items-center justify-center z-10">
-                                                    <div
-                                                        className="animate-spin rounded-full h-6 w-6 border-2 border-[#1db954] border-t-transparent"/>
-                                                </div>
-                                            )}
-                                            <iframe
-                                                src={`https://open.spotify.com/embed/track/${track.id}?utm_source=generator&autoplay=1`}
-                                                width="100%"
-                                                height="80"
-                                                frameBorder="0"
-                                                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                                                loading="eager"
-                                                onLoad={handleIframeLoad}
-                                            />
-                                        </div>
-                                    </motion.div>
-                                )}
-                            </AnimatePresence>
+                                                    className="h-6 w-6 border-2 border-black border-t-transparent"/>
+                                            </div>
+                                        )}
+                                        <iframe
+                                            src={`https://open.spotify.com/embed/track/${track.id}?utm_source=generator&autoplay=1`}
+                                            width="100%"
+                                            height="80"
+                                            frameBorder="0"
+                                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                                            loading="eager"
+                                            onLoad={handleIframeLoad}
+                                        />
+                                    </div>
+                                </div>
+                            )}
                         </div>
                     ))}
                 </div>
-            </motion.div>
+            </div>
         </>
     );
 }

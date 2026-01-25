@@ -9,7 +9,7 @@ export default function Hero() {
         onClick={() => {
             window.location.href = "#about";
         }}
-        className="group relative font-bold tracking-tighter hover:tracking-normal transition-all text-4xl md:text-5xl lg:text-6xl py-4 duration-1000 hover:cursor-pointer"
+        className="font-bold tracking-tighter text-4xl md:text-5xl lg:text-6xl py-4 hover:cursor-pointer"
       >
         ryan zhang
       </h1>
@@ -19,7 +19,7 @@ export default function Hero() {
           <Link
               href="https://www.microsoft.com/"
               target="_blank"
-              className="inline-block transition-all duration-100 font-bold bg-gradient-to-r bg-clip-text text-transparent hover:brightness-125 hover:cursor-pointer px-1 pl-0 tracking-tighter"
+              className="inline-block font-bold hover:cursor-pointer px-1 pl-0 tracking-tighter"
           >
                 <span className="text-[#F25022]" style={{
                     WebkitTextStroke: '3px black',

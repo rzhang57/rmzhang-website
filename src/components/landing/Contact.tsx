@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import GlassCard from "@/components/ui/GlassCard";
-import {AnimatePresence, motion} from "framer-motion";
 
 export default function Contact() {
     const [copySuccess, setCopySuccess] = useState(false);
@@ -41,9 +40,7 @@ export default function Contact() {
                             <> </>
                             <a
                                 onClick={handleCopyClick}
-                                className={
-                                    "underline tracking-tight hover:tracking-normal hover:cursor-pointer transition-all hover:text-pink-500"
-                                }
+                                className="underline hover:cursor-pointer"
                             >
                                 ryanzhang@outlook.com
                             </a>{" "}
@@ -53,36 +50,20 @@ export default function Contact() {
                 </div>
             </GlassCard>
 
-            <AnimatePresence>
-                {copySuccess && (
-                    <div className="absolute top-full mt-2 left-0 right-0 flex justify-center z-50">
-                        <motion.div
-                            initial={{ opacity: 0, y: -8 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -8 }}
-                            transition={{ duration: 0.3 }}
-                            className="bg-green-300 text-gray-600 px-4 py-2 shadow-lg"
-                        >
-                            ✓ Email copied to clipboard!
-                        </motion.div>
+            {copySuccess && (
+                <div className="absolute top-full mt-2 left-0 right-0 flex justify-center z-50">
+                    <div className="bg-white border border-black text-black px-4 py-2">
+                        Email copied to clipboard!
                     </div>
-                )}
-            </AnimatePresence>
-            <AnimatePresence>
-                {copyError && (
-                    <div className="absolute top-full mt-2 left-0 right-0 flex justify-center z-50">
-                        <motion.div
-                            initial={{ opacity: 0, y: -8 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -8 }}
-                            transition={{ duration: 0.3 }}
-                            className="bg-red-500 text-white px-4 py-2 shadow-lg"
-                        >
-                            ✗ Failed to copy email
-                        </motion.div>
+                </div>
+            )}
+            {copyError && (
+                <div className="absolute top-full mt-2 left-0 right-0 flex justify-center z-50">
+                    <div className="bg-white border border-black text-black px-4 py-2">
+                        Failed to copy email
                     </div>
-                )}
-            </AnimatePresence>
+                </div>
+            )}
         </div>
     );
 }

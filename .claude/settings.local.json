@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(tree:*)"
+      "Bash(tree:*)",
+      "WebFetch(domain:parse.bot)",
+      "Bash(npm run build:*)"
     ]
   }
 }

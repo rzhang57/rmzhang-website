@@ -124,16 +124,16 @@ export default function CurrentlyPlaying() {
     if (!isRevealed) {
         return (
             <div className="mb-4">
-                <Button 
-                    variant="outline" 
-                    className="w-full justify-between bg-white/5 border-white/10 hover:bg-white/10 text-muted-foreground transition-all group"
+                <Button
+                    variant="outline"
+                    className="w-full justify-between bg-white border-black text-muted-foreground"
                     onClick={() => setIsRevealed(true)}
                 >
                     <span className="flex items-center gap-2">
                         <Music className="w-4 h-4" />
-                        <span className="text-xs font-medium"><span className="text-red-500 group-hover:text-[#1db954] transition-colors">live: </span>listening now</span>
+                        <span className="text-xs font-medium"><span className="text-red-500">live: </span>listening now</span>
                     </span>
-                    <span className="text-[10px] tracking-wider font-bold opacity-60 group-hover:opacity-100 transition-opacity group-hover:text-[#1db954]">
+                    <span className="text-[10px] tracking-wider font-bold">
                         ?
                     </span>
                 </Button>
@@ -143,11 +143,11 @@ export default function CurrentlyPlaying() {
 
     if (!currentlyPlaying && isRevealed) {
          return (
-            <div className="mb-4 bg-white/5 border border-white/10 rounded-md p-4 text-center">
+            <div className="mb-4 bg-white border border-black p-4 text-center">
                  <p className="text-sm text-muted-foreground mb-2">session ended or paused</p>
-                 <Button 
-                    variant="ghost" 
-                    size="sm" 
+                 <Button
+                    variant="ghost"
+                    size="sm"
                     onClick={() => setIsRevealed(false)}
                     className="text-xs"
                 >
@@ -164,46 +164,46 @@ export default function CurrentlyPlaying() {
             <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center gap-2">
                     {currentlyPlaying.isPlaying ? (
-                        <div className="w-2 h-2 bg-[#1db954] animate-pulse"/>
+                        <div className="w-2 h-2 bg-black"/>
                     ) : (
                         <div className="w-2 h-2 bg-gray-400"/>
                     )}
-                    <span className="text-sm font-medium text-[#1db954]">
+                    <span className="text-sm font-medium text-black">
                         {currentlyPlaying.isPlaying ? "Currently Playing" : "Paused"}
                     </span>
                 </div>
-                <button 
+                <button
                     onClick={() => setIsRevealed(false)}
-                    className="text-muted-foreground/50 hover:text-red-600 transition-colors p-1 hover:bg-white/10"
+                    className="text-muted-foreground hover:text-black p-1"
                     title="Hide player"
                 >
                     <X className="w-4 h-4" />
                 </button>
             </div>
-            
+
             <div className="flex items-center gap-4 mb-4">
                 <img
                     src={currentlyPlaying.image}
                     alt={currentlyPlaying.album}
-                    className="w-16 h-16 shadow-lg"
+                    className="w-16 h-16 border border-black"
                 />
                 <div className="flex-1 min-w-0">
                     <a
                         href={currentlyPlaying.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="block group"
+                        className="block"
                     >
-                        <p className="font-medium text-sm truncate group-hover:text-[#1db954] transition-colors">
+                        <p className="font-medium text-sm truncate hover:underline">
                             {currentlyPlaying.name}
                         </p>
                         <p className="text-xs text-muted-foreground truncate">
                             {currentlyPlaying.artist}
                         </p>
                     </a>
-                    <div className="mt-2 w-full bg-gray-200 dark:bg-gray-700 h-1 overflow-hidden">
+                    <div className="mt-2 w-full bg-gray-200 h-1 overflow-hidden">
                         <div
-                            className="bg-[#1db954] h-1"
+                            className="bg-black h-1"
                             style={{
                                 width: `${Math.min((localProgress / currentlyPlaying.durationMs) * 100, 100)}%`
                             }}

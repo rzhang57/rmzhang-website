@@ -1,4 +1,3 @@
-import {AnimatePresence, motion} from "framer-motion";
 import contentData from "@/data/content.json";
 
 interface HobbiesSectionProps {
@@ -13,39 +12,30 @@ export default function HobbiesSection({ setActiveHobby, activeHobby}: HobbiesSe
                 {contentData.aboutMe.hobbies.title}
             </h2>
             <div className="grid md:grid-cols-[200px_1fr] sm:grid-cols-1 gap-6">
-                <div className="space-y-1 bg-muted/30 p-4">
+                <div className="space-y-1 bg-gray-100 p-4 border border-black">
                     {contentData.aboutMe.hobbies.items.map((item, index) => (
                         <button
                             key={index}
                             onClick={() => setActiveHobby(index)}
-                            className={`w-full text-left px-4 py-2.5 transition-all text-sm ${
+                            className={`w-full text-left px-4 py-2.5 text-sm ${
                                 activeHobby === index
-                                    ? "bg-gray-200 text-[#ec4899] font-semibold shadow-[0_6px_0_0_rgba(236,72,153,0.3)] translate-y-[-2px]"
-                                    : "text-muted-foreground font-medium hover:bg-muted/50 hover:shadow-[0_4px_0_0_rgba(0,0,0,0.1)] hover:translate-y-[-1px]"
+                                    ? "bg-white text-black font-semibold border border-black"
+                                    : "text-muted-foreground font-medium hover:bg-gray-200"
                             }`}
                         >
                             {item.category}
                         </button>
                     ))}
                 </div>
-                <div className="bg-muted/30 p-6 min-h-[200px] flex items-start">
-                    <AnimatePresence mode="wait">
-                        <motion.div
-                            key={activeHobby}
-                            initial={{ opacity: 0, x: 20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            exit={{ opacity: 0, x: -20 }}
-                            transition={{ duration: 0.2 }}
-                            className="w-full"
-                        >
-                            <h3 className="text-lg font-semibold text-[#ec4899] mb-3">
-                                {contentData.aboutMe.hobbies.items[activeHobby].category}
-                            </h3>
-                            <p className="text-muted-foreground md:text-base sm:text-sm leading-relaxed">
-                                {contentData.aboutMe.hobbies.items[activeHobby].description}
-                            </p>
-                        </motion.div>
-                    </AnimatePresence>
+                <div className="bg-gray-100 p-6 min-h-[200px] flex items-start border border-black">
+                    <div className="w-full">
+                        <h3 className="text-lg font-semibold text-black mb-3">
+                            {contentData.aboutMe.hobbies.items[activeHobby].category}
+                        </h3>
+                        <p className="text-muted-foreground md:text-base sm:text-sm leading-relaxed">
+                            {contentData.aboutMe.hobbies.items[activeHobby].description}
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>

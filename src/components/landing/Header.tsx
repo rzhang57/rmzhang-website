@@ -15,13 +15,13 @@ export default function Header() {
           </nav>
           <div className="flex flex-col gap-4 items-center">
             <a href="https://linkedin.com/in/rmzhang" target="_blank" rel="noreferrer">
-              <Avatar className="size-8 scale-100 hover:scale-110 transition-all">
+              <Avatar className="size-8">
                 <AvatarImage src="/statics/inlogo.png" />
                 <AvatarFallback></AvatarFallback>
               </Avatar>
             </a>
             <a href="https://github.com/rzhang57" target="_blank" rel="noreferrer">
-              <Avatar className="scale-100 hover:scale-110 transition-all">
+              <Avatar>
                 <AvatarImage src="/statics/gitlogo.png" />
                 <AvatarFallback></AvatarFallback>
               </Avatar>
