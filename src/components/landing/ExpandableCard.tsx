@@ -15,11 +15,11 @@ export default function ExpandableCard({
     const [open, setOpen] = React.useState(defaultOpen);
 
     return (
-        <div>
+        <div className="border border-black bg-white p-4">
             <button
                 type="button"
                 onClick={() => setOpen((o) => !o)}
-                className="w-full flex items-center justify-between py-3 text-left"
+                className="w-full flex items-center justify-between text-left"
                 aria-expanded={open}
             >
                 <span className="font-semibold tracking-tight text-gray-800">{title}</span>
@@ -35,8 +35,8 @@ export default function ExpandableCard({
             </button>
 
             {open && (
-                <div className="overflow-hidden">
-                    <div className="py-3 text-sm text-muted-foreground">
+                <div className="overflow-hidden mt-3">
+                    <div className="text-sm text-muted-foreground">
                         {children}
                     </div>
                 </div>

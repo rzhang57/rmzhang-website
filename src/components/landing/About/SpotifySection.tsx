@@ -61,7 +61,7 @@ export default function SpotifySection() {
                     recently
                 </div>
                 <div className="flex justify-center py-8">
-                    <div className="h-8 w-8 border-2 border-black border-t-transparent"/>
+                    <div className="h-8 w-8 border-2 border-black border-t-transparent rounded-full animate-spin"/>
                 </div>
             </>
         );
@@ -140,7 +140,7 @@ export default function SpotifySection() {
                                             <div
                                                 className="absolute inset-0 flex items-center justify-center z-10">
                                                 <div
-                                                    className="h-6 w-6 border-2 border-black border-t-transparent"/>
+                                                    className="h-6 w-6 border-2 border-black border-t-transparent rounded-full animate-spin"/>
                                             </div>
                                         )}
                                         <iframe

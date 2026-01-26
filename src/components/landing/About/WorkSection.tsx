@@ -15,14 +15,16 @@ const WorkSection = () => {
                         <p className="font-light">{exp.overview}</p>
                         {
                             exp.description.length > 0 &&
-                            <ExpandableCard
-                                title={<span className="text-sm italic text-muted-foreground/80">more details</span>}>
-                                <ul className="list-disc list-outside mt-2 pl-6 space-y-1 text-muted-foreground text-base">
-                                    {exp.description.map((point, i) => (
-                                        <li key={i} className="leading-relaxed">{point}</li>
-                                    ))}
-                                </ul>
-                            </ExpandableCard>
+                            <div className="mt-3">
+                                <ExpandableCard
+                                    title={<span className="text-sm italic text-muted-foreground/80">more details</span>}>
+                                    <ul className="list-disc list-outside mt-2 pl-6 space-y-1 text-muted-foreground text-base">
+                                        {exp.description.map((point, i) => (
+                                            <li key={i} className="leading-relaxed">{point}</li>
+                                        ))}
+                                    </ul>
+                                </ExpandableCard>
+                            </div>
                         }
                     </div>
                 ))}

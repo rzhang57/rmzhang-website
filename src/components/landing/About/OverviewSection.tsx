@@ -7,9 +7,10 @@ const OverviewSection = () => {
                 {contentData.aboutMe.overview.intro}
                 <a
                     href="#work"
-                    className="text-black underline cursor-pointer"
+                    className="text-black cursor-pointer relative inline-block group"
                 >
-                    {contentData.aboutMe.overview.workClickPrompt}
+                    <span className="relative z-10">{contentData.aboutMe.overview.workClickPrompt}</span>
+                    <span className="absolute left-0 bottom-0 w-full h-[2px] bg-black transition-all duration-300 group-hover:h-[6px]"></span>
                 </a>{". "}
                 <br/>
                 <br/>
@@ -19,9 +20,10 @@ const OverviewSection = () => {
                 {contentData.aboutMe.overview.hobbiesIntro}{" "}
                 <a
                     href="#hobbies"
-                    className="text-black underline cursor-pointer"
+                    className="text-black cursor-pointer relative inline-block group"
                 >
-                    {contentData.aboutMe.overview.clickPrompt}
+                    <span className="relative z-10">{contentData.aboutMe.overview.clickPrompt}</span>
+                    <span className="absolute left-0 bottom-0 w-full h-[2px] bg-black transition-all duration-300 group-hover:h-[6px]"></span>
                 </a>
                 {contentData.aboutMe.overview.closing}
             </p>

@@ -40,7 +40,7 @@ export default function Contact() {
                             <> </>
                             <a
                                 onClick={handleCopyClick}
-                                className="underline hover:cursor-pointer"
+                                className="hover:underline hover:cursor-pointer text-black"
                             >
                                 ryanzhang@outlook.com
                             </a>{" "}
