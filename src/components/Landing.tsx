@@ -21,15 +21,15 @@ export default function Landing() {
                     </main>
                 </div>
                 <section id="about"
-                         className="flex flex-col w-full pt-8 md:pt-10 lg:pt-12 max-w-7xl px-6 mx-auto">
+                         className="flex flex-col w-full pt-8 md:pt-10 lg:pt-12 max-w-7xl px-6 mx-auto scroll-mt-24">
                     <About/>
                 </section>
                 <section id="projects"
-                         className="flex flex-col w-full pt-8 md:pt-10 lg:pt-12 mx-auto max-w-5xl px-6">
+                         className="flex flex-col w-full pt-8 md:pt-10 lg:pt-12 mx-auto max-w-5xl px-6 scroll-mt-24">
                     <Projects/>
                 </section>
                 <section id="contact"
-                         className="flex flex-col w-full pt-8 md:pt-10 lg:pt-12 mb-48 mx-auto max-w-5xl px-6">
+                         className="flex flex-col w-full pt-8 md:pt-10 lg:pt-12 mb-48 mx-auto max-w-5xl px-6 scroll-mt-24">
                     <Contact/>
                 </section>
             </div>
