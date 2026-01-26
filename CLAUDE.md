@@ -43,3 +43,6 @@ Requires `.env.local` with:
 - `SPOTIFY_CLIENT_ID`
 - `SPOTIFY_CLIENT_SECRET`
 - `SPOTIFY_REFRESH_TOKEN`
+
+### Special instructions
+- Do NOT put any unnecessary comments in code.

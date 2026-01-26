@@ -69,8 +69,16 @@
   }
 }
 
-html {
+html, body {
   scroll-behavior: smooth;
+  min-height: 100%;
+}
+
+body {
+  background: linear-gradient(-45deg, #faece3, #fae3f6, #e3f0fa, white, white);
+  background-size: 300% 300%;
+  animation: bgShift 16s infinite;
+  background-attachment: fixed;
 }
 
 @keyframes bgShift {
@@ -88,13 +96,6 @@ html {
 @keyframes shimmer {
   0% { transform: translateX(0); }
   100% { transform: translateX(200%); }
-}
-
-.dynbg {
-  background: linear-gradient(-45deg, #faece3, #fae3f6, #e3f0fa, white, white);
-  background-size: 300% 300%;
-  animation: bgShift 16s infinite;
-  background-attachment: fixed;
 }
 
 @keyframes textspace {
