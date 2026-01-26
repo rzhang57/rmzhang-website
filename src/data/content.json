@@ -48,12 +48,12 @@
       "title": "hobbies",
       "items": [
         {
-          "category": "formula 1",
-          "description": "i love the cross section of engineering, sport, and speed. unfortunately, i support ferrari."
+          "category": "mechanical keyboards",
+          "description": "i've been hooked on topre switches for quite some time. i primarily use an hhkb professional hybrid type-s. it took a while for me to get used to the layout. i also have a realforce r3s i got in japan - this was my first topre board. i have a few other custom boards with cherry style switches, both soldered and hot-swappable, some made of plastic, some made of lego :D"
         },
         {
-          "category": "football",
-          "description": "i primarily follow the premier league and european football, though i also keep up with international games and the mls. i support liverpool."
+          "category": "video games",
+          "description": "don't play as many video games anymore because of priorities and time constraints. was recently gifted a 3ds xl, currently playing mario kart 7 (ctgp7), pokemon usum with plans to play a few more games. also still play a bit of overwatch and valorant on occasion. previously played a lot of fortnite, gta, f1, fifa/fc, minecraft, need for speed, fall guys."
         },
         {
           "category": "pokemon",
@@ -76,20 +76,19 @@
           "description": "vegas pro user since 2018. made montages, school projects, short-form videos, and more."
         },
         {
-          "category": "mechanical keyboards",
-          "description": "i've been hooked on topre for quite some time. i primarily use an hhkb professional hybrid type-s. it took a while for me to get used to the layout. i also have a realforce r3s i got in japan - this was my first topre board. i have a few other custom boards with cherry style switches, both soldered and hot-swappable, some made of plastic, some made of lego :D"
-        },
-        {
-          "category": "video games",
-          "description": "don't play as many video games anymore because of priorities and time constraints. was recently gifted a 3ds xl, currently playing mario kart 7 (ctgp7), pokemon usum with plans to play a few more games. also still play a bit of overwatch and valorant on occasion. previously played a lot of fortnite, gta, f1, fifa/fc, minecraft, need for speed, fall guys."
-        },
-        {
           "category": "violin",
           "description": "have been playing for 15+ years, 3 of those in vyso. a lot more on and off now because of school, work, life."
         },
         {
           "category": "skiing",
           "description": "i ski. used to go to grouse every year as a kid. first run back in 2026 since 2020. i had fun. thinking about getting a season pass for 2027. hopefully the season will be long enough for the pass to be worth it."
+        },        {
+          "category": "formula 1",
+          "description": "i love the cross section of engineering, sport, and speed. unfortunately, i support ferrari."
+        },
+        {
+          "category": "football",
+          "description": "i primarily follow the premier league and european football, though i also keep up with international games and the mls. i support liverpool."
         }
       ]
     }
