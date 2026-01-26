@@ -64,12 +64,6 @@
     @apply border-border;
   }
 
-  @media (min-width: 768px) {
-    * {
-      cursor: none !important;
-    }
-  }
-
   body {
     @apply bg-background text-foreground;
   }
