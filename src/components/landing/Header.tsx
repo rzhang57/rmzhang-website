@@ -46,7 +46,7 @@ export default function Header() {
               href="https://linkedin.com/in/rmzhang"
               target="_blank"
               rel="noreferrer"
-              className="text-neutral-600 hover:text-[#0A66C2] transition-all hover:scale-110"
+              className="text-neutral-800 hover:text-[#0A66C2] transition-all hover:scale-110"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -61,7 +61,7 @@ export default function Header() {
               href="https://github.com/rzhang57"
               target="_blank"
               rel="noreferrer"
-              className="text-neutral-600 hover:text-neutral-900 transition-all hover:scale-110"
+              className="text-neutral-800 hover:text-black transition-all hover:scale-110"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
