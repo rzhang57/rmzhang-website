@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import CustomCursor from "@/components/CustomCursor"; // Import the new component
+import CustomCursor from "@/components/CustomCursor";
+import AnimatedBackground from "@/components/AnimatedBackground";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -42,6 +43,7 @@ export default function RootLayout({
       <body
           className={`${geistSans.variable} ${geistMono.variable} ${radon.variable} antialiased`}
       >
+          <AnimatedBackground />
           <CustomCursor />
           {children}
       </body>
