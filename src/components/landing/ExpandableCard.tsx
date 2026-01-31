@@ -15,10 +15,27 @@ export default function ExpandableCard({
 }) {
     const [open, setOpen] = React.useState(defaultOpen);
     const panelRef = React.useRef<HTMLDivElement>(null);
+    const isInitialRender = React.useRef(true);
 
     React.useEffect(() => {
         const el = panelRef.current;
         if (!el) return;
+
+        if (isInitialRender.current) {
+            isInitialRender.current = false;
+            if (open) {
+                el.style.height = "auto";
+            }
+            return;
+        }
+
+        const handleTransitionEnd = () => {
+            if (open) {
+                el.style.height = "auto";
+            }
+        };
+
+        el.addEventListener("transitionend", handleTransitionEnd);
 
         if (open) {
             el.style.height = "0px";
@@ -31,6 +48,10 @@ export default function ExpandableCard({
                 el.style.height = "0px";
             });
         }
+
+        return () => {
+            el.removeEventListener("transitionend", handleTransitionEnd);
+        };
     }, [open]);
 
     return (
