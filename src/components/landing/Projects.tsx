@@ -13,7 +13,7 @@ export default function Projects() {
               date={"dec 2025 - present"}
               technologies={["Python", "TypeScript", "Flask", "MediaPipe", "React", "Electron", "Docker"]}
               description={"agentic task disengagement intervention"}
-              githubLink={"https://github.com/rzhang57/qot"}
+              githubLink={"https://github.com/rzhang57/study-spot"}
           />
           <ProjectCard
               title={"qot"}
