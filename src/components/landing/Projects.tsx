@@ -13,7 +13,7 @@ export default function Projects() {
               date={"feb 2026 - present"}
               technologies={["TypeScript", "Rust", "React", "Electron"]}
               description={"beautiful, quick, open source screen recordings"}
-              githubLink={"https://github.com/rzhang57/study-spot"}
+              githubLink={"https://github.com/rzhang57/velocity"}
           />
           <ProjectCard
               title={"study spot"}
