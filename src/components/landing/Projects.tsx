@@ -9,8 +9,15 @@ export default function Projects() {
         <h1 className="text-3xl font-extrabold tracking-tighter mb-6">probably busy working on...</h1>
         <div className="grid lg:grid-cols-[1fr_1fr] sm:grid-cols-1 items-stretch gap-4">
           <ProjectCard
+              title={"velocity"}
+              date={"feb 2026 - present"}
+              technologies={["TypeScript", "Rust", "React", "Electron"]}
+              description={"beautiful, quick, open source screen recordings"}
+              githubLink={"https://github.com/rzhang57/study-spot"}
+          />
+          <ProjectCard
               title={"study spot"}
-              date={"dec 2025 - present"}
+              date={"feb 2026 - present"}
               technologies={["Python", "TypeScript", "Flask", "MediaPipe", "React", "Electron", "Docker"]}
               description={"agentic task disengagement intervention"}
               githubLink={"https://github.com/rzhang57/study-spot"}
