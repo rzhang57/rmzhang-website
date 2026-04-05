@@ -44,7 +44,7 @@ export default function RootLayout({
           className={`${geistSans.variable} ${geistMono.variable} ${radon.variable} antialiased`}
       >
           <AnimatedBackground />
-          <CustomCursor />
+          {process.env.NEXT_PUBLIC_CUSTOM_CURSOR === "true" && <CustomCursor />}
           {children}
       </body>
       </html>
