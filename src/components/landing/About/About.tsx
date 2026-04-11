@@ -10,7 +10,6 @@ import WorkSection from "@/components/landing/About/WorkSection";
 import MusicSection from "@/components/landing/About/MusicSection";
 
 export default function About() {
-    const [activeHobby, setActiveHobby] = useState(0);
     const [showAltImage, setShowAltImage] = useState(false);
 
     const imageSrc = showAltImage ? "/statics/otherimage.png" : "/statics/potential2.jpg";
@@ -22,8 +21,8 @@ export default function About() {
     return (
         <GlassCard className="w-full h-full">
             <div className="flex justify-between items-center mb-6">
-                <h1 className="text-3xl font-extrabold tracking-tighter">
-                    who am i?
+                <h1 className="text-3xl font-bold tracking-tighter">
+                    about
                 </h1>
             </div>
 
@@ -67,7 +66,7 @@ export default function About() {
 
                 <div className="md:col-span-12 order-5">
                      <div className="bg-white/5 rounded-xl p-6 border border-white/10 hover:bg-white/[0.07] transition-colors">
-                        <HobbiesSection setActiveHobby={setActiveHobby} activeHobby={activeHobby} />
+                        <HobbiesSection />
                     </div>
                 </div>
             </div>

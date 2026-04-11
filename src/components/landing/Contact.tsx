@@ -27,7 +27,7 @@ export default function Contact() {
         <div className="relative">
             <GlassCard>
                 <div className="flex justify-center mb-0">
-                    <h1 className="text-3xl font-extrabold tracking-tighter">contact me</h1>
+                    <h1 className="text-3xl font-bold tracking-tighter">contact</h1>
                 </div>
 
                 <div className="flex justify-center m-0">

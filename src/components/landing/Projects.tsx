@@ -6,7 +6,7 @@ import GlassCard from "@/components/ui/GlassCard";
 export default function Projects() {
   return (
       <GlassCard>
-        <h1 className="text-3xl font-extrabold tracking-tighter mb-6">probably busy working on...</h1>
+        <h1 className="text-3xl font-bold tracking-tighter mb-6">projects</h1>
         <div className="grid lg:grid-cols-[1fr_1fr] sm:grid-cols-1 items-stretch gap-4">
           <ProjectCard
               title={"velocity"}
