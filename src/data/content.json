@@ -1,7 +1,7 @@
 {
   "aboutMe": {
     "overview": {
-      "intro": "third year cs student at ubc. incoming software engineering intern at microsoft. previously a software engineer intern at planview working on copilot/ anvi. learn more ",
+      "intro": "third year cs student at ubc. software engineering intern at microsoft. previously a software engineer intern at planview working on copilot/ anvi. learn more ",
       "workClickPrompt": "@work",
       "interests": "interested in applied AI/ML, robotics, backend engineering, data engineering, distributed systems, and infra.",
       "hobbiesIntro": "also into f1, english football, sports cars, video editing, mechanical keyboards, games and more. learn more ",
@@ -14,9 +14,9 @@
         {
           "role": "software engineering intern",
           "company": "microsoft",
-          "overview": "incoming summer 2026",
+          "overview": "engineering @ ms teams",
           "description": [
-            "joining microsoft teams as a software engineering intern in the summer, focusing on backend services and distributed systems infrastructure"
+            "scaling town halls"
           ]
         },
         {
