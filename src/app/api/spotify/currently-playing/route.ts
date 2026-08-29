@@ -43,7 +43,7 @@ export async function GET() {
 
         const currentlyPlaying = {
             name: track.name,
-            artist: track.artists.map((a: any) => a.name).join(", "),
+            artist: track.artists.map((a: { name: string }) => a.name).join(", "),
             album: track.album.name,
             image: track.album.images[0]?.url,
             url: track.external_urls.spotify,
