@@ -1,0 +1,199 @@
+{
+  "profile": {
+    "statement": "i build infrastructure in service of the experience on top of it.",
+    "elaboration": "the backend and the systems underneath are never the point. they're there to hold up something seamless for whoever is on the other end.",
+    "facts": [
+      {
+        "label": "now",
+        "value": "incoming swe @ mercury"
+      },
+      {
+        "label": "before",
+        "value": "microsoft · planview"
+      },
+      {
+        "label": "study",
+        "value": "cs @ ubc, third year"
+      },
+      {
+        "label": "focus",
+        "value": "backend · systems · infra"
+      },
+      {
+        "label": "based",
+        "value": "vancouver, bc"
+      }
+    ],
+    "closing": "always down for a good chat."
+  },
+  "work": [
+    {
+      "period": "incoming",
+      "company": "mercury",
+      "role": "software engineer",
+      "notes": [],
+      "link": "https://mercury.com"
+    },
+    {
+      "period": "2026",
+      "company": "microsoft",
+      "role": "swe intern",
+      "notes": [
+        "scaling town halls on teams"
+      ],
+      "link": "https://www.microsoft.com/microsoft-teams"
+    },
+    {
+      "period": "2025",
+      "company": "planview",
+      "role": "swe intern",
+      "notes": [
+        "built workflows — a multi-step automation framework across every planview app, backend engine to agentic email client",
+        "designed the mcp integration registry behind hybrid tool calling",
+        "moved logging to an isolated cloudwatch pipeline to stay policy-compliant without losing observability"
+      ],
+      "link": "https://www.planview.com"
+    },
+    {
+      "period": "2024",
+      "company": "ubc",
+      "role": "teaching assistant",
+      "notes": [
+        "ran cpsc 110 labs for 600+ students, 90% favorable"
+      ],
+      "link": "https://www.cs.ubc.ca"
+    }
+  ],
+  "projects": [
+    {
+      "name": "velocity",
+      "year": "2026",
+      "blurb": "quick, open source screen recording",
+      "lang": "rust",
+      "link": "https://github.com/rzhang57/velocity"
+    },
+    {
+      "name": "study spot",
+      "year": "2026",
+      "blurb": "agentic disengagement intervention",
+      "lang": "python",
+      "link": "https://github.com/rzhang57/study-spot"
+    },
+    {
+      "name": "qot",
+      "year": "2025",
+      "blurb": "real-time collaborative workspace",
+      "lang": "c#",
+      "link": "https://github.com/rzhang57/qot"
+    },
+    {
+      "name": "noteblock",
+      "year": "2025",
+      "blurb": "desktop notes, optimized",
+      "lang": "go",
+      "link": "https://github.com/rzhang57/noteblock"
+    },
+    {
+      "name": "planview copilot",
+      "year": "2025",
+      "blurb": "applied ai, full stack",
+      "lang": "java",
+      "link": "https://www.planview.com/ai/"
+    },
+    {
+      "name": "ride rater",
+      "year": "2024",
+      "blurb": "ride ratings from real riders",
+      "lang": "java",
+      "link": "https://github.com/rzhang57/riderater"
+    },
+    {
+      "name": "kumon grader",
+      "year": "2024",
+      "blurb": "worksheet grading via cv",
+      "lang": "python"
+    },
+    {
+      "name": "ryanz.dev",
+      "year": "2024",
+      "blurb": "this site",
+      "lang": "typescript",
+      "link": "https://github.com/rzhang57/rmzhang-website"
+    },
+    {
+      "name": "braille translator",
+      "year": "2024",
+      "blurb": "two-way cli translator",
+      "lang": "python",
+      "link": "https://github.com/rzhang57/eng-intern-challenge"
+    },
+    {
+      "name": "exam preparer",
+      "year": "2024",
+      "blurb": "practice problems, stored",
+      "lang": "java",
+      "link": "https://github.com/rzhang57/exam-preparer"
+    },
+    {
+      "name": "ftc robot",
+      "year": "2023",
+      "blurb": "4 years, 2 provincial titles",
+      "lang": "java",
+      "link": "https://ftc-events.firstinspires.org/team/16031"
+    }
+  ],
+  "hobbies": [
+    {
+      "name": "keyboards",
+      "note": "hooked on topre. daily driver is an hhkb professional hybrid type-s; the realforce r3s i picked up in japan was my first. a few cherry builds too, one made of lego."
+    },
+    {
+      "name": "movies",
+      "note": "space movies, mostly. the martian is my favorite. interstellar and project hail mary are close behind."
+    },
+    {
+      "name": "shows",
+      "note": "aot is #1, everything else is unranked: space force, squid game, suits, breaking bad, the office, paradise."
+    },
+    {
+      "name": "games",
+      "note": "less than i used to. recently gifted a 3ds xl — mario kart 7 and pokemon usum right now. still some overwatch and valorant."
+    },
+    {
+      "name": "pokemon",
+      "note": "back into the tcg. got an xy evolutions booster box for my 12th birthday, worth ~3k now. favorite is ditto."
+    },
+    {
+      "name": "cars",
+      "note": "want a clean nb or nc miata. currently in a family-shared 2020 prius prime."
+    },
+    {
+      "name": "sewing",
+      "note": "80-90% of what i wear i've altered myself, because nothing fits right off the rack. my mom's brother cs6000i does the job."
+    },
+    {
+      "name": "pc building",
+      "note": "mini-itx since day one. 5600x and a 3070 in 9 liters."
+    },
+    {
+      "name": "editing",
+      "note": "vegas pro since 2018 — montages, school projects, short-form."
+    },
+    {
+      "name": "violin",
+      "note": "15+ years, 3 of them in vyso. on and off now that school and work take the time."
+    },
+    {
+      "name": "skiing",
+      "note": "grouse every year as a kid. first run back in 2026 after a six year gap. considering a season pass."
+    },
+    {
+      "name": "f1",
+      "note": "engineering, sport, and speed in one place. unfortunately, ferrari."
+    },
+    {
+      "name": "football",
+      "note": "premier league and european football, some mls. liverpool."
+    }
+  ]
+}

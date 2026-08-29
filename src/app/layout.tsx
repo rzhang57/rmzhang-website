@@ -1,52 +1,48 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import CustomCursor from "@/components/CustomCursor";
 import AnimatedBackground from "@/components/AnimatedBackground";
+import Header from "@/components/landing/Header";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
   weight: "100 900",
 });
+
 const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
   weight: "100 900",
 });
 
-const radon = localFont({
-  src: "./fonts/Radon.woff",
-  variable: "--radon"
-});
-
 export const metadata: Metadata = {
-  title: "ryan zhang",
-  description: "developer; cs student at ubc",
+  metadataBase: new URL("https://ryanz.dev"),
+  title: {
+    default: "ryan zhang",
+    template: "%s — ryan zhang",
+  },
+  description: "cs student at ubc. software engineer.",
   openGraph: {
-    images: [
-      {
-        url: "https://ryanz.dev/statics/pfp.png",
-        alt: "pfp",
-      },
-    ],
+    title: "ryan zhang",
+    description: "cs student at ubc. software engineer.",
+    url: "https://ryanz.dev",
+    images: [{ url: "/statics/pfp.png", alt: "ryan zhang" }],
   },
 };
 
 export default function RootLayout({
-                                     children,
-                                   }: Readonly<{
-  children: React.ReactNode;
-}>) {
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-      <html lang="en">
-      <body
-          className={`${geistSans.variable} ${geistMono.variable} ${radon.variable} antialiased`}
-      >
-          <AnimatedBackground />
-          {process.env.NEXT_PUBLIC_CUSTOM_CURSOR === "true" && <CustomCursor />}
-          {children}
+    <html lang="en">
+      <body className={`${geistSans.variable} ${geistMono.variable} font-sans`}>
+        <AnimatedBackground />
+        <div className="mx-auto flex min-h-screen w-full max-w-column flex-col px-6 sm:px-8">
+          <Header />
+          <main className="flex-1 pb-24">{children}</main>
+        </div>
       </body>
-      </html>
+    </html>
   );
 }

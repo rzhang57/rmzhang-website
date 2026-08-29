@@ -1,60 +1,41 @@
+"use client";
+
 import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import { ChevronRight } from "lucide-react";
-import contentData from "@/data/content.json";
+import SectionHeading from "@/components/landing/SectionHeading";
+import content from "@/data/content.v2.json";
 
 export default function HobbiesSection() {
-    const [expanded, setExpanded] = useState<number | null>(null);
+  const [selected, setSelected] = useState<number | null>(null);
 
-    return (
-        <div id="hobbies" className="scroll-mt-24">
-            <h2 className="md:text-2xl sm:text-lg font-bold tracking-tighter mb-6">
-                {contentData.aboutMe.hobbies.title} & interests
-            </h2>
+  return (
+    <div className="rise">
+      <SectionHeading>hobbies</SectionHeading>
 
-            <ul>
-                {contentData.aboutMe.hobbies.items.map((item, index) => {
-                    const isOpen = expanded === index;
-                    return (
-                        <li
-                            key={index}
-                            className="border-t border-b border-gray-300 -mt-px transition-colors hover:bg-gray-500/5"
-                        >
-                            <button
-                                onClick={() => setExpanded(isOpen ? null : index)}
-                                className="w-full flex items-center gap-4 py-4 px-2 text-left"
-                            >
-                                <span className="flex-1 font-semibold text-sm md:text-base">
-                                    {item.category}
-                                </span>
-                                <motion.span
-                                    animate={{ rotate: isOpen ? 90 : 0 }}
-                                    transition={{ duration: 0.2 }}
-                                    className="text-muted-foreground"
-                                >
-                                    <ChevronRight className="w-4 h-4" />
-                                </motion.span>
-                            </button>
-                            <AnimatePresence initial={false}>
-                                {isOpen && (
-                                    <motion.div
-                                        key="content"
-                                        initial={{ height: 0, opacity: 0 }}
-                                        animate={{ height: "auto", opacity: 1 }}
-                                        exit={{ height: 0, opacity: 0 }}
-                                        transition={{ duration: 0.25, ease: "easeOut" }}
-                                        className="overflow-hidden"
-                                    >
-                                        <p className="pl-12 pr-8 pb-5 text-muted-foreground md:text-base sm:text-sm leading-relaxed">
-                                            {item.description}
-                                        </p>
-                                    </motion.div>
-                                )}
-                            </AnimatePresence>
-                        </li>
-                    );
-                })}
-            </ul>
-        </div>
-    );
+      <div className="flex flex-wrap gap-x-1.5 gap-y-2">
+        {content.hobbies.map((hobby, i) => (
+          <button
+            key={hobby.name}
+            onClick={() => setSelected(selected === i ? null : i)}
+            className={`rounded-[4px] px-2 py-1 text-[15px] transition-colors duration-200 ${
+              selected === i
+                ? "bg-ink/[0.06] text-ink"
+                : "text-faint hover:text-ink"
+            }`}
+          >
+            {hobby.name}
+          </button>
+        ))}
+      </div>
+
+      <div className="mt-7 min-h-[5rem] border-t border-rule pt-5">
+        {selected === null ? (
+          <p className="aside">pick one.</p>
+        ) : (
+          <p className="text-[15px] leading-relaxed text-muted">
+            {content.hobbies[selected].note}
+          </p>
+        )}
+      </div>
+    </div>
+  );
 }
