@@ -1,7 +1,10 @@
-import contentData from "@/data/content.json";
+"use client";
+
+import { useContent } from "@/lib/content/provider";
 import ExpandableCard from "@/components/landing/ExpandableCard";
 
 const WorkSection = () => {
+    const contentData = useContent();
     return (
         <div id="work" className="scroll-mt-24">
             <h2 className="md:text-2xl sm:text-lg font-bold tracking-tighter mb-3">

@@ -1,8 +1,11 @@
-import App from "../components/App"
+import App from "../components/App";
+import { ContentProvider } from "@/lib/content/provider";
+import { getContent } from "@/lib/content/store";
 
-export default function Home() {
-
+export default async function Home() {
   return (
-      <App/>
+    <ContentProvider content={await getContent()}>
+      <App />
+    </ContentProvider>
   );
 }

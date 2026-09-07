@@ -1,6 +1,9 @@
-import contentData from "@/data/content.json";
+"use client";
+
+import { useContent } from "@/lib/content/provider";
 
 const OverviewSection = () => {
+    const contentData = useContent();
     return (
         <div className="h-full flex flex-col justify-center">
             <p className="text-muted-foreground md:text-xl sm:text-sm tracking-tighter leading-relaxed">

@@ -1,9 +1,12 @@
+"use client";
+
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
-import contentData from "@/data/content.json";
+import { useContent } from "@/lib/content/provider";
 
 export default function HobbiesSection() {
+    const contentData = useContent();
     const [expanded, setExpanded] = useState<number | null>(null);
 
     return (
