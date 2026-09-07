@@ -46,3 +46,33 @@ Requires `.env.local` with:
 
 ### Special instructions
 - Do NOT put any unnecessary comments in code.
+
+### Content pipeline
+
+`src/data/content.json` is the seed and permanent fallback. `getContent()` in
+`src/lib/content/store.ts` reads a Vercel Blob override first and falls back to
+the committed json, so local dev and builds work with no store configured.
+`ContentProvider` in `src/lib/content/provider.tsx` hands it to the client
+sections, which read it with `useContent()`.
+
+- `/admin` - visual editor, guarded by `src/proxy.ts`
+- `/api/content` - public read; `/api/admin/content` - authenticated write
+
+The editor has no hardcoded field list. `src/lib/content/shape.ts` derives the
+structure from the committed json, so the same admin works against any shape and
+a save is rejected if it would drop a key the pages read. Publishing calls
+`revalidateTag`, so pages stay statically prerendered and update in seconds
+without a redeploy.
+
+### Admin auth
+
+Password gate, no database and no third party. `ADMIN_PASSWORD_HASH` holds an
+scrypt hash; `ADMIN_SECRET` signs the session cookie. Generate both with
+`npm run admin:password` (`--env` writes them locally, `--vercel` also pushes).
+
+- `src/lib/admin/password.ts` - scrypt hash and constant-time verify, node only
+- `src/lib/admin/auth.ts` - session jwt, no node builtins so the proxy can run
+  it on the edge
+- `src/lib/admin/throttle.ts` - 8 failed attempts per 15 minutes per ip
+
+The write route also rejects requests whose `Origin` is not this site.
