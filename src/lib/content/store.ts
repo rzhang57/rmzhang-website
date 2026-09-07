@@ -4,7 +4,21 @@ import seed from "@/data/content.json";
 import { checkShape, shapeOf, type Shape } from "./shape";
 
 export const CONTENT_TAG = "site-content";
-const BLOB_PATH = "content/site.json";
+
+// the stored override is keyed by the shape it was written against. a branch
+// that changes content.json reads its own key instead of silently falling back
+// to the seed because someone else's shape is sitting there.
+function fingerprint(shape: Shape) {
+  const text = JSON.stringify(shape);
+  let hash = 0x811c9dc5;
+  for (let i = 0; i < text.length; i += 1) {
+    hash ^= text.charCodeAt(i);
+    hash = Math.imul(hash, 0x01000193) >>> 0;
+  }
+  return hash.toString(36);
+}
+
+const BLOB_PATH = `content/site-${fingerprint(shapeOf(seed))}.json`;
 
 // the shape of whatever this branch ships, so pages keep full type inference
 // without the admin knowing anything about the field names.
